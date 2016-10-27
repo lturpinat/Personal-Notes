@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-10-28 ven. 01:42 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notes Linux</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="lturpinat" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Notes Linux</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline15">1. Gentoo</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Le clavier</a></li>
+<li><a href="#orgheadline2">1.2. Outils vfat (FAT32)</a></li>
+<li><a href="#orgheadline5">1.3. NTFS support</a>
+<ul>
+<li><a href="#orgheadline3">1.3.1. Kernel</a></li>
+<li><a href="#orgheadline4">1.3.2. Outil</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline6">1.4. Emacs et polices de caractères</a></li>
+<li><a href="#orgheadline11">1.5. Support du NFS</a>
+<ul>
+<li><a href="#orgheadline7">1.5.1. Kernel</a></li>
+<li><a href="#orgheadline8">1.5.2. Outil</a></li>
+<li><a href="#orgheadline9">1.5.3. OpenRC</a></li>
+<li><a href="#orgheadline10">1.5.4. Exemple de montage</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline14">1.6. cmus-notify</a>
+<ul>
+<li><a href="#orgheadline12">1.6.1. Script</a></li>
+<li><a href="#orgheadline13">1.6.2. Fonctionnement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline21">2. Général</a>
+<ul>
+<li><a href="#orgheadline16">2.1. Compatibilité R.A.T.3</a></li>
+<li><a href="#orgheadline17">2.2. Réactiver le son après une sortie de veille</a></li>
+<li><a href="#orgheadline19">2.3. KDE</a>
+<ul>
+<li><a href="#orgheadline18">2.3.1. Activer la touche Windows pour afficher le launcher</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline20">2.4. Transformer un .deb en .rpm</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline26">3. Technique</a>
+<ul>
+<li><a href="#orgheadline25">3.1. Bash</a>
+<ul>
+<li><a href="#orgheadline22">3.1.1. Liens utiles</a></li>
+<li><a href="#orgheadline23">3.1.2. Commandes utiles</a></li>
+<li><a href="#orgheadline24">3.1.3. Convertir une variable en base X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline33">4. Applications</a>
+<ul>
+<li><a href="#orgheadline27">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#orgheadline29">4.2. IntelliJ IDEA</a>
+<ul>
+<li><a href="#orgheadline28">4.2.1. Régler le problème de la police pas "smooth"</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline30">4.3. Tmux</a></li>
+<li><a href="#orgheadline32">4.4. Terminal</a>
+<ul>
+<li><a href="#orgheadline31">4.4.1. Changer la police de caractère du terminal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<hr  />
+
+
+<div class="figure">
+<p><img src="./linux.png" alt="linux.png" align="center" />
+</p>
+</div>
+
+<div class="warning">
+<p>
+Ces notes sont avant tout personnelles, en ce sens elles répondent à des besoins principalement personnels.
+La machine utilisée est un <code>Asus G75VX</code>.
+</p>
+
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">1</span> Gentoo</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Le clavier</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Permettre au système de gérer la bonne disposition du clavier
+</p>
+<ul class="org-ul">
+<li><p>
+Récupérer les informations sur le clavier :
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">setxkbmap -print -verbose <span style="color: #a45bad;">10</span>
+</pre>
+</div></li>
+
+<li><p>
+Créer un fichier de configuration en conséquence :
+<code>/etc/X11/xorg.conf.d/00-keyboard.conf</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">Section <span style="color: #2d9574;">"InputClass"</span>
+     Identifier <span style="color: #2d9574;">"system-keyboard"</span>
+     MatchIsKeyboard <span style="color: #2d9574;">"on"</span>
+     Option <span style="color: #2d9574;">"XkbLayout"</span> <span style="color: #2d9574;">"fr"</span>
+     Option <span style="color: #2d9574;">"XkbModel"</span> <span style="color: #2d9574;">"pc105"</span>
+     Option <span style="color: #2d9574;">"XkbVariant"</span> <span style="color: #2d9574;">"azerty"</span>
+     Option <span style="color: #2d9574;">"XkbOptions"</span> <span style="color: #2d9574;">"grp:alt_shift_toggle"</span>
+EndSection
+</pre>
+</div></li>
+
+<li><a href="https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg">Plus d'infos</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Outils vfat (FAT32)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat")
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">emerge -av sys-fs/dosfstools
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.3</span> NTFS support</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> Kernel</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Modifications à effectuer dans le Kernel :
+</p>
+<ul class="org-ul">
+<li><p>
+Enabling NTFS using sys-fs/ntfs3g (preferred)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">File systems  ---&gt; 
+   &lt;*&gt; FUSE (Filesystem in Userspace) support
+</pre>
+</div></li>
+
+<li><p>
+Enabling NTFS with limited write support
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">File systems  ---&gt;
+  DOS/FAT/NT Filesystems  ---&gt;
+     &lt;*&gt; NTFS file system support
+     &lt;*&gt;   NTFS write support
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.3.2</span> Outil</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">emerge -av sys-fs/ntfs3g</span>
+</pre>
+</div>
+<p>
+<a href="https://wiki.gentoo.org/wiki/NTFS">Plus d'infos</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.4</span> Emacs et polices de caractères</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Il faut activer le USE flag "xft" et compiler Emacs avec.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #7590db;">USE</span>=<span style="color: #2d9574;">"xft"</span>
+</pre>
+</div>
+<p>
+Explications : "you must link it with the Freetype and Fontconfig libraries." 
+cjm, unix.stackexchange
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.5</span> Support du NFS</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">1.5.1</span> Kernel</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+Modificiations à effectuer dans le Kernel :
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">File systems ---&gt;
+  [*] Dnotify support
+  [*] Network File Systems ---&gt;
+        &lt;*&gt;   NFS client support
+        &lt;*&gt;     NFS client support for NFS version 3
+        &lt;*&gt;     NFS client support for NFS version 4
+        [*]   NFS client support for NFSv4.1
+        &lt;*&gt;   NFS server support
+        [*]     NFS server support for NFS version 3
+        [*]     NFS server support for NFS version 4
+        [*]       NFSv4.1 server support for Parallel NFS (pNFS)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.5.2</span> Outil</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">emerge --ask net-fs/nfs-utils</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.5.3</span> OpenRC</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">rc-update add nfsclient default</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.5.4</span> Exemple de montage</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<pre class="example">
+# mount 192.168.0.1:/volume1/home /home
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">1.6</span> cmus-notify</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Permet de gérer le client cmus
+</p>
+</div>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.6.1</span> Script</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/bin/</span><span style="color: #4f97d7; font-weight: bold;">sh</span>
+<span style="color: #7590db;">Cmus_remote</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q<span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">Instance</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> -e <span style="color: #2d9574;">"$Cmus_remote"</span> | wc -l<span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle On"</span>
+<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #7590db;">Instance</span> = <span style="color: #a45bad;">1</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
+    terminal -e cmus &amp;&amp;
+    sleep <span style="color: #a45bad;">2</span>
+    cmus-remote -p
+<span style="color: #4f97d7; font-weight: bold;">else</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-S"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
+        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
+            <span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle Off"</span>
+        <span style="color: #4f97d7; font-weight: bold;">fi</span>
+        cmus-remote $<span style="color: #a45bad;">1</span>
+        notify-send -t <span style="color: #a45bad;">800</span> $<span style="color: #7590db;">Shuffle</span>
+    <span style="color: #4f97d7; font-weight: bold;">elif</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-Q"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
+        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
+        notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
+<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
+<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
+<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">cmus-updatepidgin artist "$artist" title "$title"</span>
+    <span style="color: #4f97d7; font-weight: bold;">else</span>
+        cmus-remote $<span style="color: #a45bad;">1</span>
+        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
+        notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
+    <span style="color: #4f97d7; font-weight: bold;">fi</span>
+<span style="color: #4f97d7; font-weight: bold;">fi</span>
+</pre>
+</div>
+<p>
+<a href="https://colorathis.wordpress.com/2013/06/25/cmus-notify/">Crédits</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.6.2</span> Fonctionnement</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
+</p>
+
+<p>
+Infos sur les arguments :
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">man cmus-remote
+</pre>
+</div>
+<p>
+Exemple :
+</p>
+<pre class="example">
+cmus-notify.sh -p #Permet de jouer le morceau sélectionné
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">2</span> Général</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Editer "/etc/X11/xorg.conf"
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">Section <span style="color: #2d9574;">"InputClass"</span>
+Identifier <span style="color: #2d9574;">"Mouse Remap"</span>
+MatchProduct <span style="color: #2d9574;">"Saitek Cyborg R.A.T.3 Mouse"</span>
+MatchDevicePath <span style="color: #2d9574;">"/dev/input/event*"</span>
+Option <span style="color: #2d9574;">"ButtonMapping"</span> <span style="color: #2d9574;">"1 2 3 4 5 0 0 8 9 0 0 0 13 14"</span>
+EndSection
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">2.2</span> Réactiver le son après une sortie de veille</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Editer "/etc/default/acpi-support"</li>
+
+<li>Remplacer :</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #7590db;">HIBERNATE_MODE</span>=shutdown
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Par :</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #7590db;">HIBERNATE_MODE</span>=platform
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">2.3</span> KDE</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">2.3.1</span> Activer la touche Windows pour afficher le launcher</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+Installer "KSuperkey"
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">dnf copr enable vanoudt/KSuperkey 
+dnf install ksuperkey
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">2.4</span> Transformer un .deb en .rpm</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Télécharger alien</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">dnf install alien
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Transformer le <i>.deb</i> en <i>.rpm</i></li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">alien -r fichier.deb
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">3</span> Technique</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">3.1</span> Bash</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Liens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><a href="http://mywiki.wooledge.org/BashFAQ">FAQ Bash</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://mywiki.wooledge.org/BashGuide">Guide Bash</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://www.gnu.org/software/bash/manual/">Manuel GNU Bash</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://wiki.bash-hackers.org/">bash-hackers wiki</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://git.savannah.gnu.org/cgit/bash.git/log/?h=devel">Forge git bash</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://lists.gnu.org/mailman/listinfo/help-bash">GNU bash help</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://github.com/koalaman/shellcheck">ShellCheck (cf. flycheck sur Emacs)</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Commande</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><a href="http://wiki.bash-hackers.org/howto/getopts_tutorial">getopts (gestion arguments)</a></td>
+<td class="org-left">Gestion intelligente d'arguments dans une commande</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+Exemple avec une conversion en base 10
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #7590db;">newvar</span>=$<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">10#</span>$<span style="color: #7590db;">var</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">4</span> Applications</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+
+<pre class="src src-shell">rm -f /etc/prelink.conf.d/skype.conf
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">4.2</span> IntelliJ IDEA</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">4.2.1</span> Régler le problème de la police pas "smooth"</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li>Taper :</li>
+</ul>
+<pre class="example">
+wget http://urshulyak.com:8001/index.php/s/P4afbWaX3mvyjP7/download &amp;&amp;
+mv download jdk-8u5-tuxjdk-b08.tar.gz &amp;&amp;
+tar -zxvf jdk-8u5-tuxjdk-b08.tar.gz &amp;&amp;
+sudo mv jdk-8u5-tuxjdk-b08 /usr/lib/jvm &amp;&amp;
+rm jdk-8u5-tuxjdk-b08.tar.gz
+</pre>
+
+<ul class="org-ul">
+<li>Créer un script :</li>
+</ul>
+<p>
+(penser à modifier IDEA_ HOME)
+</p>
+<pre class="example">
+#!/bin/sh
+IDEA_HOME=/opt/idea
+# for old idea JAVA_HOME, for new 2016+ will be IDEA_JDK
+#export JAVA_HOME=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
+
+export IDEA_JDK=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
+export GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+exec $IDEA_HOME/bin/idea.sh "$@"
+</pre>
+
+<ul class="org-ul">
+<li>Exécuter le script à la place de l'officiel</li>
+</ul>
+<pre class="example">
+"/path/to/script/studio.sh" %f
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">4.3</span> Tmux</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Rejoint la session "home" ou la créé si elle n'existe pas
+</p>
+<pre class="example">
+tmux new -A -s home
+</pre>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">4.4</span> Terminal</h3>
+<div class="outline-text-3" id="text-4-4">
+</div><div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31"><span class="section-number-4">4.4.1</span> Changer la police de caractère du terminal</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<p>
+Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: lturpinat</p>
+<p class="date">Created: 2016-10-28 ven. 01:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

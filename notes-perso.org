@@ -1,0 +1,251 @@
+#+TITLE: Notes Linux
+#+AUTHOR: lturpinat
+#+SETUPFILE: setup/theme-readtheorg-local.setup
+
+-----
+
+#+attr_html: :align center
+[[./linux.png]]
+
+#+begin_warning 
+Ces notes sont avant tout personnelles, en ce sens elles répondent à des besoins principalement personnels.
+La machine utilisée est un =Asus G75VX=.
+#+end_warning
+
+* Gentoo
+** Le clavier
+   Permettre au système de gérer la bonne disposition du clavier
+ + Récupérer les informations sur le clavier :
+   #+BEGIN_SRC bash
+   setxkbmap -print -verbose 10
+   #+END_SRC
+
+ + Créer un fichier de configuration en conséquence :
+   =/etc/X11/xorg.conf.d/00-keyboard.conf=
+   #+BEGIN_SRC bash
+   Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "fr"
+        Option "XkbModel" "pc105"
+        Option "XkbVariant" "azerty"
+        Option "XkbOptions" "grp:alt_shift_toggle"
+   EndSection
+   #+END_SRC
+
+ + [[https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg][Plus d'infos]]
+   
+** Outils vfat (FAT32)
+   Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat")
+   #+BEGIN_SRC bash
+   emerge -av sys-fs/dosfstools 
+   #+END_SRC
+** NTFS support
+*** Kernel
+    Modifications à effectuer dans le Kernel :
+   + Enabling NTFS using sys-fs/ntfs3g (preferred)
+     #+BEGIN_SRC text
+     File systems  ---> 
+        <*> FUSE (Filesystem in Userspace) support
+     #+END_SRC
+
+   + Enabling NTFS with limited write support
+      #+BEGIN_SRC text
+      File systems  --->
+        DOS/FAT/NT Filesystems  --->
+           <*> NTFS file system support
+           <*>   NTFS write support
+      #+END_SRC
+*** Outil
+     #+BEGIN_SRC bash
+     # emerge -av sys-fs/ntfs3g
+     #+END_SRC     
+     [[https://wiki.gentoo.org/wiki/NTFS][Plus d'infos]]
+** Emacs et polices de caractères
+   Il faut activer le USE flag "xft" et compiler Emacs avec.
+   #+BEGIN_SRC bash
+   USE="xft"
+   #+END_SRC
+   Explications : "you must link it with the Freetype and Fontconfig libraries." 
+   cjm, unix.stackexchange
+** Support du NFS
+*** Kernel
+    Modificiations à effectuer dans le Kernel :
+    #+BEGIN_SRC text
+   File systems --->
+     [*] Dnotify support
+     [*] Network File Systems --->
+           <*>   NFS client support
+           <*>     NFS client support for NFS version 3
+           <*>     NFS client support for NFS version 4
+           [*]   NFS client support for NFSv4.1
+           <*>   NFS server support
+           [*]     NFS server support for NFS version 3
+           [*]     NFS server support for NFS version 4
+           [*]       NFSv4.1 server support for Parallel NFS (pNFS)
+   #+END_SRC
+*** Outil
+   #+BEGIN_SRC bash
+   # emerge --ask net-fs/nfs-utils
+   #+END_SRC
+*** OpenRC
+   #+BEGIN_SRC bash
+   # rc-update add nfsclient default
+   #+END_SRC
+*** Exemple de montage
+   #+BEGIN_EXAMPLE
+   # mount 192.168.0.1:/volume1/home /home 
+   #+END_EXAMPLE
+
+** cmus-notify
+  Permet de gérer le client cmus
+*** Script
+   #+BEGIN_SRC sh
+#!/bin/sh
+Cmus_remote=$(cmus-remote -Q)
+Instance=$(echo -e "$Cmus_remote" | wc -l)
+Shuffle="Shuffle On"
+if [ $Instance = 1 ]; then
+    terminal -e cmus &&
+    sleep 2
+    cmus-remote -p
+else
+    if [ $1 == "-S" ]; then
+        if [ `echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3` == true ]; then
+            Shuffle="Shuffle Off"
+        fi
+        cmus-remote $1
+        notify-send -t 800 $Shuffle
+    elif [ $1 == "-Q" ]; then
+        Cur_song=$(echo "$Cmus_remote" | grep tag | head -n 3 | sort -r | cut -d ' ' -f 3- )
+        notify-send -i multimedia-volume-control -t 1800 "$Cur_song"
+#        artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)
+#        title=$(echo -e "$Cur_song" | head -n 1 )
+#        cmus-updatepidgin artist "$artist" title "$title"
+    else
+        cmus-remote $1
+        Cur_song=$(cmus-remote -Q | grep tag | head -n 3 | sort -r | cut -d ' ' -f 3- )
+        notify-send -i multimedia-volume-control -t 1800 "$Cur_song"
+    fi
+fi
+   #+END_SRC
+   [[https://colorathis.wordpress.com/2013/06/25/cmus-notify/][Crédits]]
+*** Fonctionnement
+   Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
+
+   Infos sur les arguments :
+   #+BEGIN_SRC bash
+   man cmus-remote
+   #+END_SRC
+   Exemple :
+   #+BEGIN_EXAMPLE
+   cmus-notify.sh -p #Permet de jouer le morceau sélectionné
+   #+END_EXAMPLE
+   
+* Général
+** Compatibilité R.A.T.3
+   Editer "/etc/X11/xorg.conf"
+   #+BEGIN_SRC shell
+   Section "InputClass"
+   Identifier "Mouse Remap"
+   MatchProduct "Saitek Cyborg R.A.T.3 Mouse"
+   MatchDevicePath "/dev/input/event*"
+   Option "ButtonMapping" "1 2 3 4 5 0 0 8 9 0 0 0 13 14"
+   EndSection
+   #+END_SRC
+** Réactiver le son après une sortie de veille 
+   + Editer "/etc/default/acpi-support"
+
+   - Remplacer : 
+   #+BEGIN_SRC shell
+   HIBERNATE_MODE=shutdown
+   #+END_SRC
+
+   - Par : 
+   #+BEGIN_SRC shell
+   HIBERNATE_MODE=platform
+#+END_SRC
+** KDE
+*** Activer la touche Windows pour afficher le launcher
+Installer "KSuperkey"
+#+BEGIN_SRC bash
+dnf copr enable vanoudt/KSuperkey 
+dnf install ksuperkey
+#+END_SRC
+** Transformer un .deb en .rpm
++ Télécharger alien
+#+BEGIN_SRC bash
+dnf install alien
+#+END_SRC
+
++ Transformer le /.deb/ en /.rpm/
+#+BEGIN_SRC bash
+alien -r fichier.deb
+#+END_SRC
+
+* Technique 
+** Bash
+*** Liens utiles
+| Liens                               |
+|-------------------------------------|
+| [[http://mywiki.wooledge.org/BashFAQ][FAQ Bash]]                            |
+| [[http://mywiki.wooledge.org/BashGuide][Guide Bash]]                          |
+| [[https://www.gnu.org/software/bash/manual/][Manuel GNU Bash]]                     |
+| [[http://wiki.bash-hackers.org/][bash-hackers wiki]]                   |
+| [[http://git.savannah.gnu.org/cgit/bash.git/log/?h=devel][Forge git bash]]                      |
+| [[https://lists.gnu.org/mailman/listinfo/help-bash][GNU bash help]]                       |
+| [[https://github.com/koalaman/shellcheck][ShellCheck (cf. flycheck sur Emacs)]] |
+
+*** Commandes utiles
+| Commande                    | Description                                        |
+|-----------------------------+----------------------------------------------------|
+| [[http://wiki.bash-hackers.org/howto/getopts_tutorial][getopts (gestion arguments)]] | Gestion intelligente d'arguments dans une commande |
+
+*** Convertir une variable en base X
+Exemple avec une conversion en base 10
+#+BEGIN_SRC sh
+newvar=$((10#$var));
+#+END_SRC
+* Applications
+** Skype - désactiver le lancement au démarrage
+#+BEGIN_SRC shell
+rm -f /etc/prelink.conf.d/skype.conf
+#+END_SRC
+
+** IntelliJ IDEA
+*** Régler le problème de la police pas "smooth"
++ Taper : 
+#+BEGIN_EXAMPLE
+wget http://urshulyak.com:8001/index.php/s/P4afbWaX3mvyjP7/download &&
+mv download jdk-8u5-tuxjdk-b08.tar.gz &&
+tar -zxvf jdk-8u5-tuxjdk-b08.tar.gz &&
+sudo mv jdk-8u5-tuxjdk-b08 /usr/lib/jvm &&
+rm jdk-8u5-tuxjdk-b08.tar.gz
+#+END_EXAMPLE
+
++ Créer un script : 
+(penser à modifier IDEA_ HOME)
+#+BEGIN_EXAMPLE
+#!/bin/sh
+IDEA_HOME=/opt/idea
+# for old idea JAVA_HOME, for new 2016+ will be IDEA_JDK
+#export JAVA_HOME=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
+
+export IDEA_JDK=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
+export GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+exec $IDEA_HOME/bin/idea.sh "$@"
+#+END_EXAMPLE
+
++ Exécuter le script à la place de l'officiel
+#+BEGIN_EXAMPLE
+"/path/to/script/studio.sh" %f
+#+END_EXAMPLE
+** Tmux
+Rejoint la session "home" ou la créé si elle n'existe pas
+#+BEGIN_EXAMPLE bash
+tmux new -A -s home
+#+END_EXAMPLE
+** Terminal
+*** Changer la police de caractère du terminal
+Utiliser =Meslo LG M DZ for Powerline= taille =9.0=
