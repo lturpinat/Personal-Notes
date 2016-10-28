@@ -1,7 +1,7 @@
 * Notes personnelles sur Linux
 
 #+BEGIN_QUOTE
-Ces notes sont avant tout personnelles, en ce sens elles répondent à des besoins principalement personnels. La machine utilisée est un Asus G75VX. 
+La machine utilisée est un Asus G75VX. 
 #+END_QUOTE
 
 *[[https://lturpinat.github.io/index.html][Version html du .org]]*
