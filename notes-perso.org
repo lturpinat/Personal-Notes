@@ -7,10 +7,9 @@
 #+attr_html: :align center
 [[./linux.png]]
 
-#+begin_warning 
-Ces notes sont avant tout personnelles, en ce sens elles répondent à des besoins principalement personnels.
+#+begin_hint 
 La machine utilisée est un =Asus G75VX=.
-#+end_warning
+#+end_hint
 
 * Gentoo
 ** Le clavier
