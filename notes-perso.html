@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-28 ven. 23:51 -->
+<!-- 2016-10-29 Sat 11:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -181,7 +181,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline21">2. Général</a>
+<li><a href="#orgheadline22">2. Général</a>
 <ul>
 <li><a href="#orgheadline16">2.1. Compatibilité R.A.T.3</a></li>
 <li><a href="#orgheadline17">2.2. Réactiver le son après une sortie de veille</a></li>
@@ -191,31 +191,32 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline20">2.4. Transformer un .deb en .rpm</a></li>
+<li><a href="#orgheadline21">2.5. Mettre flash-player sur Firefox</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">3. Technique</a>
+<li><a href="#orgheadline27">3. Technique</a>
 <ul>
-<li><a href="#orgheadline25">3.1. Bash</a>
+<li><a href="#orgheadline26">3.1. Bash</a>
 <ul>
-<li><a href="#orgheadline22">3.1.1. Liens utiles</a></li>
-<li><a href="#orgheadline23">3.1.2. Commandes utiles</a></li>
-<li><a href="#orgheadline24">3.1.3. Convertir une variable en base X</a></li>
+<li><a href="#orgheadline23">3.1.1. Liens utiles</a></li>
+<li><a href="#orgheadline24">3.1.2. Commandes utiles</a></li>
+<li><a href="#orgheadline25">3.1.3. Convertir une variable en base X</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline33">4. Applications</a>
+<li><a href="#orgheadline34">4. Applications</a>
 <ul>
-<li><a href="#orgheadline27">4.1. Skype - désactiver le lancement au démarrage</a></li>
-<li><a href="#orgheadline29">4.2. IntelliJ IDEA</a>
+<li><a href="#orgheadline28">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#orgheadline30">4.2. IntelliJ IDEA</a>
 <ul>
-<li><a href="#orgheadline28">4.2.1. Régler le problème de la police pas "smooth"</a></li>
+<li><a href="#orgheadline29">4.2.1. Régler le problème de la police pas "smooth"</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline30">4.3. Tmux</a></li>
-<li><a href="#orgheadline32">4.4. Terminal</a>
+<li><a href="#orgheadline31">4.3. Tmux</a></li>
+<li><a href="#orgheadline33">4.4. Terminal</a>
 <ul>
-<li><a href="#orgheadline31">4.4.1. Changer la police de caractère du terminal</a></li>
+<li><a href="#orgheadline32">4.4.1. Changer la police de caractère du terminal</a></li>
 </ul>
 </li>
 </ul>
@@ -426,8 +427,8 @@ Permet de gérer le client cmus
 <div class="org-src-container">
 
 <pre class="src src-sh"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/bin/</span><span style="color: #4f97d7; font-weight: bold;">sh</span>
-<span style="color: #7590db;">Cmus_remote</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q<span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">Instance</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> -e <span style="color: #2d9574;">"$Cmus_remote"</span> | wc -l<span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">Cmus_remote</span>=$<span style="color: #4f97d7;">(</span><span style="color: #fa8072;">cmus-remote</span> -Q<span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">Instance</span>=$<span style="color: #4f97d7;">(</span><span style="color: #fa8072;">echo</span> -e <span style="color: #2d9574;">"$Cmus_remote"</span> | wc -l<span style="color: #4f97d7;">)</span>
 <span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle On"</span>
 <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #7590db;">Instance</span> = <span style="color: #a45bad;">1</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
     terminal -e cmus &amp;&amp;
@@ -441,14 +442,14 @@ Permet de gérer le client cmus
         cmus-remote $<span style="color: #a45bad;">1</span>
         notify-send -t <span style="color: #a45bad;">800</span> $<span style="color: #7590db;">Shuffle</span>
     <span style="color: #4f97d7; font-weight: bold;">elif</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-Q"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
+        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span><span style="color: #fa8072;">echo</span> <span style="color: #2d9574;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
         notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
+<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">artist=$(</span><span style="color: #fa8072;">echo</span><span style="color: #2aa1ae; background-color: #292e34;"> -e "$Cur_song" | head -n 2 | tail -n 1)</span>
+<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">title=$(</span><span style="color: #fa8072;">echo</span><span style="color: #2aa1ae; background-color: #292e34;"> -e "$Cur_song" | head -n 1 )</span>
 <span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">cmus-updatepidgin artist "$artist" title "$title"</span>
     <span style="color: #4f97d7; font-weight: bold;">else</span>
         cmus-remote $<span style="color: #a45bad;">1</span>
-        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
+        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span><span style="color: #fa8072;">cmus-remote</span> -Q | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
         notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
     <span style="color: #4f97d7; font-weight: bold;">fi</span>
 <span style="color: #4f97d7; font-weight: bold;">fi</span>
@@ -485,8 +486,8 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">2</span> Général</h2>
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22"><span class="section-number-2">2</span> Général</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline16" class="outline-3">
 <h3 id="orgheadline16"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
@@ -570,16 +571,26 @@ dnf install ksuperkey
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline26" class="outline-2">
-<h2 id="orgheadline26"><span class="section-number-2">3</span> Technique</h2>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">2.5</span> Mettre flash-player sur Firefox</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Télécharger le tarball de flash-player sur le site officiel d'Adobe</li>
+<li>Place le fichier <i>libflashplayer.so</i> dans ~/.mozilla/plugins/</li>
+<li>Redémarrer le navigateur</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-2">
+<h2 id="orgheadline27"><span class="section-number-2">3</span> Technique</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">3.1</span> Bash</h3>
+</div><div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">3.1</span> Bash</h3>
 <div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
+</div><div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -625,8 +636,8 @@ dnf install ksuperkey
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -652,8 +663,8 @@ dnf install ksuperkey
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
+<div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 Exemple avec une conversion en base 10
@@ -667,11 +678,11 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline33" class="outline-2">
-<h2 id="orgheadline33"><span class="section-number-2">4</span> Applications</h2>
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+</div><div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
@@ -681,11 +692,11 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">4.2</span> IntelliJ IDEA</h3>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">4.2</span> IntelliJ IDEA</h3>
 <div class="outline-text-3" id="text-4-2">
-</div><div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28"><span class="section-number-4">4.2.1</span> Régler le problème de la police pas "smooth"</h4>
+</div><div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">4.2.1</span> Régler le problème de la police pas "smooth"</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>Taper :</li>
@@ -725,8 +736,8 @@ exec $IDEA_HOME/bin/idea.sh "$@"
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">4.3</span> Tmux</h3>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">4.3</span> Tmux</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Rejoint la session "home" ou la créé si elle n'existe pas
@@ -736,11 +747,11 @@ tmux new -A -s home
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">4.4</span> Terminal</h3>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">4.4</span> Terminal</h3>
 <div class="outline-text-3" id="text-4-4">
-</div><div id="outline-container-orgheadline31" class="outline-4">
-<h4 id="orgheadline31"><span class="section-number-4">4.4.1</span> Changer la police de caractère du terminal</h4>
+</div><div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32"><span class="section-number-4">4.4.1</span> Changer la police de caractère du terminal</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
@@ -752,7 +763,7 @@ Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-10-28 ven. 23:51</p>
+<p class="date">Created: 2016-10-29 Sat 11:30</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

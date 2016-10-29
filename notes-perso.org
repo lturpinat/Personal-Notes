@@ -182,6 +182,10 @@ dnf install alien
 alien -r fichier.deb
 #+END_SRC
 
+** Mettre flash-player sur Firefox
++ Télécharger le tarball de flash-player sur le site officiel d'Adobe
++ Place le fichier /libflashplayer.so/ dans ~/.mozilla/plugins/
++ Redémarrer le navigateur
 * Technique 
 ** Bash
 *** Liens utiles
