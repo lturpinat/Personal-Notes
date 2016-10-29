@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-29 Sat 11:30 -->
+<!-- 2016-10-29 Sat 11:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -194,29 +194,39 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline21">2.5. Mettre flash-player sur Firefox</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline27">3. Technique</a>
+<li><a href="#orgheadline28">3. Technique</a>
 <ul>
-<li><a href="#orgheadline26">3.1. Bash</a>
+<li><a href="#orgheadline27">3.1. Bash</a>
 <ul>
 <li><a href="#orgheadline23">3.1.1. Liens utiles</a></li>
 <li><a href="#orgheadline24">3.1.2. Commandes utiles</a></li>
 <li><a href="#orgheadline25">3.1.3. Convertir une variable en base X</a></li>
+<li><a href="#orgheadline26">3.1.4. Correction intelligent de script</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline34">4. Applications</a>
+<li><a href="#orgheadline42">4. Applications</a>
 <ul>
-<li><a href="#orgheadline28">4.1. Skype - désactiver le lancement au démarrage</a></li>
-<li><a href="#orgheadline30">4.2. IntelliJ IDEA</a>
+<li><a href="#orgheadline29">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#orgheadline31">4.2. IntelliJ IDEA</a>
 <ul>
-<li><a href="#orgheadline29">4.2.1. Régler le problème de la police pas "smooth"</a></li>
+<li><a href="#orgheadline30">4.2.1. Régler le problème de la police pas "smooth"</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline31">4.3. Tmux</a></li>
-<li><a href="#orgheadline33">4.4. Terminal</a>
+<li><a href="#orgheadline32">4.3. Tmux</a></li>
+<li><a href="#orgheadline34">4.4. Terminal</a>
 <ul>
-<li><a href="#orgheadline32">4.4.1. Changer la police de caractère du terminal</a></li>
+<li><a href="#orgheadline33">4.4.1. Changer la police de caractère du terminal</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline41">4.5. Emacs</a>
+<ul>
+<li><a href="#orgheadline35">4.5.1. Problème de police avec Emacs</a></li>
+<li><a href="#orgheadline36">4.5.2. Avoir la météo</a></li>
+<li><a href="#orgheadline37">4.5.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
+<li><a href="#orgheadline39">4.5.4. org-mode</a></li>
+<li><a href="#orgheadline40">4.5.5. Correction automatique scripts shell avec ShellCheck</a></li>
 </ul>
 </li>
 </ul>
@@ -583,11 +593,11 @@ dnf install ksuperkey
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-2">
-<h2 id="orgheadline27"><span class="section-number-2">3</span> Technique</h2>
+<div id="outline-container-orgheadline28" class="outline-2">
+<h2 id="orgheadline28"><span class="section-number-2">3</span> Technique</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">3.1</span> Bash</h3>
+</div><div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">3.1</span> Bash</h3>
 <div class="outline-text-3" id="text-3-1">
 </div><div id="outline-container-orgheadline23" class="outline-4">
 <h4 id="orgheadline23"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
@@ -676,13 +686,28 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">3.1.4</span> Correction intelligent de script</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<ul class="org-ul">
+<li>Installer <a href="https://github.com/koalaman/shellcheck">ShellCheck</a></li>
+<li>Passer le script en argument pour en avoir l'analyse :</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">shellcheck monscript
+</pre>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34"><span class="section-number-2">4</span> Applications</h2>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+</div><div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
@@ -692,11 +717,11 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">4.2</span> IntelliJ IDEA</h3>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">4.2</span> IntelliJ IDEA</h3>
 <div class="outline-text-3" id="text-4-2">
-</div><div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29"><span class="section-number-4">4.2.1</span> Régler le problème de la police pas "smooth"</h4>
+</div><div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">4.2.1</span> Régler le problème de la police pas "smooth"</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>Taper :</li>
@@ -736,8 +761,8 @@ exec $IDEA_HOME/bin/idea.sh "$@"
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">4.3</span> Tmux</h3>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">4.3</span> Tmux</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Rejoint la session "home" ou la créé si elle n'existe pas
@@ -747,14 +772,59 @@ tmux new -A -s home
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">4.4</span> Terminal</h3>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">4.4</span> Terminal</h3>
 <div class="outline-text-3" id="text-4-4">
-</div><div id="outline-container-orgheadline32" class="outline-4">
-<h4 id="orgheadline32"><span class="section-number-4">4.4.1</span> Changer la police de caractère du terminal</h4>
+</div><div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33"><span class="section-number-4">4.4.1</span> Changer la police de caractère du terminal</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">4.5</span> Emacs</h3>
+<div class="outline-text-3" id="text-4-5">
+</div><div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">4.5.1</span> Problème de police avec Emacs</h4>
+<div class="outline-text-4" id="text-4-5-1">
+<p>
+cf. Gentoo/Emacs et polices de caractères
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">4.5.2</span> Avoir la météo</h4>
+<div class="outline-text-4" id="text-4-5-2">
+<p>
+Package : <i>wttrin</i>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37"><span class="section-number-4">4.5.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
+<div class="outline-text-4" id="text-4-5-3">
+<p>
+Package : <i>htmlize</i>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">4.5.4</span> org-mode</h4>
+<div class="outline-text-4" id="text-4-5-4">
+</div><ol class="org-ol"><li><a id="orgheadline38"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-5-4-1">
+<p>
+Activer <i>org-indent-mode</i>
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">4.5.5</span> Correction automatique scripts shell avec ShellCheck</h4>
+<div class="outline-text-4" id="text-4-5-5">
+<p>
+Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiquement avec <i>ShellCheck</i>.
 </p>
 </div>
 </div>
@@ -763,7 +833,7 @@ Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-10-29 Sat 11:30</p>
+<p class="date">Created: 2016-10-29 Sat 11:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

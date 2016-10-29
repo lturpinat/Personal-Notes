@@ -209,6 +209,13 @@ Exemple avec une conversion en base 10
 #+BEGIN_SRC sh
 newvar=$((10#$var));
 #+END_SRC
+
+*** Correction intelligent de script
++ Installer [[https://github.com/koalaman/shellcheck][ShellCheck]] 
++ Passer le script en argument pour en avoir l'analyse :
+#+BEGIN_SRC sh
+shellcheck monscript
+#+END_SRC
 * Applications
 ** Skype - désactiver le lancement au démarrage
 #+BEGIN_SRC shell
@@ -245,10 +252,22 @@ exec $IDEA_HOME/bin/idea.sh "$@"
 "/path/to/script/studio.sh" %f
 #+END_EXAMPLE
 ** Tmux
-Rejoint la session "home" ou la créé si elle n'existe pas
-#+BEGIN_EXAMPLE bash
-tmux new -A -s home
-#+END_EXAMPLE
+   Rejoint la session "home" ou la créé si elle n'existe pas
+   #+BEGIN_EXAMPLE bash
+   tmux new -A -s home
+   #+END_EXAMPLE
 ** Terminal
 *** Changer la police de caractère du terminal
 Utiliser =Meslo LG M DZ for Powerline= taille =9.0=
+** Emacs
+*** Problème de police avec Emacs
+    cf. Gentoo/Emacs et polices de caractères
+*** Avoir la météo 
+    Package : /wttrin/
+*** Exporter en html avec coloration syntaxique des /src/
+    Package : /htmlize/
+*** org-mode
+**** Indentation automatique
+     Activer /org-indent-mode/
+*** Correction automatique scripts shell avec ShellCheck
+    Activer flycheck : /flycheck-mode/, la correction se fait ensuite automatiquement avec /ShellCheck/.
