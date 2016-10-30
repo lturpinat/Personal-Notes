@@ -141,6 +141,9 @@ fi
    cmus-notify.sh -p #Permet de jouer le morceau sélectionné
    #+END_EXAMPLE
    
+** OpenVPN
+   Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
+   [[https://wiki.gentoo.org/wiki/OpenVPN][Plus d'infos]]
 * Général
 ** Compatibilité R.A.T.3
    Editer "/etc/X11/xorg.conf"
