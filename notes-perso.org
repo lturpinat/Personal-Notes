@@ -13,7 +13,7 @@ La machine utilisée est un =Asus G75VX=.
 
 * Gentoo
 ** Le clavier
-   Permettre au système de gérer la bonne disposition du clavier
+Permettre au système de gérer la bonne disposition du clavier
  + Récupérer les informations sur le clavier :
    #+BEGIN_SRC bash
    setxkbmap -print -verbose 10
@@ -32,16 +32,16 @@ La machine utilisée est un =Asus G75VX=.
    EndSection
    #+END_SRC
 
- + [[https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg][Plus d'infos]]
+ [[https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg][Source : Archlinux]]
    
 ** Outils vfat (FAT32)
-   Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat")
-   #+BEGIN_SRC bash
-   emerge -av sys-fs/dosfstools 
-   #+END_SRC
-** NTFS support
+Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat")
+#+BEGIN_SRC bash
+emerge -av sys-fs/dosfstools 
+#+END_SRC
+** Support du NTFS
 *** Kernel
-    Modifications à effectuer dans le Kernel :
+Modifications à effectuer dans le Kernel :
    + Enabling NTFS using sys-fs/ntfs3g (preferred)
      #+BEGIN_SRC text
      File systems  ---> 
@@ -56,21 +56,22 @@ La machine utilisée est un =Asus G75VX=.
            <*>   NTFS write support
       #+END_SRC
 *** Outil
-     #+BEGIN_SRC bash
-     # emerge -av sys-fs/ntfs3g
-     #+END_SRC     
-     [[https://wiki.gentoo.org/wiki/NTFS][Plus d'infos]]
+#+BEGIN_SRC bash
+# emerge -av sys-fs/ntfs3g
+#+END_SRC     
+[[https://wiki.gentoo.org/wiki/NTFS][Source : Gentoo]]
 ** Emacs et polices de caractères
-   Il faut activer le USE flag "xft" et compiler Emacs avec.
-   #+BEGIN_SRC bash
-   USE="xft"
-   #+END_SRC
-   Explications : "you must link it with the Freetype and Fontconfig libraries." 
-   cjm, unix.stackexchange
+Il faut activer le USE flag "xft" et compiler Emacs avec.
+#+BEGIN_SRC bash
+USE="xft"
+#+END_SRC
+[[https://wiki.gentoo.org/wiki/Xft_support_for_GNU_Emacs][Source 1 : Gentoo]]
+
+[[https://wiki.gentoo.org/wiki/Project:GNU_Emacs/Developer_guide][Source 2 : Gentoo]]
 ** Support du NFS
 *** Kernel
-    Modificiations à effectuer dans le Kernel :
-    #+BEGIN_SRC text
+Modificiations à effectuer dans le Kernel :
+#+BEGIN_SRC text
    File systems --->
      [*] Dnotify support
      [*] Network File Systems --->
@@ -82,24 +83,24 @@ La machine utilisée est un =Asus G75VX=.
            [*]     NFS server support for NFS version 3
            [*]     NFS server support for NFS version 4
            [*]       NFSv4.1 server support for Parallel NFS (pNFS)
-   #+END_SRC
+#+END_SRC
 *** Outil
-   #+BEGIN_SRC bash
-   # emerge --ask net-fs/nfs-utils
-   #+END_SRC
+#+BEGIN_SRC bash
+# emerge --ask net-fs/nfs-utils
+#+END_SRC
 *** OpenRC
-   #+BEGIN_SRC bash
-   # rc-update add nfsclient default
-   #+END_SRC
+#+BEGIN_SRC bash
+# rc-update add nfsclient default
+#+END_SRC
 *** Exemple de montage
-   #+BEGIN_EXAMPLE
-   # mount 192.168.0.1:/volume1/home /home 
-   #+END_EXAMPLE
-
+#+BEGIN_EXAMPLE
+# mount 192.168.0.1:/volume1/home /home 
+#+END_EXAMPLE
+[[https://wiki.gentoo.org/index.php?title=Nfs-utils&redirect=no][Source : Gentoo]]
 ** cmus-notify
-  Permet de gérer le client cmus
+Permet de gérer le client cmus
 *** Script
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
 #!/bin/sh
 Cmus_remote=$(cmus-remote -Q)
 Instance=$(echo -e "$Cmus_remote" | wc -l)
@@ -127,34 +128,37 @@ else
         notify-send -i multimedia-volume-control -t 1800 "$Cur_song"
     fi
 fi
-   #+END_SRC
-   [[https://colorathis.wordpress.com/2013/06/25/cmus-notify/][Crédits]]
+#+END_SRC
 *** Fonctionnement
-   Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
+Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
 
-   Infos sur les arguments :
-   #+BEGIN_SRC bash
-   man cmus-remote
-   #+END_SRC
-   Exemple :
-   #+BEGIN_EXAMPLE
-   cmus-notify.sh -p #Permet de jouer le morceau sélectionné
-   #+END_EXAMPLE
+Infos sur les arguments :
+#+BEGIN_SRC bash
+man cmus-remote
+#+END_SRC
+
+Exemple :
+#+BEGIN_EXAMPLE
+cmus-notify.sh -p #Permet de jouer le morceau sélectionné
+#+END_EXAMPLE
    
+[[https://colorathis.wordpress.com/2013/06/25/cmus-notify/][Source : colorathis.wordpress.com]]
 ** OpenVPN
-   Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
-   [[https://wiki.gentoo.org/wiki/OpenVPN][Plus d'infos]]
+Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
+
+[[https://wiki.gentoo.org/wiki/OpenVPN][Source : Gentoo]]
 * Général
 ** Compatibilité R.A.T.3
-   Editer "/etc/X11/xorg.conf"
-   #+BEGIN_SRC shell
-   Section "InputClass"
-   Identifier "Mouse Remap"
-   MatchProduct "Saitek Cyborg R.A.T.3 Mouse"
-   MatchDevicePath "/dev/input/event*"
-   Option "ButtonMapping" "1 2 3 4 5 0 0 8 9 0 0 0 13 14"
-   EndSection
-   #+END_SRC
+Editer "/etc/X11/xorg.conf"
+#+BEGIN_SRC shell
+Section "InputClass"
+Identifier "Mouse Remap"
+MatchProduct "Saitek Cyborg R.A.T.3 Mouse"
+MatchDevicePath "/dev/input/event*"
+Option "ButtonMapping" "1 2 3 4 5 0 0 8 9 0 0 0 13 14"
+EndSection
+#+END_SRC
+[[http://forums.fedora-fr.org/viewtopic.php?id=64212][Source : forum fedora-fr]]
 ** Réactiver le son après une sortie de veille 
    + Editer "/etc/default/acpi-support"
 
@@ -166,7 +170,11 @@ fi
    - Par : 
    #+BEGIN_SRC shell
    HIBERNATE_MODE=platform
-#+END_SRC
+   #+END_SRC
+   
+   #+begin_warning
+   Selon le système d'exploitation, mon ordinateur n'a pas répondu de la même façon. Dans certains cas, cela a entraîné de nombreux bugs avec les raccourcis natifs (FN...) : touches son non-reconnues par exemple.
+   #+end_warning
 ** KDE
 *** Activer la touche Windows pour afficher le launcher
 Installer "KSuperkey"
@@ -174,6 +182,7 @@ Installer "KSuperkey"
 dnf copr enable vanoudt/KSuperkey 
 dnf install ksuperkey
 #+END_SRC
+[[https://github.com/hanschen/ksuperkey][Source : Github]]
 ** Transformer un .deb en .rpm
 + Télécharger alien
 #+BEGIN_SRC bash
@@ -189,6 +198,44 @@ alien -r fichier.deb
 + Télécharger le tarball de flash-player sur le site officiel d'Adobe
 + Place le fichier /libflashplayer.so/ dans ~/.mozilla/plugins/
 + Redémarrer le navigateur
+** Gérer l'audio avec pactl
++ Avantages
+Facilité de gestion du son (monter, descendre ou muter cartes son), possibilité d'aller au dessus de 100% (!)
+
++ Contexte
+Problème pour gérer deux cartes sons distinctes (sortie externe hdmi nvidia et son interne).
+
+#+begin_warning
+Etant sur XFCE4 et sachant que je dois modifier les raccourcis FN pour le son, il faut supprimer le package /xfce4-volumed/ qui gère les raccourcis et l'animation correspond aux variations de volume.
+#+end_warning
+
++ Application
+Voici les différentes commandes que j'utilise : 
+#+BEGIN_SRC bash
+# Pour la sortie hdmi
+pactl set-sink-mute alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 toggle #Mute si le son est activé et unmute s'il est déjà mute
+pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +10% # Augmente le son de 10% (au-delà de 100%, c'est possible !)
+pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -10% # Diminue le son de 10%
+
+# Pour la sortie interne
+pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%
+pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%
+#+END_SRC
+
+#+begin_note
+Note : il est possible d'optimiser le nom (très long) des sorties à l'aide du fichier de configuration utilisateur.
+#+end_note
+
+** Activer le pavé numérique au démarrage de LightDM
++ Installer /numlockx/
++ Modifier le fichier */etc/lightdm/lightdm.conf*
+#+BEGIN_SRC bash
+[Seat:*]
+greeter-setup-script=/usr/bin/numlockx on
+#+END_SRC
+
+[[https://wiki.archlinux.org/index.php/LightDM#NumLock_on_by_default][Source : Archlinux]]
 * Technique 
 ** Bash
 *** Liens utiles
@@ -201,19 +248,16 @@ alien -r fichier.deb
 | [[http://git.savannah.gnu.org/cgit/bash.git/log/?h=devel][Forge git bash]]                      |
 | [[https://lists.gnu.org/mailman/listinfo/help-bash][GNU bash help]]                       |
 | [[https://github.com/koalaman/shellcheck][ShellCheck (cf. flycheck sur Emacs)]] |
-
 *** Commandes utiles
 | Commande                    | Description                                        |
 |-----------------------------+----------------------------------------------------|
 | [[http://wiki.bash-hackers.org/howto/getopts_tutorial][getopts (gestion arguments)]] | Gestion intelligente d'arguments dans une commande |
-
 *** Convertir une variable en base X
 Exemple avec une conversion en base 10
 #+BEGIN_SRC sh
 newvar=$((10#$var));
 #+END_SRC
-
-*** Correction intelligent de script
+*** Correction intelligente de script
 + Installer [[https://github.com/koalaman/shellcheck][ShellCheck]] 
 + Passer le script en argument pour en avoir l'analyse :
 #+BEGIN_SRC sh
@@ -224,53 +268,29 @@ shellcheck monscript
 #+BEGIN_SRC shell
 rm -f /etc/prelink.conf.d/skype.conf
 #+END_SRC
-
-** IntelliJ IDEA
-*** Régler le problème de la police pas "smooth"
-+ Taper : 
-#+BEGIN_EXAMPLE
-wget http://urshulyak.com:8001/index.php/s/P4afbWaX3mvyjP7/download &&
-mv download jdk-8u5-tuxjdk-b08.tar.gz &&
-tar -zxvf jdk-8u5-tuxjdk-b08.tar.gz &&
-sudo mv jdk-8u5-tuxjdk-b08 /usr/lib/jvm &&
-rm jdk-8u5-tuxjdk-b08.tar.gz
-#+END_EXAMPLE
-
-+ Créer un script : 
-(penser à modifier IDEA_ HOME)
-#+BEGIN_EXAMPLE
-#!/bin/sh
-IDEA_HOME=/opt/idea
-# for old idea JAVA_HOME, for new 2016+ will be IDEA_JDK
-#export JAVA_HOME=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
-
-export IDEA_JDK=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
-export GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-exec $IDEA_HOME/bin/idea.sh "$@"
-#+END_EXAMPLE
-
-+ Exécuter le script à la place de l'officiel
-#+BEGIN_EXAMPLE
-"/path/to/script/studio.sh" %f
-#+END_EXAMPLE
 ** Tmux
-   Rejoint la session "home" ou la créé si elle n'existe pas
-   #+BEGIN_EXAMPLE bash
-   tmux new -A -s home
-   #+END_EXAMPLE
+Commande pour rejoindre la session "home" ou la créer si elle n'existe pas
+#+BEGIN_EXAMPLE bash
+tmux new -A -s home
+ #+END_EXAMPLE
 ** Terminal
-*** Changer la police de caractère du terminal
+*** [Préférence] Changer la police de caractère du terminal
 Utiliser =Meslo LG M DZ for Powerline= taille =9.0=
+
+[[https://github.com/andreberg/Meslo-Font][Polices disponibles sur Github]]
 ** Emacs
 *** Problème de police avec Emacs
-    cf. Gentoo/Emacs et polices de caractères
+cf. Gentoo/Emacs et polices de caractères
 *** Avoir la météo 
-    Package : /wttrin/
+Package : /wttrin/
+
+[[https://github.com/bcbcarl/emacs-wttrin][Source : Github]]
 *** Exporter en html avec coloration syntaxique des /src/
-    Package : /htmlize/
+Package : /htmlize/
+
+[[https://github.com/emacsmirror/htmlize][Source : Github]]
 *** org-mode
 **** Indentation automatique
-     Activer /org-indent-mode/
+Activer /org-indent-mode/
 *** Correction automatique scripts shell avec ShellCheck
-    Activer flycheck : /flycheck-mode/, la correction se fait ensuite automatiquement avec /ShellCheck/.
+Activer flycheck : /flycheck-mode/, la correction se fait ensuite automatiquement avec /ShellCheck/.

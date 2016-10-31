@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-30 dim. 22:05 -->
+<!-- 2016-10-31 lun. 20:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -158,7 +158,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline1">1.1. Le clavier</a></li>
 <li><a href="#orgheadline2">1.2. Outils vfat (FAT32)</a></li>
-<li><a href="#orgheadline5">1.3. NTFS support</a>
+<li><a href="#orgheadline5">1.3. Support du NTFS</a>
 <ul>
 <li><a href="#orgheadline3">1.3.1. Kernel</a></li>
 <li><a href="#orgheadline4">1.3.2. Outil</a></li>
@@ -182,7 +182,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline15">1.7. OpenVPN</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline23">2. Général</a>
+<li><a href="#orgheadline25">2. Général</a>
 <ul>
 <li><a href="#orgheadline17">2.1. Compatibilité R.A.T.3</a></li>
 <li><a href="#orgheadline18">2.2. Réactiver le son après une sortie de veille</a></li>
@@ -193,41 +193,38 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline21">2.4. Transformer un .deb en .rpm</a></li>
 <li><a href="#orgheadline22">2.5. Mettre flash-player sur Firefox</a></li>
+<li><a href="#orgheadline23">2.6. Gérer l'audio avec pactl</a></li>
+<li><a href="#orgheadline24">2.7. Activer le pavé numérique au démarrage de LightDM</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline29">3. Technique</a>
+<li><a href="#orgheadline31">3. Technique</a>
 <ul>
-<li><a href="#orgheadline28">3.1. Bash</a>
+<li><a href="#orgheadline30">3.1. Bash</a>
 <ul>
-<li><a href="#orgheadline24">3.1.1. Liens utiles</a></li>
-<li><a href="#orgheadline25">3.1.2. Commandes utiles</a></li>
-<li><a href="#orgheadline26">3.1.3. Convertir une variable en base X</a></li>
-<li><a href="#orgheadline27">3.1.4. Correction intelligent de script</a></li>
+<li><a href="#orgheadline26">3.1.1. Liens utiles</a></li>
+<li><a href="#orgheadline27">3.1.2. Commandes utiles</a></li>
+<li><a href="#orgheadline28">3.1.3. Convertir une variable en base X</a></li>
+<li><a href="#orgheadline29">3.1.4. Correction intelligente de script</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#orgheadline43">4. Applications</a>
 <ul>
-<li><a href="#orgheadline30">4.1. Skype - désactiver le lancement au démarrage</a></li>
-<li><a href="#orgheadline32">4.2. IntelliJ IDEA</a>
+<li><a href="#orgheadline32">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#orgheadline33">4.2. Tmux</a></li>
+<li><a href="#orgheadline35">4.3. Terminal</a>
 <ul>
-<li><a href="#orgheadline31">4.2.1. Régler le problème de la police pas "smooth"</a></li>
+<li><a href="#orgheadline34">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline33">4.3. Tmux</a></li>
-<li><a href="#orgheadline35">4.4. Terminal</a>
+<li><a href="#orgheadline42">4.4. Emacs</a>
 <ul>
-<li><a href="#orgheadline34">4.4.1. Changer la police de caractère du terminal</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline42">4.5. Emacs</a>
-<ul>
-<li><a href="#orgheadline36">4.5.1. Problème de police avec Emacs</a></li>
-<li><a href="#orgheadline37">4.5.2. Avoir la météo</a></li>
-<li><a href="#orgheadline38">4.5.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
-<li><a href="#orgheadline40">4.5.4. org-mode</a></li>
-<li><a href="#orgheadline41">4.5.5. Correction automatique scripts shell avec ShellCheck</a></li>
+<li><a href="#orgheadline36">4.4.1. Problème de police avec Emacs</a></li>
+<li><a href="#orgheadline37">4.4.2. Avoir la météo</a></li>
+<li><a href="#orgheadline38">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
+<li><a href="#orgheadline40">4.4.4. org-mode</a></li>
+<li><a href="#orgheadline41">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
 </ul>
 </li>
 </ul>
@@ -285,9 +282,11 @@ Créer un fichier de configuration en conséquence :
 EndSection
 </pre>
 </div></li>
-
-<li><a href="https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg">Plus d'infos</a></li>
 </ul>
+
+<p>
+<a href="https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg">Source : Archlinux</a>
+</p>
 </div>
 </div>
 
@@ -305,7 +304,7 @@ Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat
 </div>
 </div>
 <div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.3</span> NTFS support</h3>
+<h3 id="orgheadline5"><span class="section-number-3">1.3</span> Support du NTFS</h3>
 <div class="outline-text-3" id="text-1-3">
 </div><div id="outline-container-orgheadline3" class="outline-4">
 <h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> Kernel</h4>
@@ -347,7 +346,7 @@ Enabling NTFS with limited write support
 </pre>
 </div>
 <p>
-<a href="https://wiki.gentoo.org/wiki/NTFS">Plus d'infos</a>
+<a href="https://wiki.gentoo.org/wiki/NTFS">Source : Gentoo</a>
 </p>
 </div>
 </div>
@@ -364,8 +363,11 @@ Il faut activer le USE flag "xft" et compiler Emacs avec.
 </pre>
 </div>
 <p>
-Explications : "you must link it with the Freetype and Fontconfig libraries." 
-cjm, unix.stackexchange
+<a href="https://wiki.gentoo.org/wiki/Xft_support_for_GNU_Emacs">Source 1 : Gentoo</a>
+</p>
+
+<p>
+<a href="https://wiki.gentoo.org/wiki/Project:GNU_Emacs/Developer_guide">Source 2 : Gentoo</a>
 </p>
 </div>
 </div>
@@ -421,10 +423,12 @@ Modificiations à effectuer dans le Kernel :
 <pre class="example">
 # mount 192.168.0.1:/volume1/home /home
 </pre>
+<p>
+<a href="https://wiki.gentoo.org/index.php?title=Nfs-utils&amp;redirect=no">Source : Gentoo</a>
+</p>
 </div>
 </div>
 </div>
-
 <div id="outline-container-orgheadline14" class="outline-3">
 <h3 id="orgheadline14"><span class="section-number-3">1.6</span> cmus-notify</h3>
 <div class="outline-text-3" id="text-1-6">
@@ -466,9 +470,6 @@ Permet de gérer le client cmus
 <span style="color: #4f97d7; font-weight: bold;">fi</span>
 </pre>
 </div>
-<p>
-<a href="https://colorathis.wordpress.com/2013/06/25/cmus-notify/">Crédits</a>
-</p>
 </div>
 </div>
 <div id="outline-container-orgheadline13" class="outline-4">
@@ -486,28 +487,35 @@ Infos sur les arguments :
 <pre class="src src-bash">man cmus-remote
 </pre>
 </div>
+
 <p>
 Exemple :
 </p>
 <pre class="example">
 cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 </pre>
-</div>
-</div>
-</div>
 
+<p>
+<a href="https://colorathis.wordpress.com/2013/06/25/cmus-notify/">Source : colorathis.wordpress.com</a>
+</p>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline15" class="outline-3">
 <h3 id="orgheadline15"><span class="section-number-3">1.7</span> OpenVPN</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
-<a href="https://wiki.gentoo.org/wiki/OpenVPN">Plus d'infos</a>
+</p>
+
+<p>
+<a href="https://wiki.gentoo.org/wiki/OpenVPN">Source : Gentoo</a>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">2</span> Général</h2>
+<div id="outline-container-orgheadline25" class="outline-2">
+<h2 id="orgheadline25"><span class="section-number-2">2</span> Général</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline17" class="outline-3">
 <h3 id="orgheadline17"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
@@ -525,6 +533,9 @@ Option <span style="color: #2d9574;">"ButtonMapping"</span> <span style="color: 
 EndSection
 </pre>
 </div>
+<p>
+<a href="http://forums.fedora-fr.org/viewtopic.php?id=64212">Source : forum fedora-fr</a>
+</p>
 </div>
 </div>
 <div id="outline-container-orgheadline18" class="outline-3">
@@ -549,6 +560,13 @@ EndSection
 <pre class="src src-shell"><span style="color: #7590db;">HIBERNATE_MODE</span>=platform
 </pre>
 </div>
+
+<div class="warning">
+<p>
+Selon le système d'exploitation, mon ordinateur n'a pas répondu de la même façon. Dans certains cas, cela a entraîné de nombreux bugs avec les raccourcis natifs (FN&#x2026;) : touches son non-reconnues par exemple.
+</p>
+
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline20" class="outline-3">
@@ -566,6 +584,9 @@ Installer "KSuperkey"
 dnf install ksuperkey
 </pre>
 </div>
+<p>
+<a href="https://github.com/hanschen/ksuperkey">Source : Github</a>
+</p>
 </div>
 </div>
 </div>
@@ -602,15 +623,87 @@ dnf install ksuperkey
 </ul>
 </div>
 </div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">2.6</span> Gérer l'audio avec pactl</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Avantages</li>
+</ul>
+<p>
+Facilité de gestion du son (monter, descendre ou muter cartes son), possibilité d'aller au dessus de 100% (!)
+</p>
+
+<ul class="org-ul">
+<li>Contexte</li>
+</ul>
+<p>
+Problème pour gérer deux cartes sons distinctes (sortie externe hdmi nvidia et son interne).
+</p>
+
+<div class="warning">
+<p>
+Etant sur XFCE4 et sachant que je dois modifier les raccourcis FN pour le son, il faut supprimer le package <i>xfce4-volumed</i> qui gère les raccourcis et l'animation correspond aux variations de volume.
+</p>
+
 </div>
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">3</span> Technique</h2>
+
+<ul class="org-ul">
+<li>Application</li>
+</ul>
+<p>
+Voici les différentes commandes que j'utilise : 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Pour la sortie hdmi</span>
+pactl set-sink-mute alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 toggle <span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Mute si le son est activ&#233; et unmute s'il est d&#233;j&#224; mute</span>
+pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +10% <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Augmente le son de 10% (au-del&#224; de 100%, c'est possible !)</span>
+pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -10% <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Diminue le son de 10%</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Pour la sortie interne</span>
+pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%
+pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%
+</pre>
+</div>
+
+<div class="note">
+<p>
+Note : il est possible d'optimiser le nom (très long) des sorties à l'aide du fichier de configuration utilisateur.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">2.7</span> Activer le pavé numérique au démarrage de LightDM</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>Installer <i>numlockx</i></li>
+<li>Modifier le fichier <b>/etc/lightdm/lightdm.conf</b></li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #4f97d7;">[</span>Seat:*<span style="color: #4f97d7;">]</span>
+greeter-setup-script=/usr/bin/numlockx on
+</pre>
+</div>
+
+<p>
+<a href="https://wiki.archlinux.org/index.php/LightDM#NumLock_on_by_default">Source : Archlinux</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline31" class="outline-2">
+<h2 id="orgheadline31"><span class="section-number-2">3</span> Technique</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">3.1</span> Bash</h3>
+</div><div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">3.1</span> Bash</h3>
 <div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
+</div><div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -655,9 +748,8 @@ dnf install ksuperkey
 </table>
 </div>
 </div>
-
-<div id="outline-container-orgheadline25" class="outline-4">
-<h4 id="orgheadline25"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -682,9 +774,8 @@ dnf install ksuperkey
 </table>
 </div>
 </div>
-
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 Exemple avec une conversion en base 10
@@ -696,9 +787,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline27" class="outline-4">
-<h4 id="orgheadline27"><span class="section-number-4">3.1.4</span> Correction intelligent de script</h4>
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>Installer <a href="https://github.com/koalaman/shellcheck">ShellCheck</a></li>
@@ -716,8 +806,8 @@ Exemple avec une conversion en base 10
 <div id="outline-container-orgheadline43" class="outline-2">
 <h2 id="orgheadline43"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+</div><div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
@@ -726,56 +816,11 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">4.2</span> IntelliJ IDEA</h3>
-<div class="outline-text-3" id="text-4-2">
-</div><div id="outline-container-orgheadline31" class="outline-4">
-<h4 id="orgheadline31"><span class="section-number-4">4.2.1</span> Régler le problème de la police pas "smooth"</h4>
-<div class="outline-text-4" id="text-4-2-1">
-<ul class="org-ul">
-<li>Taper :</li>
-</ul>
-<pre class="example">
-wget http://urshulyak.com:8001/index.php/s/P4afbWaX3mvyjP7/download &amp;&amp;
-mv download jdk-8u5-tuxjdk-b08.tar.gz &amp;&amp;
-tar -zxvf jdk-8u5-tuxjdk-b08.tar.gz &amp;&amp;
-sudo mv jdk-8u5-tuxjdk-b08 /usr/lib/jvm &amp;&amp;
-rm jdk-8u5-tuxjdk-b08.tar.gz
-</pre>
-
-<ul class="org-ul">
-<li>Créer un script :</li>
-</ul>
-<p>
-(penser à modifier IDEA_ HOME)
-</p>
-<pre class="example">
-#!/bin/sh
-IDEA_HOME=/opt/idea
-# for old idea JAVA_HOME, for new 2016+ will be IDEA_JDK
-#export JAVA_HOME=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
-
-export IDEA_JDK=/usr/lib/jvm/jdk-8u5-tuxjdk-b08/
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.xrender=true"
-export GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-exec $IDEA_HOME/bin/idea.sh "$@"
-</pre>
-
-<ul class="org-ul">
-<li>Exécuter le script à la place de l'officiel</li>
-</ul>
-<pre class="example">
-"/path/to/script/studio.sh" %f
-</pre>
-</div>
-</div>
-</div>
 <div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">4.3</span> Tmux</h3>
-<div class="outline-text-3" id="text-4-3">
+<h3 id="orgheadline33"><span class="section-number-3">4.2</span> Tmux</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
-Rejoint la session "home" ou la créé si elle n'existe pas
+Commande pour rejoindre la session "home" ou la créer si elle n'existe pas
 </p>
 <pre class="example">
 tmux new -A -s home
@@ -783,56 +828,68 @@ tmux new -A -s home
 </div>
 </div>
 <div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">4.4</span> Terminal</h3>
-<div class="outline-text-3" id="text-4-4">
+<h3 id="orgheadline35"><span class="section-number-3">4.3</span> Terminal</h3>
+<div class="outline-text-3" id="text-4-3">
 </div><div id="outline-container-orgheadline34" class="outline-4">
-<h4 id="orgheadline34"><span class="section-number-4">4.4.1</span> Changer la police de caractère du terminal</h4>
-<div class="outline-text-4" id="text-4-4-1">
+<h4 id="orgheadline34"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <p>
 Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
+</p>
+
+<p>
+<a href="https://github.com/andreberg/Meslo-Font">Polices disponibles sur Github</a>
 </p>
 </div>
 </div>
 </div>
 <div id="outline-container-orgheadline42" class="outline-3">
-<h3 id="orgheadline42"><span class="section-number-3">4.5</span> Emacs</h3>
-<div class="outline-text-3" id="text-4-5">
+<h3 id="orgheadline42"><span class="section-number-3">4.4</span> Emacs</h3>
+<div class="outline-text-3" id="text-4-4">
 </div><div id="outline-container-orgheadline36" class="outline-4">
-<h4 id="orgheadline36"><span class="section-number-4">4.5.1</span> Problème de police avec Emacs</h4>
-<div class="outline-text-4" id="text-4-5-1">
+<h4 id="orgheadline36"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
+<div class="outline-text-4" id="text-4-4-1">
 <p>
 cf. Gentoo/Emacs et polices de caractères
 </p>
 </div>
 </div>
 <div id="outline-container-orgheadline37" class="outline-4">
-<h4 id="orgheadline37"><span class="section-number-4">4.5.2</span> Avoir la météo</h4>
-<div class="outline-text-4" id="text-4-5-2">
+<h4 id="orgheadline37"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
+<div class="outline-text-4" id="text-4-4-2">
 <p>
 Package : <i>wttrin</i>
+</p>
+
+<p>
+<a href="https://github.com/bcbcarl/emacs-wttrin">Source : Github</a>
 </p>
 </div>
 </div>
 <div id="outline-container-orgheadline38" class="outline-4">
-<h4 id="orgheadline38"><span class="section-number-4">4.5.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
-<div class="outline-text-4" id="text-4-5-3">
+<h4 id="orgheadline38"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
+<div class="outline-text-4" id="text-4-4-3">
 <p>
 Package : <i>htmlize</i>
+</p>
+
+<p>
+<a href="https://github.com/emacsmirror/htmlize">Source : Github</a>
 </p>
 </div>
 </div>
 <div id="outline-container-orgheadline40" class="outline-4">
-<h4 id="orgheadline40"><span class="section-number-4">4.5.4</span> org-mode</h4>
-<div class="outline-text-4" id="text-4-5-4">
-</div><ol class="org-ol"><li><a id="orgheadline39"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-5-4-1">
+<h4 id="orgheadline40"><span class="section-number-4">4.4.4</span> org-mode</h4>
+<div class="outline-text-4" id="text-4-4-4">
+</div><ol class="org-ol"><li><a id="orgheadline39"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-4-4-1">
 <p>
 Activer <i>org-indent-mode</i>
 </p>
 </div></li></ol>
 </div>
 <div id="outline-container-orgheadline41" class="outline-4">
-<h4 id="orgheadline41"><span class="section-number-4">4.5.5</span> Correction automatique scripts shell avec ShellCheck</h4>
-<div class="outline-text-4" id="text-4-5-5">
+<h4 id="orgheadline41"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
+<div class="outline-text-4" id="text-4-4-5">
 <p>
 Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiquement avec <i>ShellCheck</i>.
 </p>
@@ -843,7 +900,7 @@ Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiq
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-10-30 dim. 22:05</p>
+<p class="date">Created: 2016-10-31 lun. 20:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
