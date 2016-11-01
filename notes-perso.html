@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-01 mar. 16:44 -->
+<!-- 2016-11-01 mar. 19:15 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -228,7 +228,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline75">4. Applications</a>
+<li><a href="#orgheadline80">4. Applications</a>
 <ul>
 <li><a href="#orgheadline64">4.1. Skype - désactiver le lancement au démarrage</a></li>
 <li><a href="#orgheadline65">4.2. Tmux</a></li>
@@ -237,13 +237,14 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline66">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline74">4.4. Emacs</a>
+<li><a href="#orgheadline79">4.4. Emacs</a>
 <ul>
 <li><a href="#orgheadline68">4.4.1. Problème de police avec Emacs</a></li>
 <li><a href="#orgheadline69">4.4.2. Avoir la météo</a></li>
 <li><a href="#orgheadline70">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
 <li><a href="#orgheadline72">4.4.4. org-mode</a></li>
 <li><a href="#orgheadline73">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
+<li><a href="#orgheadline78">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
 </ul>
 </li>
 </ul>
@@ -1335,8 +1336,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline75" class="outline-2">
-<h2 id="orgheadline75"><span class="section-number-2">4</span> Applications</h2>
+<div id="outline-container-orgheadline80" class="outline-2">
+<h2 id="orgheadline80"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline64" class="outline-3">
 <h3 id="orgheadline64"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
@@ -1375,8 +1376,8 @@ Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline74" class="outline-3">
-<h3 id="orgheadline74"><span class="section-number-3">4.4</span> Emacs</h3>
+<div id="outline-container-orgheadline79" class="outline-3">
+<h3 id="orgheadline79"><span class="section-number-3">4.4</span> Emacs</h3>
 <div class="outline-text-3" id="text-4-4">
 </div><div id="outline-container-orgheadline68" class="outline-4">
 <h4 id="orgheadline68"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
@@ -1427,12 +1428,126 @@ Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiq
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline78" class="outline-4">
+<h4 id="orgheadline78"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
+<div class="outline-text-4" id="text-4-4-6">
+<p>
+Permet de faire des présentations avec Reveal.js en utilisant org-mode
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline74"></a>Liens importants<br  /><div class="outline-text-5" id="text-4-4-6-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Lien</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><a href="https://github.com/hakimel/reveal.js/">reveal.js - Github</a></td>
+<td class="org-left">Repos Github du framework javascript</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://github.com/yjwen/org-reveal/">org-reveal - Github</a></td>
+<td class="org-left">Repos Github du package org-mode pour gérer reveal.js</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://github.com/hakimel/reveal.js/wiki/Keyboard-Shortcuts">Raccourcis clavier</a></td>
+<td class="org-left">Raccourcis clavier disponibles en présentation</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/">Exemple de présentation</a></td>
+<td class="org-left">Exemple/Tutoriel de l'utilisation de org-reveal</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><a id="orgheadline75"></a>Instructions<br  /><div class="outline-text-5" id="text-4-4-6-2">
+<ul class="org-ul">
+<li>Télécharger reveal.js l'extraire et le renommer <i>reveal.js</i> (sinon préciser son emplacement avec <b>#+REVEAL_ROOT: <a href="file://d:/reveal.js">file://d:/reveal.js</a></b>)</li>
+<li>Installer le package <i>ox-reveal.el</i> (et <i>htmlize.el</i> pour la coloration syntaxique) sur Emacs</li>
+<li>Créer un fichier <i>.org</i></li>
+<li><p>
+Si la librarie n'est pas chargée, faire <b>M-x load-library</b> et entrer <b>ox-reveal</b>
+</p>
+
+<div class="note">
+<p>
+Pour exporter en html : <b>C-c C-e R R</b>
+</p>
+
+</div></li>
+</ul>
+</div></li>
+<li><a id="orgheadline76"></a>Notes<br  /><div class="outline-text-5" id="text-4-4-6-3">
+<ul class="org-ul">
+<li>Pour fragmenter l'apparition d'une liste (placer au dessus de la liste) : <b>#+ATTR_REVEAL: :frag (appear)</b></li>
+<li>Pour enlever le sommaire, la datation et la numérotation <b>#+OPTIONS: toc:nil timestamp:nil num:nil</b></li>
+<li>Pour afficher des notes pour le présentateur : <b>#+BEGIN_NOTES blabla #+END_NOTES</b></li>
+<li>Paramétrer les effets de slide : <b>#+REVEAL_TRANS: slide</b></li>
+</ul>
+</div></li>
+<li><a id="orgheadline77"></a>Raccourcis<br  /><div class="outline-text-5" id="text-4-4-6-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Touche</th>
+<th scope="col" class="org-left">Raccourci</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Haut/Bas/Gauche/Droite</b></td>
+<td class="org-left">Changer de slide</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>f</b></td>
+<td class="org-left">Plein écran</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>s</b></td>
+<td class="org-left">Affichage pour le présentateur</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>o</b></td>
+<td class="org-left">Aperçu des slides</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>.</b> ou <b>b</b></td>
+<td class="org-left">Rend l'écran noir</td>
+</tr>
+</tbody>
+</table>
+</div></li></ol>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-11-01 mar. 16:44</p>
+<p class="date">Created: 2016-11-01 mar. 19:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

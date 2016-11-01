@@ -577,3 +577,34 @@ Package : /htmlize/
 Activer /org-indent-mode/
 *** Correction automatique scripts shell avec ShellCheck
 Activer flycheck : /flycheck-mode/, la correction se fait ensuite automatiquement avec /ShellCheck/.
+*** Faire des présentations avec org-mode et Reveal.js
+Permet de faire des présentations avec Reveal.js en utilisant org-mode
+**** Liens importants
+| Lien                    | Description                                     |
+|-------------------------+-------------------------------------------------|
+| [[https://github.com/hakimel/reveal.js/][reveal.js - Github]]      | Repos Github du framework javascript            |
+| [[https://github.com/yjwen/org-reveal/][org-reveal - Github]]     | Repos Github du package org-mode pour gérer reveal.js |
+| [[https://github.com/hakimel/reveal.js/wiki/Keyboard-Shortcuts][Raccourcis clavier]]      | Raccourcis clavier disponibles en présentation  |
+| [[http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/][Exemple de présentation]] | Exemple/Tutoriel de l'utilisation de org-reveal |
+**** Instructions
++ Télécharger reveal.js l'extraire et le renommer /reveal.js/ (sinon préciser son emplacement avec *#+REVEAL_ROOT: file:///d:/reveal.js*)
++ Installer le package /ox-reveal.el/ (et /htmlize.el/ pour la coloration syntaxique) sur Emacs
++ Créer un fichier /.org/
++ Si la librarie n'est pas chargée, faire *M-x load-library* et entrer *ox-reveal*
+
+  #+begin_note
+Pour exporter en html : *C-c C-e R R*
+  #+end_note
+**** Notes
++ Pour fragmenter l'apparition d'une liste (placer au dessus de la liste) : *#+ATTR_REVEAL: :frag (appear)*
++ Pour enlever le sommaire, la datation et la numérotation *#+OPTIONS: toc:nil timestamp:nil num:nil*
++ Pour afficher des notes pour le présentateur : *#+BEGIN_NOTES blabla #+END_NOTES*
++ Paramétrer les effets de slide : *#+REVEAL_TRANS: slide*
+**** Raccourcis
+| Touche                 | Raccourci                      |
+|------------------------+--------------------------------|
+| *Haut/Bas/Gauche/Droite* | Changer de slide               |
+| *f*                    | Plein écran                    |
+| *s*                    | Affichage pour le présentateur |
+| *o*                    | Aperçu des slides              |
+| *.* ou *b*             | Rend l'écran noir              |
