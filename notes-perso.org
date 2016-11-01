@@ -1,6 +1,7 @@
 #+TITLE: Notes Linux
 #+AUTHOR: lturpinat
 #+SETUPFILE: setup/theme-readtheorg-local.setup
+#+OPTIONS: ^:nil
 
 -----
 
@@ -12,6 +13,288 @@ La machine utilisée est un =Asus G75VX=.
 #+end_hint
 
 * Gentoo
+** Installation rapide de Gentoo
+*** Formatage du disque
+Création de 4 partitions pour une installation GPT/UEFI
+
+| Partition | Nom supposé sur un disque /sda/ | Point de montage | Format       | Particularité               |
+|-----------+---------------------------------+------------------+--------------+-----------------------------|
+| boot      | /dev/sda1                       | /boot            | ext2(4)      | Partition de boot           |
+| UEFI      | /dev/sda2                       | /boot/efi        | vfat (FAT32) | Partition de boot de l'UEFI |
+| swap      | /dev/sda3                       |                  | swap         | Partition de swap           |
+| rootfs    | /dev/sda4                       | /                | ext4         | Partition principale        |
+**** Création des partitions /gdisk/
+#+BEGIN_EXAMPLE
+root #gdisk /dev/sda
+
+Create GPT partition table:
+Command: o ↵
+This option deletes all partitions and creates a new protective MBR.
+Proceed? (Y/N): y ↵
+
+Create Partition 1 (/boot):
+Command: n ↵
+Partition Number: 1 ↵
+First sector: ↵
+Last sector: +128M ↵
+Hex Code: ↵
+
+Create Partition 2 (UEFI ESP):
+Command: n ↵
+Partition Number: 2 ↵
+First sector: ↵
+Last sector: +32M ↵
+Hex Code: EF00 ↵
+
+Create Partition 3 (swap):
+Command: n ↵
+Partition Number: 3 ↵
+First sector: ↵
+Last sector: +1024MB ↵
+Hex Code: 8200 ↵
+
+Create Partition 4 (/):
+Command: n ↵
+Partition Number: 4 ↵
+First sector: ↵
+Last sector: ↵ (for rest of disk)
+Hex Code: ↵
+
+Write Partition Table To Disk:
+Command: w ↵
+Do you want to proceed? (Y/N): Y ↵
+#+END_EXAMPLE
+**** Formatage des partitions
+#+BEGIN_SRC bash
+#Formatage de boot et rootfs en ext4
+mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda4
+#Formatage et activation de la partition swap
+mkswap /dev/sda3 && swapon /dev/sda3
+#Formatage de UEFI en vfat
+mkfs.vfat /dev/sda2
+#+END_SRC
+**** Montage des partitions
+#+BEGIN_SRC bash
+#Montage de rootfs dans /mnt/gentoo
+mkdir -p /mnt/gentoo
+mount /dev/sda4 /mnt/gentoo
+#Montage de boot dans /mnt/gentoo/boot
+mkdir /mnt/gentoo/boot
+mount /dev/sda1 /mnt/gentoo/boot
+#Montage de UEFI dans /mnt/gentoo/boot/efi
+mkdir /mnt/gentoo/boot/efi
+mount /dev/sda2 /mnt/gentoo/boot/efi
+#+END_SRC
+*** Stage3
+**** Précaution : la date
+Afin d'éviter tout problème de date pour la suite de l'installation, la définir :
+#+BEGIN_SRC bash
+# Format : mois - jour - heure - minutes - année
+date MMJJhhmmAAAAA
+#+END_SRC
+**** Téléchargement du tarball
++ Trouver le repos adapaté sur le site, depuis la console grâce à links (navigateur web console) :
+#+BEGIN_SRC bash
+cd /mnt/gentoo
+links https://www.gentoo.org/downloads/mirrors
+#+END_SRC
++ Arriver sur un lien du style "http://gentoo.mirrors.ovh.net/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20161027.tar.bz2"
++ Lancer le téléchargement grâce au raccourci /CTRL+D/
+**** Décompression du tarball
+#+BEGIN_SRC bash 
+tar xjpf stage3*
+#+END_SRC
+*** Chrooting
+**** "Liaison" de /sys et /dev avec le nouveau système
+#+BEGIN_SRC bash
+cd /
+mount -t proc proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+#+END_SRC
+
+#+begin_note
+Selon le Handbook, les commandes contenant "--make-rslave" importent si le choix du système d'initilisation se porte sur systemd (si l'on ne souhaite pas prendre OpenRC).
+#+end_note
+**** Transfert
+#+BEGIN_SRC bash
+#Transfert du fichier spécifiant le ou les serveurs DNS à utiliser pour résoudre un nom de domaine
+cp /etc/resolv.conf /mnt/gentoo/etc
+#Chrooting
+chroot /mnt/gentoo /bin/bash
+#Rechargement de la nouvelle configuration
+source /etc/profile
+#Petit indicateur pour se souvenir que l'on a chrooté
+export PS1="(chroot) $PS1" 
+#+END_SRC
+*** Utilisateurs et /make.conf/
+**** Utilisateurs
++ Modification du mot de passe /root/
+#+BEGIN_SRC bash
+passwd
+#+END_SRC
++ Ajout d'un utilisateur
+#+BEGIN_SRC bash
+#Ajout de l'utilisateur
+useradd -g users -G wheel,portage,audio,video,usb,cdrom -m <nom-utilisateur>
+#Modification du mot de passe
+passwd <nom-utilisateur>
+#+END_SRC
+**** Configuration de /make.conf/
+Modifications à effectuer dans le fichier :
+#+BEGIN_EXAMPLE
+CFLAGS="-march=native -02 -pipe"
+MAKEOPTS="-j5"			#Permet la compilation parallèle ; remplacer "5" par le nombre de coeurs plus 1 est conseillé
+USE="python icu bindist mmx sse sse2"	 #Quelques USE flags basiques à ajouter
+VIDEO_CARDS=" "			#Il est préférable de ne spécifier votre carte graphique qu'une fois que votre système de base fonctionne (ex: nvidia)
+#+END_EXAMPLE
+*** Portage
+Synchronisation initiale de portage :
+#+BEGIN_SRC bash
+emerge-webrsync
+#+END_SRC
+*** Paramétrage de /fstab/
+Editer */etc/fstab* en accord avec les partitions générées plus haut :
+#+BEGIN_EXAMPLE
+/dev/sda1   /boot       ext4(ou ext2, selon)    noauto,noatime 1 2
+/dev/sda4   /           ext4                    noatime        0 1
+/dev/sda3   none        swap                    sw             0 0
+#+END_EXAMPLE
+
+#+begin_hint
+Normalement, la partition UEFI est automatique gérée (ie. détectée), il n'est donc pas nécessaire de l'ajouter à /fstab/.
+#+end_hint
+*** Sélection d'un profil
+Sélectionner le profile convenant à votre future machine :
+#+BEGIN_SRC bash
+#Afficher les différents profiles disponibles
+eselect profile list 
+#Sélectioner le profile désiré
+eselect profile set <id-profile>
+#+END_SRC
+*** Fuseau horaire
+#+BEGIN_SRC bash
+#Récupérer la localisation du fuseau horaire désiré
+ls /usr/share/zoneinfo
+#Le sauvegarder dans /etc/timezone ; ici exemple avec Paris
+echo "Europe/Paris" > /etc/timezone
+#Installation des configurations du fuseau
+emerge --config sys-libs/timezone-data
+#Editer le fichier et "décommenter" les locales requises
+nano /etc/locale.gen
+#Générer les locales
+locale-gen
+#Selectionner la locale principale
+eselect locale list
+eselect locale set <locale-id>
+#+END_SRC
+
+#+begin_note
+Personnellement je rajoute (toujours avec l'exemple de Paris) pour être sûr : 
+#+BEGIN_SRC bash
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+#+END_SRC
+#+end_note
+
+#+begin_note
+Il y a également moyen de préciser la variable LC_COLLATE (intéressant pour les globs) : 
+
+Editer */etc/env.d/02locale
+#+BEGIN_SRC bash
+LC_COLLATE="C"
+#+END_SRC
+#+end_note
+
+Recharger la nouvelle configuration :
+#+BEGIN_SRC bash
+env-update && source /etc/profile && export PS1="(chroot) $PS1"
+#+END_SRC
+*** Fichiers de configuration
+**** Le nom d'hôte (hostname)
+Editer */etc/conf.d/hostname*
+**** L'agencement des touches (keymap)
+Editer */etc/conf.d/keymaps*
+**** L'heure
+À modifier, surtout dans le cas d'une cohabitation avec Windows (cf. commentaires du fichier)
+Editer */etc/conf.d/hwclock*
+*** Le Kernel
+#+BEGIN_SRC bash
+#Installation du kernel vanilla de Gentoo
+emerge -av sys-kernel/gentoo-sources sys-kernel/linux-firmware 
+#+END_SRC
+**** Configuration automatique
+#+BEGIN_SRC bash
+#Garde les modules chargés par la LiveCD
+make localyesconfig
+make -j2
+#+END_SRC
+**** Configuration manuelle
+*Soon...*
+**** Installation
+#+BEGIN_SRC bash
+#Installation des modules
+make modules_install
+#Installation du kernel
+make install
+#+END_SRC
+*** L'amorceur (bootloader)
++ Comme l'installation se fait en UEFI, il faut le préciser dans le fichier */etc/portage/make.conf* :
+#+BEGIN_EXAMPLE
+GRUB_PLATFORMS="efi-64"
+#+END_EXAMPLE
+
++ Installation et configuration de GRUB2
+#+BEGIN_SRC bash
+#Installation de GRUB2
+emerge -av sys-boot/grub
+#Installation de grub en uefi sur le disque
+grub-install --target=x86_64-efi /dev/sda
+#Génération du fichier de configuration (contenant les partitions sur lesquelles booter)
+grub-mkconfig -o /boot/grub/grub.cfg
+#+END_SRC
+
+#+begin_hint
+Si GRUB n'apparaît pas au redémarrage, il suffit : 
+- De relancer la LiveCD
+- De monter les partitions rootfs, boot et UEFI
+- De chrooter dans rootfs
+- De retapper les deux dernières commandes de "Installation et configuration de GRUB2"
+#+end_hint
+
+*** Outils réseaux
+Afin de pouvoir avoir accès à internet au redémarrage, il est nécessaire d'installer différents outils réseaux :
+#+BEGIN_SRC bash
+emerge --ask sys-apps/iproute2 net-misc/dhcpcd net-wireless/wireless-tools net-wireless/iw net-wireless/wpa_supplicant
+#+END_SRC
+*** Redémarrage
+#+BEGIN_SRC bash
+#Quitter le chroot (le petit indicateur "(chroot)" devrait disparaître
+exit
+#Démonter les partitions proprement
+cd /mnt
+umount -R gentoo
+#Redémarrer
+reboot
+#+END_SRC
+*** Dernière phase
+Pour terminer l'installation, il faut installer et mettre à jour tous les packages de votre profil qui vous permettront d'avoir un système fonctionnel. Pour cela, connectez vous en root :
+#+BEGIN_SRC bash 
+#Supprimer le tarball du stage3, désormais inutile
+cd /
+rm -f stage3*
+#Lancer la mise à jour compléte du système
+emerge -uvDNa world
+#+END_SRC
+*** Sources
+Certains passages sont directement tirés de ces différentes sources :
++ [[https://wiki.gentoo.org/wiki/Handbook:AMD64][Le Handbook pour AMD64 de gentoo wiki]]
++ [[https://wiki.gentoo.org/wiki/Quick_Installation_Checklist][La "Quick Installation Checklist" de gentoo wiki]]
++ [[https://www.youtube.com/watch?v=37bmALK7_ag][Le guide écrit associé à la vidéo YouTube e Humaniac]]
++ Ma propre expérience
+
 ** Le clavier
 Permettre au système de gérer la bonne disposition du clavier
  + Récupérer les informations sur le clavier :
