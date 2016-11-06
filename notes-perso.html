@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-01 mar. 19:15 -->
+<!-- 2016-11-06 Sun 23:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -517,6 +517,25 @@ MAKEOPTS="-j5"			#Permet la compilation parallèle ; remplacer "5" par le nombre
 USE="python icu bindist mmx sse sse2"	 #Quelques USE flags basiques à ajouter
 VIDEO_CARDS=" "			#Il est préférable de ne spécifier votre carte graphique qu'une fois que votre système de base fonctionne (ex: nvidia)
 </pre>
+
+<div class="note">
+<p>
+Dans le cas de ma configuration (<code>Asus G75VX</code>), mon processeur est le suivant : <code>Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz</code> (IvyBridge).
+</p>
+
+<p>
+Comme il s'agit d'un Ivy Bridge Core, Gentoo recommande les variables suivantes :
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #7590db;">CHOST</span>=<span style="color: #2d9574;">"x86_64-pc-linux-gnu"</span>
+<span style="color: #7590db;">CFLAGS</span>=<span style="color: #2d9574;">"-march=core-avx-i -O2 -pipe"</span>
+<span style="color: #7590db;">CXXFLAGS</span>=<span style="color: #2d9574;">"${CFLAGS}"</span>
+</pre>
+</div>
+
+</div>
 </div></li></ol>
 </div>
 <div id="outline-container-orgheadline15" class="outline-4">
@@ -809,7 +828,7 @@ Créer un fichier de configuration en conséquence :
      Identifier <span style="color: #2d9574;">"system-keyboard"</span>
      MatchIsKeyboard <span style="color: #2d9574;">"on"</span>
      Option <span style="color: #2d9574;">"XkbLayout"</span> <span style="color: #2d9574;">"fr"</span>
-     Option <span style="color: #2d9574;">"XkbModel"</span> <span style="color: #2d9574;">"pc105"</span>
+     Option <span style="color: #2d9574;">"XkbModel"</span> <span style="color: #2d9574;">"pc105"</span>/
      Option <span style="color: #2d9574;">"XkbVariant"</span> <span style="color: #2d9574;">"azerty"</span>
      Option <span style="color: #2d9574;">"XkbOptions"</span> <span style="color: #2d9574;">"grp:alt_shift_toggle"</span>
 EndSection
@@ -1303,6 +1322,41 @@ greeter-setup-script=/usr/bin/numlockx on
 <td class="org-left"><a href="http://wiki.bash-hackers.org/howto/getopts_tutorial">getopts (gestion arguments)</a></td>
 <td class="org-left">Gestion intelligente d'arguments dans une commande</td>
 </tr>
+
+<tr>
+<td class="org-left">ldd</td>
+<td class="org-left">Permet de récupérer les dépendances d'un binaire</td>
+</tr>
+
+<tr>
+<td class="org-left">diff (eg. diff &lt;(cmd1) &lt;(cmd2)</td>
+<td class="org-left">Permet de comparer des fichiers/elements entre eux</td>
+</tr>
+
+<tr>
+<td class="org-left">watch</td>
+<td class="org-left">Permet de répéter une commande toutes les N secondes</td>
+</tr>
+
+<tr>
+<td class="org-left">mkdir -p</td>
+<td class="org-left">Créer les sous-dossiers récursivement si inexistants</td>
+</tr>
+
+<tr>
+<td class="org-left">strace</td>
+<td class="org-left">Indique quels sont les fichiers qu'un programme essaie de lire</td>
+</tr>
+
+<tr>
+<td class="org-left"><a href="https://github.com/nvbn/thefuck">thefuck</a></td>
+<td class="org-left">Tente de corriger la dernière commande en se basant sur l'historique</td>
+</tr>
+
+<tr>
+<td class="org-left">mtr</td>
+<td class="org-left">Outil de diagnostique réseau (permet de visualiser le cheminement d'un paquet)</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1547,7 +1601,7 @@ Pour exporter en html : <b>C-c C-e R R</b>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-11-01 mar. 19:15</p>
+<p class="date">Created: 2016-11-06 Sun 23:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

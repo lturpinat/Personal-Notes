@@ -151,6 +151,18 @@ MAKEOPTS="-j5"			#Permet la compilation parallèle ; remplacer "5" par le nombre
 USE="python icu bindist mmx sse sse2"	 #Quelques USE flags basiques à ajouter
 VIDEO_CARDS=" "			#Il est préférable de ne spécifier votre carte graphique qu'une fois que votre système de base fonctionne (ex: nvidia)
 #+END_EXAMPLE
+
+#+begin_note
+Dans le cas de ma configuration (=Asus G75VX=), mon processeur est le suivant : =Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz= (IvyBridge).
+
+Comme il s'agit d'un Ivy Bridge Core, Gentoo recommande les variables suivantes :
+
+#+BEGIN_SRC bash
+CHOST="x86_64-pc-linux-gnu"
+CFLAGS="-march=core-avx-i -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
+#+END_SRC
+#+end_note
 *** Portage
 Synchronisation initiale de portage :
 #+BEGIN_SRC bash
@@ -294,7 +306,7 @@ Certains passages sont directement tirés de ces différentes sources :
 + [[https://wiki.gentoo.org/wiki/Quick_Installation_Checklist][La "Quick Installation Checklist" de gentoo wiki]]
 + [[https://www.youtube.com/watch?v=37bmALK7_ag][Le guide écrit associé à la vidéo YouTube e Humaniac]]
 + Ma propre expérience
-
+  
 ** Le clavier
 Permettre au système de gérer la bonne disposition du clavier
  + Récupérer les informations sur le clavier :
@@ -309,7 +321,7 @@ Permettre au système de gérer la bonne disposition du clavier
         Identifier "system-keyboard"
         MatchIsKeyboard "on"
         Option "XkbLayout" "fr"
-        Option "XkbModel" "pc105"
+        Option "XkbModel" "pc105"/
         Option "XkbVariant" "azerty"
         Option "XkbOptions" "grp:alt_shift_toggle"
    EndSection
@@ -532,9 +544,16 @@ greeter-setup-script=/usr/bin/numlockx on
 | [[https://lists.gnu.org/mailman/listinfo/help-bash][GNU bash help]]                       |
 | [[https://github.com/koalaman/shellcheck][ShellCheck (cf. flycheck sur Emacs)]] |
 *** Commandes utiles
-| Commande                    | Description                                        |
-|-----------------------------+----------------------------------------------------|
-| [[http://wiki.bash-hackers.org/howto/getopts_tutorial][getopts (gestion arguments)]] | Gestion intelligente d'arguments dans une commande |
+| Commande                       | Description                                                                    |
+|--------------------------------+--------------------------------------------------------------------------------|
+| [[http://wiki.bash-hackers.org/howto/getopts_tutorial][getopts (gestion arguments)]]    | Gestion intelligente d'arguments dans une commande                             |
+| ldd                            | Permet de récupérer les dépendances d'un binaire                               |
+| diff (eg. diff <(cmd1) <(cmd2) | Permet de comparer des fichiers/elements entre eux                             |
+| watch                          | Permet de répéter une commande toutes les N secondes                           |
+| mkdir -p                       | Créer les sous-dossiers récursivement si inexistants                           |
+| strace                         | Indique quels sont les fichiers qu'un programme essaie de lire                 |
+| [[https://github.com/nvbn/thefuck][thefuck]]                        | Tente de corriger la dernière commande en se basant sur l'historique           |
+| mtr                            | Outil de diagnostique réseau (permet de visualiser le cheminement d'un paquet) |
 *** Convertir une variable en base X
 Exemple avec une conversion en base 10
 #+BEGIN_SRC sh
