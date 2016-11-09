@@ -442,6 +442,12 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
 
 [[https://wiki.gentoo.org/wiki/OpenVPN][Source : Gentoo]]
+** Optimisation matérielle pour les laptops
+Utiliser laptop-mode :
+#+BEGIN_SRC sh
+emerge --ask app-laptop/laptop-mode-tools
+#+END_SRC
+[[https://wiki.gentoo.org/wiki/Power_management/Guide][Source : Gentoo]]
 * Général
 ** Compatibilité R.A.T.3
 Editer "/etc/X11/xorg.conf"
@@ -531,6 +537,13 @@ greeter-setup-script=/usr/bin/numlockx on
 #+END_SRC
 
 [[https://wiki.archlinux.org/index.php/LightDM#NumLock_on_by_default][Source : Archlinux]]
+** Gestion de la luminosité : xbacklight
+Plus facile que de modifier en brute dans /proc, /xbacklight/ gère très bien la gestion de la luminosité : 
+
+Augmenter et baisser la luminosité : 
+#+BEGIN_SRC bash
+xbacklight -inc|-dec 10%
+#+END_SRC
 * Technique 
 ** Bash
 *** Liens utiles
@@ -627,3 +640,25 @@ Pour exporter en html : *C-c C-e R R*
 | *s*                    | Affichage pour le présentateur |
 | *o*                    | Aperçu des slides              |
 | *.* ou *b*             | Rend l'écran noir              |
+** mkvmerge
+Pour intégrer des sous-titres (.str) avec mkvmerge
+
++ Télécharger mkvtoolnix pour avoir mkvmerge
+#+BEGIN_SRC sh
+emerge -av media-video/mkvtoolnix
+#+END_SRC
+
++ Commande :
+#+BEGIN_SRC sh
+mkvmerge -o <sortie> --language 0:<langue> <sous-titre> <entree>
+#+END_SRC
+
++ Exemple :
+#+BEGIN_SRC sh
+mkvmerge -o "Les Sept Samuraïs (avec sous-titre).mp4" --language 0:ja "french.srt" "Les Sept Samuraïs (sans sous-titre).mp4"
+#+END_SRC  
+
+#+begin_hint
+Pour obtenir la liste des langues et leur code associé : 
+mkvmerge --list-languages
+#+end_hint
