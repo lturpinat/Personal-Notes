@@ -544,6 +544,33 @@ Augmenter et baisser la luminosité :
 #+BEGIN_SRC bash
 xbacklight -inc|-dec 10%
 #+END_SRC
+** NVIDIA
+Pour empêcher NVIDIA d'afficher un splashscreen au démarrage : éditer */etc/X11/xorg.conf*
+
++ Localiser la section "Device" de NVIDIA, elle ressemble probablement à ça :
+
+#+BEGIN_EXAMPLE
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+EndSection
+#+END_EXAMPLE
+
++ Ajouter la ligne suivante pour désactiver le splash screen :
+
+#+BEGIN_EXAMPLE
+Option  "NoLogo" "True"
+#+END_EXAMPLE
+
+#+begin_hint
+Pour générer *xorg.conf* avec nvidia installé :
+
+#+BEGIN_SRC bash
+nvidia-xconfig
+#+END_SRC
+#+end_hint
+
 * Technique 
 ** Bash
 *** Liens utiles
@@ -660,5 +687,8 @@ mkvmerge -o "Les Sept Samuraïs (avec sous-titre).mp4" --language 0:ja "french.s
 
 #+begin_hint
 Pour obtenir la liste des langues et leur code associé : 
+
+#+BEGIN_SRC sh
 mkvmerge --list-languages
+#+END_SRC
 #+end_hint

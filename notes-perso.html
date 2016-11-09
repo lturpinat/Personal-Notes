@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-09 mer. 12:51 -->
+<!-- 2016-11-09 mer. 15:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -202,7 +202,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline48">1.9. Optimisation matérielle pour les laptops</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline59">2. Général</a>
+<li><a href="#orgheadline60">2. Général</a>
 <ul>
 <li><a href="#orgheadline50">2.1. Compatibilité R.A.T.3</a></li>
 <li><a href="#orgheadline51">2.2. Réactiver le son après une sortie de veille</a></li>
@@ -216,40 +216,41 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline56">2.6. Gérer l'audio avec pactl</a></li>
 <li><a href="#orgheadline57">2.7. Activer le pavé numérique au démarrage de LightDM</a></li>
 <li><a href="#orgheadline58">2.8. Gestion de la luminosité : xbacklight</a></li>
+<li><a href="#orgheadline59">2.9. NVIDIA</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline65">3. Technique</a>
+<li><a href="#orgheadline66">3. Technique</a>
 <ul>
-<li><a href="#orgheadline64">3.1. Bash</a>
+<li><a href="#orgheadline65">3.1. Bash</a>
 <ul>
-<li><a href="#orgheadline60">3.1.1. Liens utiles</a></li>
-<li><a href="#orgheadline61">3.1.2. Commandes utiles</a></li>
-<li><a href="#orgheadline62">3.1.3. Convertir une variable en base X</a></li>
-<li><a href="#orgheadline63">3.1.4. Correction intelligente de script</a></li>
+<li><a href="#orgheadline61">3.1.1. Liens utiles</a></li>
+<li><a href="#orgheadline62">3.1.2. Commandes utiles</a></li>
+<li><a href="#orgheadline63">3.1.3. Convertir une variable en base X</a></li>
+<li><a href="#orgheadline64">3.1.4. Correction intelligente de script</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline83">4. Applications</a>
+<li><a href="#orgheadline84">4. Applications</a>
 <ul>
-<li><a href="#orgheadline66">4.1. Skype - désactiver le lancement au démarrage</a></li>
-<li><a href="#orgheadline67">4.2. Tmux</a></li>
-<li><a href="#orgheadline69">4.3. Terminal</a>
+<li><a href="#orgheadline67">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#orgheadline68">4.2. Tmux</a></li>
+<li><a href="#orgheadline70">4.3. Terminal</a>
 <ul>
-<li><a href="#orgheadline68">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
+<li><a href="#orgheadline69">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline81">4.4. Emacs</a>
+<li><a href="#orgheadline82">4.4. Emacs</a>
 <ul>
-<li><a href="#orgheadline70">4.4.1. Problème de police avec Emacs</a></li>
-<li><a href="#orgheadline71">4.4.2. Avoir la météo</a></li>
-<li><a href="#orgheadline72">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
-<li><a href="#orgheadline74">4.4.4. org-mode</a></li>
-<li><a href="#orgheadline75">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
-<li><a href="#orgheadline80">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
+<li><a href="#orgheadline71">4.4.1. Problème de police avec Emacs</a></li>
+<li><a href="#orgheadline72">4.4.2. Avoir la météo</a></li>
+<li><a href="#orgheadline73">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
+<li><a href="#orgheadline75">4.4.4. org-mode</a></li>
+<li><a href="#orgheadline76">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
+<li><a href="#orgheadline81">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline82">4.5. mkvmerge</a></li>
+<li><a href="#orgheadline83">4.5. mkvmerge</a></li>
 </ul>
 </li>
 </ul>
@@ -1085,8 +1086,8 @@ Utiliser laptop-mode :
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline59" class="outline-2">
-<h2 id="orgheadline59"><span class="section-number-2">2</span> Général</h2>
+<div id="outline-container-orgheadline60" class="outline-2">
+<h2 id="orgheadline60"><span class="section-number-2">2</span> Général</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline50" class="outline-3">
 <h3 id="orgheadline50"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
@@ -1283,15 +1284,57 @@ Augmenter et baisser la luminosité :
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">2.9</span> NVIDIA</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+Pour empêcher NVIDIA d'afficher un splashscreen au démarrage : éditer <b>/etc/X11/xorg.conf</b>
+</p>
+
+<ul class="org-ul">
+<li>Localiser la section "Device" de NVIDIA, elle ressemble probablement à ça :</li>
+</ul>
+
+<pre class="example">
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+EndSection
+</pre>
+
+<ul class="org-ul">
+<li>Ajouter la ligne suivante pour désactiver le splash screen :</li>
+</ul>
+
+<pre class="example">
+Option  "NoLogo" "True"
+</pre>
+
+<div class="hint">
+<p>
+Pour générer <b>xorg.conf</b> avec nvidia installé :
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">nvidia-xconfig
+</pre>
 </div>
-<div id="outline-container-orgheadline65" class="outline-2">
-<h2 id="orgheadline65"><span class="section-number-2">3</span> Technique</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline66" class="outline-2">
+<h2 id="orgheadline66"><span class="section-number-2">3</span> Technique</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline64" class="outline-3">
-<h3 id="orgheadline64"><span class="section-number-3">3.1</span> Bash</h3>
+</div><div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">3.1</span> Bash</h3>
 <div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-orgheadline60" class="outline-4">
-<h4 id="orgheadline60"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
+</div><div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1336,8 +1379,8 @@ Augmenter et baisser la luminosité :
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline61" class="outline-4">
-<h4 id="orgheadline61"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
+<div id="outline-container-orgheadline62" class="outline-4">
+<h4 id="orgheadline62"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1397,8 +1440,8 @@ Augmenter et baisser la luminosité :
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline62" class="outline-4">
-<h4 id="orgheadline62"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
+<div id="outline-container-orgheadline63" class="outline-4">
+<h4 id="orgheadline63"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 Exemple avec une conversion en base 10
@@ -1410,8 +1453,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline63" class="outline-4">
-<h4 id="orgheadline63"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
+<div id="outline-container-orgheadline64" class="outline-4">
+<h4 id="orgheadline64"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>Installer <a href="https://github.com/koalaman/shellcheck">ShellCheck</a></li>
@@ -1426,11 +1469,11 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline83" class="outline-2">
-<h2 id="orgheadline83"><span class="section-number-2">4</span> Applications</h2>
+<div id="outline-container-orgheadline84" class="outline-2">
+<h2 id="orgheadline84"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline66" class="outline-3">
-<h3 id="orgheadline66"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+</div><div id="outline-container-orgheadline67" class="outline-3">
+<h3 id="orgheadline67"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
@@ -1439,8 +1482,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline67" class="outline-3">
-<h3 id="orgheadline67"><span class="section-number-3">4.2</span> Tmux</h3>
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">4.2</span> Tmux</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Commande pour rejoindre la session "home" ou la créer si elle n'existe pas
@@ -1450,11 +1493,11 @@ tmux new -A -s home
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline69" class="outline-3">
-<h3 id="orgheadline69"><span class="section-number-3">4.3</span> Terminal</h3>
+<div id="outline-container-orgheadline70" class="outline-3">
+<h3 id="orgheadline70"><span class="section-number-3">4.3</span> Terminal</h3>
 <div class="outline-text-3" id="text-4-3">
-</div><div id="outline-container-orgheadline68" class="outline-4">
-<h4 id="orgheadline68"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
+</div><div id="outline-container-orgheadline69" class="outline-4">
+<h4 id="orgheadline69"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
@@ -1466,19 +1509,19 @@ Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline81" class="outline-3">
-<h3 id="orgheadline81"><span class="section-number-3">4.4</span> Emacs</h3>
+<div id="outline-container-orgheadline82" class="outline-3">
+<h3 id="orgheadline82"><span class="section-number-3">4.4</span> Emacs</h3>
 <div class="outline-text-3" id="text-4-4">
-</div><div id="outline-container-orgheadline70" class="outline-4">
-<h4 id="orgheadline70"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
+</div><div id="outline-container-orgheadline71" class="outline-4">
+<h4 id="orgheadline71"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 cf. Gentoo/Emacs et polices de caractères
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline71" class="outline-4">
-<h4 id="orgheadline71"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
+<div id="outline-container-orgheadline72" class="outline-4">
+<h4 id="orgheadline72"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
 <div class="outline-text-4" id="text-4-4-2">
 <p>
 Package : <i>wttrin</i>
@@ -1489,8 +1532,8 @@ Package : <i>wttrin</i>
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline72" class="outline-4">
-<h4 id="orgheadline72"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
 <div class="outline-text-4" id="text-4-4-3">
 <p>
 Package : <i>htmlize</i>
@@ -1501,31 +1544,31 @@ Package : <i>htmlize</i>
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline74" class="outline-4">
-<h4 id="orgheadline74"><span class="section-number-4">4.4.4</span> org-mode</h4>
+<div id="outline-container-orgheadline75" class="outline-4">
+<h4 id="orgheadline75"><span class="section-number-4">4.4.4</span> org-mode</h4>
 <div class="outline-text-4" id="text-4-4-4">
-</div><ol class="org-ol"><li><a id="orgheadline73"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-4-4-1">
+</div><ol class="org-ol"><li><a id="orgheadline74"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-4-4-1">
 <p>
 Activer <i>org-indent-mode</i>
 </p>
 </div></li></ol>
 </div>
-<div id="outline-container-orgheadline75" class="outline-4">
-<h4 id="orgheadline75"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
+<div id="outline-container-orgheadline76" class="outline-4">
+<h4 id="orgheadline76"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
 <div class="outline-text-4" id="text-4-4-5">
 <p>
 Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiquement avec <i>ShellCheck</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline80" class="outline-4">
-<h4 id="orgheadline80"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
+<div id="outline-container-orgheadline81" class="outline-4">
+<h4 id="orgheadline81"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
 <div class="outline-text-4" id="text-4-4-6">
 <p>
 Permet de faire des présentations avec Reveal.js en utilisant org-mode
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline76"></a>Liens importants<br  /><div class="outline-text-5" id="text-4-4-6-1">
+<ol class="org-ol"><li><a id="orgheadline77"></a>Liens importants<br  /><div class="outline-text-5" id="text-4-4-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1563,7 +1606,7 @@ Permet de faire des présentations avec Reveal.js en utilisant org-mode
 </tbody>
 </table>
 </div></li>
-<li><a id="orgheadline77"></a>Instructions<br  /><div class="outline-text-5" id="text-4-4-6-2">
+<li><a id="orgheadline78"></a>Instructions<br  /><div class="outline-text-5" id="text-4-4-6-2">
 <ul class="org-ul">
 <li>Télécharger reveal.js l'extraire et le renommer <i>reveal.js</i> (sinon préciser son emplacement avec <b>#+REVEAL_ROOT: <a href="file://d:/reveal.js">file://d:/reveal.js</a></b>)</li>
 <li>Installer le package <i>ox-reveal.el</i> (et <i>htmlize.el</i> pour la coloration syntaxique) sur Emacs</li>
@@ -1580,7 +1623,7 @@ Pour exporter en html : <b>C-c C-e R R</b>
 </div></li>
 </ul>
 </div></li>
-<li><a id="orgheadline78"></a>Notes<br  /><div class="outline-text-5" id="text-4-4-6-3">
+<li><a id="orgheadline79"></a>Notes<br  /><div class="outline-text-5" id="text-4-4-6-3">
 <ul class="org-ul">
 <li>Pour fragmenter l'apparition d'une liste (placer au dessus de la liste) : <b>#+ATTR_REVEAL: :frag (appear)</b></li>
 <li>Pour enlever le sommaire, la datation et la numérotation <b>#+OPTIONS: toc:nil timestamp:nil num:nil</b></li>
@@ -1588,7 +1631,7 @@ Pour exporter en html : <b>C-c C-e R R</b>
 <li>Paramétrer les effets de slide : <b>#+REVEAL_TRANS: slide</b></li>
 </ul>
 </div></li>
-<li><a id="orgheadline79"></a>Raccourcis<br  /><div class="outline-text-5" id="text-4-4-6-4">
+<li><a id="orgheadline80"></a>Raccourcis<br  /><div class="outline-text-5" id="text-4-4-6-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1633,8 +1676,8 @@ Pour exporter en html : <b>C-c C-e R R</b>
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline82" class="outline-3">
-<h3 id="orgheadline82"><span class="section-number-3">4.5</span> mkvmerge</h3>
+<div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83"><span class="section-number-3">4.5</span> mkvmerge</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 Pour intégrer des sous-titres (.str) avec mkvmerge
@@ -1670,8 +1713,13 @@ Pour intégrer des sous-titres (.str) avec mkvmerge
 <div class="hint">
 <p>
 Pour obtenir la liste des langues et leur code associé : 
-mkvmerge &#x2013;list-languages
 </p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">mkvmerge --list-languages
+</pre>
+</div>
 
 </div>
 </div>
@@ -1680,7 +1728,7 @@ mkvmerge &#x2013;list-languages
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-11-09 mer. 12:51</p>
+<p class="date">Created: 2016-11-09 mer. 15:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
