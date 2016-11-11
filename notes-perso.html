@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-11 ven. 02:39 -->
+<!-- 2016-11-11 ven. 19:29 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -231,7 +231,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline87">4. Applications</a>
+<li><a href="#orgheadline90">4. Applications</a>
 <ul>
 <li><a href="#orgheadline67">4.1. Skype - désactiver le lancement au démarrage</a></li>
 <li><a href="#orgheadline68">4.2. Tmux</a></li>
@@ -255,6 +255,12 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline84">4.6.1. Commande personnalisée</a></li>
 <li><a href="#orgheadline85">4.6.2. Thème</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline89">4.7. Weechat</a>
+<ul>
+<li><a href="#orgheadline87">4.7.1. Thème</a></li>
+<li><a href="#orgheadline88">4.7.2. Autres configurations intéressantes</a></li>
 </ul>
 </li>
 </ul>
@@ -1475,8 +1481,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline87" class="outline-2">
-<h2 id="orgheadline87"><span class="section-number-2">4</span> Applications</h2>
+<div id="outline-container-orgheadline90" class="outline-2">
+<h2 id="orgheadline90"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline67" class="outline-3">
 <h3 id="orgheadline67"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
@@ -1771,11 +1777,71 @@ rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline89" class="outline-3">
+<h3 id="orgheadline89"><span class="section-number-3">4.7</span> Weechat</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+Client IRC en ligne de commande
+</p>
+</div>
+<div id="outline-container-orgheadline87" class="outline-4">
+<h4 id="orgheadline87"><span class="section-number-4">4.7.1</span> Thème</h4>
+<div class="outline-text-4" id="text-4-7-1">
+<p>
+Commandes à exécuter :
+</p>
+<pre class="example">
+/script install buffers.pl buffer_autoclose.py iset.pl go.py colorize_nicks.py
+#Permet de changer de buffer avec ALT+g
+/key bind meta-g /go
+
+/set weechat.bar.status.color_bg 0
+/set weechat.bar.title.color_bg 0
+/set weechat.color.chat_nick_colors 1,2,3,4,5,6
+/set buffers.color.hotlist_message_fg 7
+/set weechat.bar.buffers.position top
+
+/set weechat.bar.buffers.items buffers
+/set buffers.look.hide_merged_buffers server
+/set buffers.look.detach 600
+
+/set weechat.look.buffer_notify_default message
+/set irc.look.smart_filter on
+/filter add irc_smart * irc_smart_filter *
+/filter add irc_join_names * irc_366,irc_332,irc_333,irc_329,irc_324 *
+
+/set weechat.look.prefix_same_nick "⤷"
+/set weechat.look.prefix_error "⚠"
+/set weechat.look.prefix_network "ℹ "
+/set weechat.look.prefix_action "⚡"
+/set weechat.look.bar_more_down "▼▼"
+/set weechat.look.bar_more_left "◀◀"
+/set weechat.look.bar_more_right "▶▶"
+/set weechat.look.bar_more_up "▲▲"
+/set weechat.look.prefix_suffix "╡"
+
+#Afficher la nicklist avec ALT+n
+/key bind meta-n /bar toggle nicklist
+</pre>
+<p>
+<a href="http://benoliver999.com/2014/02/18/weechatconf/">Tous les crédits vont à benoliver99</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline88" class="outline-4">
+<h4 id="orgheadline88"><span class="section-number-4">4.7.2</span> Autres configurations intéressantes</h4>
+<div class="outline-text-4" id="text-4-7-2">
+<p>
+<a href="https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options">https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options</a>
+</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-11-11 ven. 02:39</p>
+<p class="date">Created: 2016-11-11 ven. 19:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

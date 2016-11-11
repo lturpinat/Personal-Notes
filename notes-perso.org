@@ -713,3 +713,43 @@ rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 #+END_EXAMPLE
 [[https://davedavenport.github.io/rofi][Source : Github]]
+** Weechat
+Client IRC en ligne de commande
+*** Thème
+Commandes à exécuter :
+#+BEGIN_EXAMPLE
+/script install buffers.pl buffer_autoclose.py iset.pl go.py colorize_nicks.py
+#Permet de changer de buffer avec ALT+g
+/key bind meta-g /go
+
+/set weechat.bar.status.color_bg 0
+/set weechat.bar.title.color_bg 0
+/set weechat.color.chat_nick_colors 1,2,3,4,5,6
+/set buffers.color.hotlist_message_fg 7
+/set weechat.bar.buffers.position top
+
+/set weechat.bar.buffers.items buffers
+/set buffers.look.hide_merged_buffers server
+/set buffers.look.detach 600
+
+/set weechat.look.buffer_notify_default message
+/set irc.look.smart_filter on
+/filter add irc_smart * irc_smart_filter *
+/filter add irc_join_names * irc_366,irc_332,irc_333,irc_329,irc_324 *
+
+/set weechat.look.prefix_same_nick "⤷"
+/set weechat.look.prefix_error "⚠"
+/set weechat.look.prefix_network "ℹ "
+/set weechat.look.prefix_action "⚡"
+/set weechat.look.bar_more_down "▼▼"
+/set weechat.look.bar_more_left "◀◀"
+/set weechat.look.bar_more_right "▶▶"
+/set weechat.look.bar_more_up "▲▲"
+/set weechat.look.prefix_suffix "╡"
+
+#Afficher la nicklist avec ALT+n
+/key bind meta-n /bar toggle nicklist
+#+END_EXAMPLE
+[[http://benoliver999.com/2014/02/18/weechatconf/][Tous les crédits vont à benoliver99]]
+*** Autres configurations intéressantes
+https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options
