@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-09 mer. 15:47 -->
+<!-- 2016-11-11 ven. 02:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -231,7 +231,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline84">4. Applications</a>
+<li><a href="#orgheadline87">4. Applications</a>
 <ul>
 <li><a href="#orgheadline67">4.1. Skype - désactiver le lancement au démarrage</a></li>
 <li><a href="#orgheadline68">4.2. Tmux</a></li>
@@ -251,6 +251,12 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline83">4.5. mkvmerge</a></li>
+<li><a href="#orgheadline86">4.6. Rofi</a>
+<ul>
+<li><a href="#orgheadline84">4.6.1. Commande personnalisée</a></li>
+<li><a href="#orgheadline85">4.6.2. Thème</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1469,8 +1475,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline84" class="outline-2">
-<h2 id="orgheadline84"><span class="section-number-2">4</span> Applications</h2>
+<div id="outline-container-orgheadline87" class="outline-2">
+<h2 id="orgheadline87"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline67" class="outline-3">
 <h3 id="orgheadline67"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
@@ -1724,11 +1730,52 @@ Pour obtenir la liste des langues et leur code associé :
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline86" class="outline-3">
+<h3 id="orgheadline86"><span class="section-number-3">4.6</span> Rofi</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+Outil similaire à dmenu
+</p>
+</div>
+<div id="outline-container-orgheadline84" class="outline-4">
+<h4 id="orgheadline84"><span class="section-number-4">4.6.1</span> Commande personnalisée</h4>
+<div class="outline-text-4" id="text-4-6-1">
+<pre class="example">
+rofi -show run -lines 3 -eh 2 -width 100 -padding 430 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Displa 18"
+</pre>
+</div>
+</div>
+<div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85"><span class="section-number-4">4.6.2</span> Thème</h4>
+<div class="outline-text-4" id="text-4-6-2">
+<p>
+Nom du thème : <b>glue_pro_blue.theme</b>
+</p>
+
+<p>
+Installer le thème dans le fichier <b>~.Xresources</b>
+</p>
+<pre class="example">
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+</pre>
+<p>
+<a href="https://davedavenport.github.io/rofi">Source : Github</a>
+</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-11-09 mer. 15:47</p>
+<p class="date">Created: 2016-11-11 ven. 02:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

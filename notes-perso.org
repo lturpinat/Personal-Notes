@@ -692,3 +692,24 @@ Pour obtenir la liste des langues et leur code associé :
 mkvmerge --list-languages
 #+END_SRC
 #+end_hint
+** Rofi
+Outil similaire à dmenu
+*** Commande personnalisée 
+#+BEGIN_EXAMPLE
+rofi -show run -lines 3 -eh 2 -width 100 -padding 430 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Displa 18"
+#+END_EXAMPLE
+*** Thème
+Nom du thème : *glue_pro_blue.theme*
+
+Installer le thème dans le fichier *~.Xresources*
+#+BEGIN_EXAMPLE
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+#+END_EXAMPLE
+[[https://davedavenport.github.io/rofi][Source : Github]]
