@@ -545,6 +545,7 @@ Augmenter et baisser la luminosité :
 xbacklight -inc|-dec 10%
 #+END_SRC
 ** NVIDIA
+*** Configuration basique
 Pour empêcher NVIDIA d'afficher un splashscreen au démarrage : éditer */etc/X11/xorg.conf*
 
 + Localiser la section "Device" de NVIDIA, elle ressemble probablement à ça :
@@ -571,6 +572,27 @@ nvidia-xconfig
 #+END_SRC
 #+end_hint
 
+*** Problème de tearing
+Ouvrir */etc/X11/xorg.conf*
+
+Rechercher la section *Screen* et ajouter
+#+BEGIN_EXAMPLE
+Option  "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+#+END_EXAMPLE
+
+Cela peut donner : 
+#+BEGIN_EXAMPLE
+Section "Screen"
+    Identifier     "Screen0"
+    Device         "Device0"
+    Monitor        "Monitor0"
+    DefaultDepth    24
+    Option  "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+    SubSection     "Display"
+        Depth       24
+    EndSubSection
+EndSection
+#+END_EXAMPLE
 * Technique 
 ** Bash
 *** Liens utiles
