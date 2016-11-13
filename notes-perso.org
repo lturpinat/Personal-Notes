@@ -499,7 +499,7 @@ alien -r fichier.deb
 + Télécharger le tarball de flash-player sur le site officiel d'Adobe
 + Place le fichier /libflashplayer.so/ dans ~/.mozilla/plugins/
 + Redémarrer le navigateur
-** Gérer l'audio avec pactl
+** Gérer l'audio avec pactl (moins fiable)
 + Avantages
 Facilité de gestion du son (monter, descendre ou muter cartes son), possibilité d'aller au dessus de 100% (!)
 
@@ -527,7 +527,24 @@ pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%
 #+begin_note
 Note : il est possible d'optimiser le nom (très long) des sorties à l'aide du fichier de configuration utilisateur.
 #+end_note
+** Gérer l'audio avec amixer (plus fiable)
+pactl est pratique (le son peut aller au-delà de 100%), mais avec mes problèmes audio, il est devenu instable (changement imprévisibles des noms des sorties)
+Amixer est dans ce sens plus intelligent, et simple au niveau des commandes :
 
+Les différentes commandes que j'utilise :
+#+BEGIN_EXAMPLE
+# -q --> quiet
+amixer -q sset Master 80%         # Mets le son à 80%
+amixer -q sset unmute Master 10%+ # Augmente le son de 10%
+amixer -q sset unmute Master 10%- # Diminue le son de 10
+amixer -q sset Master toggle      # Mute/Unmute Master selon l'état
+#+END_EXAMPLE
+
+Toujours le même avertissement :
+#+begin_warning
+Etant sur XFCE4 et sachant que je dois modifier les raccourcis FN pour le son, il faut supprimer le package /xfce4-volumed/ qui 
+gère les raccourcis et l'animation correspond aux variations de volume.
+#+end_warning
 ** Activer le pavé numérique au démarrage de LightDM
 + Installer /numlockx/
 + Modifier le fichier */etc/lightdm/lightdm.conf*
