@@ -448,6 +448,13 @@ Utiliser laptop-mode :
 emerge --ask app-laptop/laptop-mode-tools
 #+END_SRC
 [[https://wiki.gentoo.org/wiki/Power_management/Guide][Source : Gentoo]]
+** Mise à jour hebdomadaire
+#+BEGIN_SRC bash
+#Mise à jour de portage : 
+emerge --sync
+#Mise à jour du système : 
+emerge -uNDv world
+#+END_SRC
 * Général
 ** Compatibilité R.A.T.3
 Editer "/etc/X11/xorg.conf"
