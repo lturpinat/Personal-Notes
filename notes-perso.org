@@ -617,6 +617,15 @@ Section "Screen"
     EndSubSection
 EndSection
 #+END_EXAMPLE
+** Accèder aux documents d'un téléphone utilisant MTP
+Le MTP rend l'accès aux téléphones android difficile en dehors de Mac OSX et de Windows, il faut donc utiliser /gMPT/ sur Linux.
+#+BEGIN_SRC bash
+emerge -av gmtp
+#+END_SRC
+
+#+begin_note
+gMPT possède une interface GUI.
+#+end_note
 * Technique 
 ** Bash
 *** Liens utiles
@@ -679,7 +688,11 @@ Package : /htmlize/
 [[https://github.com/emacsmirror/htmlize][Source : Github]]
 *** org-mode
 **** Indentation automatique
-Activer /org-indent-mode/
++ Activer /org-indent-mode/
++ Pour la rendre automatique
+#+BEGIN_SRC elisp
+(setq org-startup-indented t)
+#+END_SRC
 *** Correction automatique scripts shell avec ShellCheck
 Activer flycheck : /flycheck-mode/, la correction se fait ensuite automatiquement avec /ShellCheck/.
 *** Faire des présentations avec org-mode et Reveal.js
