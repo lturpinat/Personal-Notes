@@ -751,6 +751,85 @@ Pour obtenir la liste des langues et leur code associé :
 mkvmerge --list-languages
 #+END_SRC
 #+end_hint
+** cmus-notify
+Permet de gérer le client cmus
+*** Script
+#+BEGIN_SRC sh
+#!/bin/sh
+Cmus_remote=$(cmus-remote -Q)
+Instance=$(echo -e "$Cmus_remote" | wc -l)
+Shuffle="Shuffle On"
+if [ $Instance = 1 ]; then
+    terminal -e cmus &&
+    sleep 2
+    cmus-remote -p
+else
+    if [ $1 == "-S" ]; then
+        if [ `echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3` == true ]; then
+            Shuffle="Shuffle Off"
+        fi
+        cmus-remote $1
+        notify-send -t 800 $Shuffle
+    elif [ $1 == "-Q" ]; then
+        Cur_song=$(echo "$Cmus_remote" | grep tag | head -n 3 | sort -r | cut -d ' ' -f 3- )
+        notify-send -i multimedia-volume-control -t 1800 "$Cur_song"
+#        artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)
+#        title=$(echo -e "$Cur_song" | head -n 1 )
+#        cmus-updatepidgin artist "$artist" title "$title"
+    else
+        cmus-remote $1
+        Cur_song=$(cmus-remote -Q | grep tag | head -n 3 | sort -r | cut -d ' ' -f 3- )
+        notify-send -i multimedia-volume-control -t 1800 "$Cur_song"
+    fi
+fi
+#+END_SRC
+*** Fonctionnement
+Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
+
+Infos sur les arguments :
+#+BEGIN_SRC bash
+man cmus-remote
+#+END_SRC
+
+Exemple :
+#+BEGIN_EXAMPLE
+cmus-notify.sh -p #Permet de jouer le morceau sélectionné
+#+END_EXAMPLE
+   
+[[https://colorathis.wordpress.com/2013/06/25/cmus-notify/][Source : colorathis.wordpress.com]]
+** MPD
+Playeur orienté serveur.
+*** Configurqation de MPD
+Editer : *~/.mpd/mpd.conf*
+#+BEGIN_EXAMPLE
+music_directory	"repertoire_musical"
+db_file "~/.mpd/mpd.db"
+log_file "~/.mpd/mpd.log"
+pid_file "~/.mpd/mpd.pid"
+state_file "~/.mpd/mpdstate"
+
+user "utilisateur"
+
+bind_to_address "127.0.0.1"
+port "6600"
+
+audio_output {
+        type            "pulse"
+        name            "Pulse Output"
+        mixer_control   "Master"
+}
+#+END_EXAMPLE
+*** MPC
+MPC permet de gérer MPD en ligne de commande, ex :
+#+BEGIN_SRC bash
+mpc play/pause/toggle/prev/next/stop
+#+END_SRC
+#+begin_hint
+Je map ces différentes commandes sur mes touches multimédia pour pouvoir accèder au démon de MPD à tout moment.
+#+end_hint
+*** Autres clients
++ [[https://ambientsound.github.io/pms/][Practical Music Search (pms)]]
++ [[http://rybczak.net/ncmpcpp/][NCurses Music Player Client (Plus Plus) (ncmpcpp)]]
 ** Rofi
 Outil similaire à dmenu
 *** Commande personnalisée 
