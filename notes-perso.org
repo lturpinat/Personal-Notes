@@ -9,7 +9,7 @@
 [[./linux.png]]
 
 #+begin_hint 
-La machine utilisée est un =Asus G75VX=.
+La machine utilisée est un =Asus G75VX=
 #+end_hint
 
 * Gentoo
