@@ -442,6 +442,10 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
 
 [[https://wiki.gentoo.org/wiki/OpenVPN][Source : Gentoo]]
+** Logitech MX Master (souris)
+#+begin_attention
+Penser à ajouter les bons modules au Kernel (cf. Logitech) pour une meilleur intégration à Gentoo !
+#+end_attention
 ** Optimisation matérielle pour les laptops
 Utiliser laptop-mode :
 #+BEGIN_SRC sh
@@ -467,6 +471,11 @@ Option "ButtonMapping" "1 2 3 4 5 0 0 8 9 0 0 0 13 14"
 EndSection
 #+END_SRC
 [[http://forums.fedora-fr.org/viewtopic.php?id=64212][Source : forum fedora-fr]]
+** Trucs pour la Logitech MX Master
+*** Activer le scrolling horizontal 
+#+BEGIN_SRC sh
+xinput set-prop "Logitech MX Master" "Evdev Scrolling Distance" 1 -1 1
+#+END_SRC
 ** Réactiver le son après une sortie de veille 
    + Editer "/etc/default/acpi-support"
 
