@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-11-23 mer. 13:27 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="lturpinat" />
+<!-- 2016-12-29 Thu 15:43 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="lturpinat" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -53,110 +46,27 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -176,7 +86,6 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
@@ -239,134 +148,141 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbfe348c">1. Gentoo</a>
+<li><a href="#sec-1">1. Gentoo</a>
 <ul>
-<li><a href="#org87dd537">1.1. Installation rapide de Gentoo</a>
+<li><a href="#sec-1-1">1.1. Installation rapide de Gentoo</a>
 <ul>
-<li><a href="#orgf027b62">1.1.1. Formatage du disque</a></li>
-<li><a href="#org3f95adc">1.1.2. Stage3</a></li>
-<li><a href="#orgde3b164">1.1.3. Chrooting</a></li>
-<li><a href="#orge124d26">1.1.4. Utilisateurs et <i>make.conf</i></a></li>
-<li><a href="#orgeede285">1.1.5. Portage</a></li>
-<li><a href="#org5106a01">1.1.6. Paramétrage de <i>fstab</i></a></li>
-<li><a href="#orgdf050ee">1.1.7. Sélection d'un profil</a></li>
-<li><a href="#org736d45e">1.1.8. Fuseau horaire</a></li>
-<li><a href="#org95b6750">1.1.9. Fichiers de configuration</a></li>
-<li><a href="#org94ca23e">1.1.10. Le Kernel</a></li>
-<li><a href="#orgf8b84a5">1.1.11. L'amorceur (bootloader)</a></li>
-<li><a href="#orgd81f624">1.1.12. Outils réseaux</a></li>
-<li><a href="#org790b95d">1.1.13. Redémarrage</a></li>
-<li><a href="#orgc70a439">1.1.14. Dernière phase</a></li>
-<li><a href="#orgab52d82">1.1.15. Sources</a></li>
+<li><a href="#sec-1-1-1">1.1.1. Formatage du disque</a></li>
+<li><a href="#sec-1-1-2">1.1.2. Stage3</a></li>
+<li><a href="#sec-1-1-3">1.1.3. Chrooting</a></li>
+<li><a href="#sec-1-1-4">1.1.4. Utilisateurs et <i>make.conf</i></a></li>
+<li><a href="#sec-1-1-5">1.1.5. Portage</a></li>
+<li><a href="#sec-1-1-6">1.1.6. Paramétrage de <i>fstab</i></a></li>
+<li><a href="#sec-1-1-7">1.1.7. Sélection d'un profil</a></li>
+<li><a href="#sec-1-1-8">1.1.8. Fuseau horaire</a></li>
+<li><a href="#sec-1-1-9">1.1.9. Fichiers de configuration</a></li>
+<li><a href="#sec-1-1-10">1.1.10. Le Kernel</a></li>
+<li><a href="#sec-1-1-11">1.1.11. L'amorceur (bootloader)</a></li>
+<li><a href="#sec-1-1-12">1.1.12. Outils réseaux</a></li>
+<li><a href="#sec-1-1-13">1.1.13. Redémarrage</a></li>
+<li><a href="#sec-1-1-14">1.1.14. Dernière phase</a></li>
+<li><a href="#sec-1-1-15">1.1.15. Sources</a></li>
 </ul>
 </li>
-<li><a href="#orge5d485f">1.2. Le clavier</a></li>
-<li><a href="#orgfb431d4">1.3. Outils vfat (FAT32)</a></li>
-<li><a href="#org1ddbaec">1.4. Support du NTFS</a>
+<li><a href="#sec-1-2">1.2. Le clavier</a></li>
+<li><a href="#sec-1-3">1.3. Outils vfat (FAT32)</a></li>
+<li><a href="#sec-1-4">1.4. Support du NTFS</a>
 <ul>
-<li><a href="#orgcee23db">1.4.1. Kernel</a></li>
-<li><a href="#org0315be8">1.4.2. Outil</a></li>
+<li><a href="#sec-1-4-1">1.4.1. Kernel</a></li>
+<li><a href="#sec-1-4-2">1.4.2. Outil</a></li>
 </ul>
 </li>
-<li><a href="#orgf93ac1f">1.5. Emacs et polices de caractères</a></li>
-<li><a href="#orge96b117">1.6. Support du NFS</a>
+<li><a href="#sec-1-5">1.5. Emacs et polices de caractères</a></li>
+<li><a href="#sec-1-6">1.6. Support du NFS</a>
 <ul>
-<li><a href="#org614a694">1.6.1. Kernel</a></li>
-<li><a href="#org59b5df0">1.6.2. Outil</a></li>
-<li><a href="#org747263a">1.6.3. OpenRC</a></li>
-<li><a href="#org7f52975">1.6.4. Exemple de montage</a></li>
+<li><a href="#sec-1-6-1">1.6.1. Kernel</a></li>
+<li><a href="#sec-1-6-2">1.6.2. Outil</a></li>
+<li><a href="#sec-1-6-3">1.6.3. OpenRC</a></li>
+<li><a href="#sec-1-6-4">1.6.4. Exemple de montage</a></li>
 </ul>
 </li>
-<li><a href="#org8fe888d">1.7. cmus-notify</a>
+<li><a href="#sec-1-7">1.7. cmus-notify</a>
 <ul>
-<li><a href="#org9145b9e">1.7.1. Script</a></li>
-<li><a href="#org4858782">1.7.2. Fonctionnement</a></li>
+<li><a href="#sec-1-7-1">1.7.1. Script</a></li>
+<li><a href="#sec-1-7-2">1.7.2. Fonctionnement</a></li>
 </ul>
 </li>
-<li><a href="#org96b49c0">1.8. OpenVPN</a></li>
-<li><a href="#org5912db6">1.9. Optimisation matérielle pour les laptops</a></li>
-<li><a href="#orgf1bb5bf">1.10. Mise à jour hebdomadaire</a></li>
+<li><a href="#sec-1-8">1.8. OpenVPN</a></li>
+<li><a href="#sec-1-9">1.9. Logitech MX Master (souris)</a></li>
+<li><a href="#sec-1-10">1.10. Optimisation matérielle pour les laptops</a></li>
+<li><a href="#sec-1-11">1.11. Mise à jour hebdomadaire</a></li>
 </ul>
 </li>
-<li><a href="#org0799c60">2. Général</a>
+<li><a href="#sec-2">2. Général</a>
 <ul>
-<li><a href="#org4aacfa7">2.1. Compatibilité R.A.T.3</a></li>
-<li><a href="#org51b451c">2.2. Réactiver le son après une sortie de veille</a></li>
-<li><a href="#org704b234">2.3. KDE</a>
+<li><a href="#sec-2-1">2.1. Compatibilité R.A.T.3</a></li>
+<li><a href="#sec-2-2">2.2. Trucs pour la Logitech MX Master</a>
 <ul>
-<li><a href="#orgb9630e9">2.3.1. Activer la touche Windows pour afficher le launcher</a></li>
+<li><a href="#sec-2-2-1">2.2.1. Activer le scrolling horizontal</a></li>
 </ul>
 </li>
-<li><a href="#org77416d7">2.4. Transformer un .deb en .rpm</a></li>
-<li><a href="#org9b0fc1d">2.5. Mettre flash-player sur Firefox</a></li>
-<li><a href="#org06a4ace">2.6. Gérer l'audio avec pactl (moins fiable)</a></li>
-<li><a href="#org552bd75">2.7. Gérer l'audio avec amixer (plus fiable)</a></li>
-<li><a href="#org969adbc">2.8. Activer le pavé numérique au démarrage de LightDM</a></li>
-<li><a href="#org07cdda2">2.9. Gestion de la luminosité : xbacklight</a></li>
-<li><a href="#orgf6bfa41">2.10. NVIDIA</a>
+<li><a href="#sec-2-3">2.3. Réactiver le son après une sortie de veille</a></li>
+<li><a href="#sec-2-4">2.4. KDE</a>
 <ul>
-<li><a href="#orgd08e4e8">2.10.1. Configuration basique</a></li>
-<li><a href="#org51bf406">2.10.2. Problème de tearing</a></li>
+<li><a href="#sec-2-4-1">2.4.1. Activer la touche Windows pour afficher le launcher</a></li>
 </ul>
 </li>
-<li><a href="#org16c0136">2.11. Accèder aux documents d'un téléphone utilisant MTP</a></li>
+<li><a href="#sec-2-5">2.5. Transformer un .deb en .rpm</a></li>
+<li><a href="#sec-2-6">2.6. Mettre flash-player sur Firefox</a></li>
+<li><a href="#sec-2-7">2.7. Gérer l'audio avec pactl (moins fiable)</a></li>
+<li><a href="#sec-2-8">2.8. Gérer l'audio avec amixer (plus fiable)</a></li>
+<li><a href="#sec-2-9">2.9. Activer le pavé numérique au démarrage de LightDM</a></li>
+<li><a href="#sec-2-10">2.10. Gestion de la luminosité : xbacklight</a></li>
+<li><a href="#sec-2-11">2.11. NVIDIA</a>
+<ul>
+<li><a href="#sec-2-11-1">2.11.1. Configuration basique</a></li>
+<li><a href="#sec-2-11-2">2.11.2. Problème de tearing</a></li>
 </ul>
 </li>
-<li><a href="#orgfbec043">3. Technique</a>
+<li><a href="#sec-2-12">2.12. Accèder aux documents d'un téléphone utilisant MTP</a></li>
+<li><a href="#sec-2-13">2.13. Rediriger sa sortie audio vers un serveur DLNA</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Technique</a>
 <ul>
-<li><a href="#org6157964">3.1. Bash</a>
+<li><a href="#sec-3-1">3.1. Bash</a>
 <ul>
-<li><a href="#org6354416">3.1.1. Liens utiles</a></li>
-<li><a href="#org4e709e0">3.1.2. Commandes utiles</a></li>
-<li><a href="#org17ffceb">3.1.3. Convertir une variable en base X</a></li>
-<li><a href="#orgb2bf8fd">3.1.4. Correction intelligente de script</a></li>
+<li><a href="#sec-3-1-1">3.1.1. Liens utiles</a></li>
+<li><a href="#sec-3-1-2">3.1.2. Commandes utiles</a></li>
+<li><a href="#sec-3-1-3">3.1.3. Convertir une variable en base X</a></li>
+<li><a href="#sec-3-1-4">3.1.4. Correction intelligente de script</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1ea6971">4. Applications</a>
+<li><a href="#sec-4">4. Applications</a>
 <ul>
-<li><a href="#org38faf74">4.1. Skype - désactiver le lancement au démarrage</a></li>
-<li><a href="#orgb416e53">4.2. Tmux</a></li>
-<li><a href="#org1a2f084">4.3. Terminal</a>
+<li><a href="#sec-4-1">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#sec-4-2">4.2. Tmux</a></li>
+<li><a href="#sec-4-3">4.3. Terminal</a>
 <ul>
-<li><a href="#org5996440">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
+<li><a href="#sec-4-3-1">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
 </ul>
 </li>
-<li><a href="#orga4798ff">4.4. Emacs</a>
+<li><a href="#sec-4-4">4.4. Emacs</a>
 <ul>
-<li><a href="#org67bef03">4.4.1. Problème de police avec Emacs</a></li>
-<li><a href="#org6cb9c9d">4.4.2. Avoir la météo</a></li>
-<li><a href="#orgec24a8f">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
-<li><a href="#org6fffd32">4.4.4. org-mode</a></li>
-<li><a href="#org0900854">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
-<li><a href="#org7e6e2dd">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
+<li><a href="#sec-4-4-1">4.4.1. Problème de police avec Emacs</a></li>
+<li><a href="#sec-4-4-2">4.4.2. Avoir la météo</a></li>
+<li><a href="#sec-4-4-3">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
+<li><a href="#sec-4-4-4">4.4.4. org-mode</a></li>
+<li><a href="#sec-4-4-5">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
+<li><a href="#sec-4-4-6">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
 </ul>
 </li>
-<li><a href="#orgf253604">4.5. mkvmerge</a></li>
-<li><a href="#org0292316">4.6. cmus-notify</a>
+<li><a href="#sec-4-5">4.5. mkvmerge</a></li>
+<li><a href="#sec-4-6">4.6. cmus-notify</a>
 <ul>
-<li><a href="#orgde9aaab">4.6.1. Script</a></li>
-<li><a href="#org1255887">4.6.2. Fonctionnement</a></li>
+<li><a href="#sec-4-6-1">4.6.1. Script</a></li>
+<li><a href="#sec-4-6-2">4.6.2. Fonctionnement</a></li>
 </ul>
 </li>
-<li><a href="#orge6f3aa0">4.7. MPD</a>
+<li><a href="#sec-4-7">4.7. MPD</a>
 <ul>
-<li><a href="#org554241d">4.7.1. Configurqation de MPD</a></li>
-<li><a href="#orgbc3c081">4.7.2. MPC</a></li>
-<li><a href="#orgeb1e8b4">4.7.3. Autres clients</a></li>
+<li><a href="#sec-4-7-1">4.7.1. Configurqation de MPD</a></li>
+<li><a href="#sec-4-7-2">4.7.2. MPC</a></li>
+<li><a href="#sec-4-7-3">4.7.3. Autres clients</a></li>
 </ul>
 </li>
-<li><a href="#org4310cc5">4.8. Rofi</a>
+<li><a href="#sec-4-8">4.8. Rofi</a>
 <ul>
-<li><a href="#org8476b6d">4.8.1. Commande personnalisée</a></li>
-<li><a href="#orgfc54658">4.8.2. Thème</a></li>
+<li><a href="#sec-4-8-1">4.8.1. Commande personnalisée</a></li>
+<li><a href="#sec-4-8-2">4.8.2. Thème</a></li>
 </ul>
 </li>
-<li><a href="#orgcd68f39">4.9. Weechat</a>
+<li><a href="#sec-4-9">4.9. Weechat</a>
 <ul>
-<li><a href="#orgd73ac3d">4.9.1. Thème</a></li>
-<li><a href="#org6e41643">4.9.2. Autres configurations intéressantes</a></li>
+<li><a href="#sec-4-9-1">4.9.1. Thème</a></li>
+<li><a href="#sec-4-9-2">4.9.2. Autres configurations intéressantes</a></li>
 </ul>
 </li>
 </ul>
@@ -389,14 +305,14 @@ La machine utilisée est un <code>Asus G75VX</code>
 
 </div>
 
-<div id="outline-container-orgbfe348c" class="outline-2">
-<h2 id="orgbfe348c"><span class="section-number-2">1</span> Gentoo</h2>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Gentoo</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-org87dd537" class="outline-3">
-<h3 id="org87dd537"><span class="section-number-3">1.1</span> Installation rapide de Gentoo</h3>
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Installation rapide de Gentoo</h3>
 <div class="outline-text-3" id="text-1-1">
-</div><div id="outline-container-orgf027b62" class="outline-4">
-<h4 id="orgf027b62"><span class="section-number-4">1.1.1</span> Formatage du disque</h4>
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Formatage du disque</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Création de 4 partitions pour une installation GPT/UEFI
@@ -406,61 +322,61 @@ Création de 4 partitions pour une installation GPT/UEFI
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Partition</th>
-<th scope="col" class="org-left">Nom supposé sur un disque <i>sda</i></th>
-<th scope="col" class="org-left">Point de montage</th>
-<th scope="col" class="org-left">Format</th>
-<th scope="col" class="org-left">Particularité</th>
+<th scope="col" class="left">Partition</th>
+<th scope="col" class="left">Nom supposé sur un disque <i>sda</i></th>
+<th scope="col" class="left">Point de montage</th>
+<th scope="col" class="left">Format</th>
+<th scope="col" class="left">Particularité</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">boot</td>
-<td class="org-left">/dev/sda1</td>
-<td class="org-left">/boot</td>
-<td class="org-left">ext2(4)</td>
-<td class="org-left">Partition de boot</td>
+<td class="left">boot</td>
+<td class="left">/dev/sda1</td>
+<td class="left">/boot</td>
+<td class="left">ext2(4)</td>
+<td class="left">Partition de boot</td>
 </tr>
 
 <tr>
-<td class="org-left">UEFI</td>
-<td class="org-left">/dev/sda2</td>
-<td class="org-left">/boot/efi</td>
-<td class="org-left">vfat (FAT32)</td>
-<td class="org-left">Partition de boot de l'UEFI</td>
+<td class="left">UEFI</td>
+<td class="left">/dev/sda2</td>
+<td class="left">/boot/efi</td>
+<td class="left">vfat (FAT32)</td>
+<td class="left">Partition de boot de l'UEFI</td>
 </tr>
 
 <tr>
-<td class="org-left">swap</td>
-<td class="org-left">/dev/sda3</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">swap</td>
-<td class="org-left">Partition de swap</td>
+<td class="left">swap</td>
+<td class="left">/dev/sda3</td>
+<td class="left">&#xa0;</td>
+<td class="left">swap</td>
+<td class="left">Partition de swap</td>
 </tr>
 
 <tr>
-<td class="org-left">rootfs</td>
-<td class="org-left">/dev/sda4</td>
-<td class="org-left">/</td>
-<td class="org-left">ext4</td>
-<td class="org-left">Partition principale</td>
+<td class="left">rootfs</td>
+<td class="left">/dev/sda4</td>
+<td class="left">/</td>
+<td class="left">ext4</td>
+<td class="left">Partition principale</td>
 </tr>
 </tbody>
 </table>
 </div>
-<ol class="org-ol"><li><a id="org3e52cbc"></a>Création des partitions <i>gdisk</i><br  /><div class="outline-text-5" id="text-1-1-1-1">
+<ol class="org-ol"><li><a id="sec-1-1-1-1" name="sec-1-1-1-1"></a>Création des partitions <i>gdisk</i><br  /><div class="outline-text-5" id="text-1-1-1-1">
 <pre class="example">
 root #gdisk /dev/sda
 
@@ -501,74 +417,89 @@ Write Partition Table To Disk:
 Command: w ↵
 Do you want to proceed? (Y/N): Y ↵
 </pre>
-</div></li>
-<li><a id="org42f4ce9"></a>Formatage des partitions<br  /><div class="outline-text-5" id="text-1-1-1-2">
+</div>
+</li>
+<li><a id="sec-1-1-1-2" name="sec-1-1-1-2"></a>Formatage des partitions<br  /><div class="outline-text-5" id="text-1-1-1-2">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Formatage de boot et rootfs en ext4</span>
+
+<pre class="src src-bash">#Formatage de boot et rootfs en ext4
 mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda4
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Formatage et activation de la partition swap</span>
+#Formatage et activation de la partition swap
 mkswap /dev/sda3 &amp;&amp; swapon /dev/sda3
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Formatage de UEFI en vfat</span>
+#Formatage de UEFI en vfat
 mkfs.vfat /dev/sda2
 </pre>
 </div>
-</div></li>
-<li><a id="org848747a"></a>Montage des partitions<br  /><div class="outline-text-5" id="text-1-1-1-3">
+</div>
+</li>
+<li><a id="sec-1-1-1-3" name="sec-1-1-1-3"></a>Montage des partitions<br  /><div class="outline-text-5" id="text-1-1-1-3">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Montage de rootfs dans /mnt/gentoo</span>
+
+<pre class="src src-bash">#Montage de rootfs dans /mnt/gentoo
 mkdir -p /mnt/gentoo
 mount /dev/sda4 /mnt/gentoo
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Montage de boot dans /mnt/gentoo/boot</span>
+#Montage de boot dans /mnt/gentoo/boot
 mkdir /mnt/gentoo/boot
 mount /dev/sda1 /mnt/gentoo/boot
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Montage de UEFI dans /mnt/gentoo/boot/efi</span>
+#Montage de UEFI dans /mnt/gentoo/boot/efi
 mkdir /mnt/gentoo/boot/efi
 mount /dev/sda2 /mnt/gentoo/boot/efi
 </pre>
 </div>
-</div></li></ol>
 </div>
-<div id="outline-container-org3f95adc" class="outline-4">
-<h4 id="org3f95adc"><span class="section-number-4">1.1.2</span> Stage3</h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Stage3</h4>
 <div class="outline-text-4" id="text-1-1-2">
-</div><ol class="org-ol"><li><a id="orgd5f860b"></a>Précaution : la date<br  /><div class="outline-text-5" id="text-1-1-2-1">
+</div><ol class="org-ol"><li><a id="sec-1-1-2-1" name="sec-1-1-2-1"></a>Précaution : la date<br  /><div class="outline-text-5" id="text-1-1-2-1">
 <p>
 Afin d'éviter tout problème de date pour la suite de l'installation, la définir :
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Format : mois - jour - heure - minutes - ann&#233;e</span>
+
+<pre class="src src-bash"># Format : mois - jour - heure - minutes - année
 date MMJJhhmmAAAAA
 </pre>
 </div>
-</div></li>
-<li><a id="org6eda714"></a>Téléchargement du tarball<br  /><div class="outline-text-5" id="text-1-1-2-2">
+</div>
+</li>
+<li><a id="sec-1-1-2-2" name="sec-1-1-2-2"></a>Téléchargement du tarball<br  /><div class="outline-text-5" id="text-1-1-2-2">
 <ul class="org-ul">
-<li>Trouver le repos adapaté sur le site, depuis la console grâce à links (navigateur web console) :</li>
+<li>Trouver le repos adapaté sur le site, depuis la console grâce à links (navigateur web console) :
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #4f97d7;">cd</span> /mnt/gentoo
+
+<pre class="src src-bash">cd /mnt/gentoo
 links https://www.gentoo.org/downloads/mirrors
 </pre>
 </div>
 <ul class="org-ul">
-<li>Arriver sur un lien du style "<a href="http://gentoo.mirrors.ovh.net/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20161027.tar.bz2">http://gentoo.mirrors.ovh.net/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20161027.tar.bz2</a>"</li>
-<li>Lancer le téléchargement grâce au raccourci <i>CTRL+D</i></li>
+<li>Arriver sur un lien du style "<a href="http://gentoo.mirrors.ovh.net/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20161027.tar.bz2">http://gentoo.mirrors.ovh.net/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20161027.tar.bz2</a>"
+</li>
+<li>Lancer le téléchargement grâce au raccourci <i>CTRL+D</i>
+</li>
 </ul>
-</div></li>
-<li><a id="org9841a23"></a>Décompression du tarball<br  /><div class="outline-text-5" id="text-1-1-2-3">
+</div>
+</li>
+<li><a id="sec-1-1-2-3" name="sec-1-1-2-3"></a>Décompression du tarball<br  /><div class="outline-text-5" id="text-1-1-2-3">
 <div class="org-src-container">
+
 <pre class="src src-bash">tar xjpf stage3*
 </pre>
 </div>
-</div></li></ol>
 </div>
-<div id="outline-container-orgde3b164" class="outline-4">
-<h4 id="orgde3b164"><span class="section-number-4">1.1.3</span> Chrooting</h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> Chrooting</h4>
 <div class="outline-text-4" id="text-1-1-3">
-</div><ol class="org-ol"><li><a id="orgdd181fe"></a>"Liaison" de /sys et /dev avec le nouveau système<br  /><div class="outline-text-5" id="text-1-1-3-1">
+</div><ol class="org-ol"><li><a id="sec-1-1-3-1" name="sec-1-1-3-1"></a>"Liaison" de /sys et /dev avec le nouveau système<br  /><div class="outline-text-5" id="text-1-1-3-1">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #4f97d7;">cd</span> /
+
+<pre class="src src-bash">cd /
 mount -t proc proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
 mount --make-rslave /mnt/gentoo/sys
@@ -583,44 +514,52 @@ Selon le Handbook, les commandes contenant "&#x2013;make-rslave" importent si le
 </p>
 
 </div>
-</div></li>
-<li><a id="org30e034c"></a>Transfert<br  /><div class="outline-text-5" id="text-1-1-3-2">
+</div>
+</li>
+<li><a id="sec-1-1-3-2" name="sec-1-1-3-2"></a>Transfert<br  /><div class="outline-text-5" id="text-1-1-3-2">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Transfert du fichier sp&#233;cifiant le ou les serveurs DNS &#224; utiliser pour r&#233;soudre un nom de domaine</span>
+
+<pre class="src src-bash">#Transfert du fichier spécifiant le ou les serveurs DNS à utiliser pour résoudre un nom de domaine
 cp /etc/resolv.conf /mnt/gentoo/etc
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Chrooting</span>
+#Chrooting
 chroot /mnt/gentoo /bin/bash
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Rechargement de la nouvelle configuration</span>
-<span style="color: #4f97d7;">source</span> /etc/profile
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Petit indicateur pour se souvenir que l'on a chroot&#233;</span>
-<span style="color: #4f97d7;">export</span> <span style="color: #7590db;">PS1</span>=<span style="color: #2d9574;">"(chroot) $PS1"</span>
+#Rechargement de la nouvelle configuration
+source /etc/profile
+#Petit indicateur pour se souvenir que l'on a chrooté
+export PS1="(chroot) $PS1"
 </pre>
 </div>
-</div></li></ol>
 </div>
-<div id="outline-container-orge124d26" class="outline-4">
-<h4 id="orge124d26"><span class="section-number-4">1.1.4</span> Utilisateurs et <i>make.conf</i></h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> Utilisateurs et <i>make.conf</i></h4>
 <div class="outline-text-4" id="text-1-1-4">
-</div><ol class="org-ol"><li><a id="org2756bf5"></a>Utilisateurs<br  /><div class="outline-text-5" id="text-1-1-4-1">
+</div><ol class="org-ol"><li><a id="sec-1-1-4-1" name="sec-1-1-4-1"></a>Utilisateurs<br  /><div class="outline-text-5" id="text-1-1-4-1">
 <ul class="org-ul">
-<li>Modification du mot de passe <i>root</i></li>
+<li>Modification du mot de passe <i>root</i>
+</li>
 </ul>
 <div class="org-src-container">
+
 <pre class="src src-bash">passwd
 </pre>
 </div>
 <ul class="org-ul">
-<li>Ajout d'un utilisateur</li>
+<li>Ajout d'un utilisateur
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Ajout de l'utilisateur</span>
+
+<pre class="src src-bash">#Ajout de l'utilisateur
 useradd -g users -G wheel,portage,audio,video,usb,cdrom -m &lt;nom-utilisateur&gt;
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Modification du mot de passe</span>
+#Modification du mot de passe
 passwd &lt;nom-utilisateur&gt;
 </pre>
 </div>
-</div></li>
-<li><a id="org3e224e5"></a>Configuration de <i>make.conf</i><br  /><div class="outline-text-5" id="text-1-1-4-2">
+</div>
+</li>
+<li><a id="sec-1-1-4-2" name="sec-1-1-4-2"></a>Configuration de <i>make.conf</i><br  /><div class="outline-text-5" id="text-1-1-4-2">
 <p>
 Modifications à effectuer dans le fichier :
 </p>
@@ -641,29 +580,32 @@ Comme il s'agit d'un Ivy Bridge Core, Gentoo recommande les variables suivantes 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #7590db;">CHOST</span>=<span style="color: #2d9574;">"x86_64-pc-linux-gnu"</span>
-<span style="color: #7590db;">CFLAGS</span>=<span style="color: #2d9574;">"-march=core-avx-i -O2 -pipe"</span>
-<span style="color: #7590db;">CXXFLAGS</span>=<span style="color: #2d9574;">"${CFLAGS}"</span>
+
+<pre class="src src-bash">CHOST="x86_64-pc-linux-gnu"
+CFLAGS="-march=core-avx-i -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
 </pre>
 </div>
 
 </div>
-</div></li></ol>
 </div>
-<div id="outline-container-orgeede285" class="outline-4">
-<h4 id="orgeede285"><span class="section-number-4">1.1.5</span> Portage</h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5"><span class="section-number-4">1.1.5</span> Portage</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <p>
 Synchronisation initiale de portage :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">emerge-webrsync
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org5106a01" class="outline-4">
-<h4 id="org5106a01"><span class="section-number-4">1.1.6</span> Paramétrage de <i>fstab</i></h4>
+<div id="outline-container-sec-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6"><span class="section-number-4">1.1.6</span> Paramétrage de <i>fstab</i></h4>
 <div class="outline-text-4" id="text-1-1-6">
 <p>
 Editer <b>/etc/fstab</b> en accord avec les partitions générées plus haut :
@@ -682,36 +624,38 @@ Normalement, la partition UEFI est automatique gérée (ie. détectée), il n'es
 </div>
 </div>
 </div>
-<div id="outline-container-orgdf050ee" class="outline-4">
-<h4 id="orgdf050ee"><span class="section-number-4">1.1.7</span> Sélection d'un profil</h4>
+<div id="outline-container-sec-1-1-7" class="outline-4">
+<h4 id="sec-1-1-7"><span class="section-number-4">1.1.7</span> Sélection d'un profil</h4>
 <div class="outline-text-4" id="text-1-1-7">
 <p>
 Sélectionner le profile convenant à votre future machine :
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Afficher les diff&#233;rents profiles disponibles</span>
+
+<pre class="src src-bash">#Afficher les différents profiles disponibles
 eselect profile list 
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">S&#233;lectioner le profile d&#233;sir&#233;</span>
+#Sélectioner le profile désiré
 eselect profile set &lt;id-profile&gt;
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org736d45e" class="outline-4">
-<h4 id="org736d45e"><span class="section-number-4">1.1.8</span> Fuseau horaire</h4>
+<div id="outline-container-sec-1-1-8" class="outline-4">
+<h4 id="sec-1-1-8"><span class="section-number-4">1.1.8</span> Fuseau horaire</h4>
 <div class="outline-text-4" id="text-1-1-8">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">R&#233;cup&#233;rer la localisation du fuseau horaire d&#233;sir&#233;</span>
+
+<pre class="src src-bash">#Récupérer la localisation du fuseau horaire désiré
 ls /usr/share/zoneinfo
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Le sauvegarder dans /etc/timezone ; ici exemple avec Paris</span>
-<span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"Europe/Paris"</span> &gt; /etc/timezone
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Installation des configurations du fuseau</span>
+#Le sauvegarder dans /etc/timezone ; ici exemple avec Paris
+echo "Europe/Paris" &gt; /etc/timezone
+#Installation des configurations du fuseau
 emerge --config sys-libs/timezone-data
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Editer le fichier et "d&#233;commenter" les locales requises</span>
+#Editer le fichier et "décommenter" les locales requises
 nano /etc/locale.gen
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">G&#233;n&#233;rer les locales</span>
+#Générer les locales
 locale-gen
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Selectionner la locale principale</span>
+#Selectionner la locale principale
 eselect locale list
 eselect locale set &lt;locale-id&gt;
 </pre>
@@ -722,6 +666,7 @@ eselect locale set &lt;locale-id&gt;
 Personnellement je rajoute (toujours avec l'exemple de Paris) pour être sûr : 
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 </pre>
 </div>
@@ -737,7 +682,8 @@ Il y a également moyen de préciser la variable LC_COLLATE (intéressant pour l
 Editer */etc/env.d/02locale
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #7590db;">LC_COLLATE</span>=<span style="color: #2d9574;">"C"</span>
+
+<pre class="src src-bash">LC_COLLATE="C"
 </pre>
 </div>
 
@@ -747,82 +693,95 @@ Editer */etc/env.d/02locale
 Recharger la nouvelle configuration :
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">env-update &amp;&amp; <span style="color: #4f97d7;">source</span> /etc/profile &amp;&amp; <span style="color: #4f97d7;">export</span> <span style="color: #7590db;">PS1</span>=<span style="color: #2d9574;">"(chroot) $PS1"</span>
+
+<pre class="src src-bash">env-update &amp;&amp; source /etc/profile &amp;&amp; export PS1="(chroot) $PS1"
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org95b6750" class="outline-4">
-<h4 id="org95b6750"><span class="section-number-4">1.1.9</span> Fichiers de configuration</h4>
+<div id="outline-container-sec-1-1-9" class="outline-4">
+<h4 id="sec-1-1-9"><span class="section-number-4">1.1.9</span> Fichiers de configuration</h4>
 <div class="outline-text-4" id="text-1-1-9">
-</div><ol class="org-ol"><li><a id="org2a0e5a6"></a>Le nom d'hôte (hostname)<br  /><div class="outline-text-5" id="text-1-1-9-1">
+</div><ol class="org-ol"><li><a id="sec-1-1-9-1" name="sec-1-1-9-1"></a>Le nom d'hôte (hostname)<br  /><div class="outline-text-5" id="text-1-1-9-1">
 <p>
 Editer <b>/etc/conf.d/hostname</b>
 </p>
-</div></li>
-<li><a id="org0cfdbef"></a>L'agencement des touches (keymap)<br  /><div class="outline-text-5" id="text-1-1-9-2">
+</div>
+</li>
+<li><a id="sec-1-1-9-2" name="sec-1-1-9-2"></a>L'agencement des touches (keymap)<br  /><div class="outline-text-5" id="text-1-1-9-2">
 <p>
 Editer <b>/etc/conf.d/keymaps</b>
 </p>
-</div></li>
-<li><a id="org843d56d"></a>L'heure<br  /><div class="outline-text-5" id="text-1-1-9-3">
+</div>
+</li>
+<li><a id="sec-1-1-9-3" name="sec-1-1-9-3"></a>L'heure<br  /><div class="outline-text-5" id="text-1-1-9-3">
 <p>
 À modifier, surtout dans le cas d'une cohabitation avec Windows (cf. commentaires du fichier)
 Editer <b>/etc/conf.d/hwclock</b>
 </p>
-</div></li></ol>
 </div>
-<div id="outline-container-org94ca23e" class="outline-4">
-<h4 id="org94ca23e"><span class="section-number-4">1.1.10</span> Le Kernel</h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-1-10" class="outline-4">
+<h4 id="sec-1-1-10"><span class="section-number-4">1.1.10</span> Le Kernel</h4>
 <div class="outline-text-4" id="text-1-1-10">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Installation du kernel vanilla de Gentoo</span>
+
+<pre class="src src-bash">#Installation du kernel vanilla de Gentoo
 emerge -av sys-kernel/gentoo-sources sys-kernel/linux-firmware
 </pre>
 </div>
 </div>
-<ol class="org-ol"><li><a id="orged5dbea"></a>Configuration automatique<br  /><div class="outline-text-5" id="text-1-1-10-1">
+<ol class="org-ol"><li><a id="sec-1-1-10-1" name="sec-1-1-10-1"></a>Configuration automatique<br  /><div class="outline-text-5" id="text-1-1-10-1">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Garde les modules charg&#233;s par la LiveCD</span>
+
+<pre class="src src-bash">#Garde les modules chargés par la LiveCD
 make localyesconfig
 make -j2
 </pre>
 </div>
-</div></li>
-<li><a id="org3b10391"></a>Configuration manuelle<br  /><div class="outline-text-5" id="text-1-1-10-2">
+</div>
+</li>
+<li><a id="sec-1-1-10-2" name="sec-1-1-10-2"></a>Configuration manuelle<br  /><div class="outline-text-5" id="text-1-1-10-2">
 <p>
 <b>Soon&#x2026;</b>
 </p>
-</div></li>
-<li><a id="org73a6028"></a>Installation<br  /><div class="outline-text-5" id="text-1-1-10-3">
+</div>
+</li>
+<li><a id="sec-1-1-10-3" name="sec-1-1-10-3"></a>Installation<br  /><div class="outline-text-5" id="text-1-1-10-3">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Installation des modules</span>
+
+<pre class="src src-bash">#Installation des modules
 make modules_install
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Installation du kernel</span>
+#Installation du kernel
 make install
 </pre>
 </div>
-</div></li></ol>
 </div>
-<div id="outline-container-orgf8b84a5" class="outline-4">
-<h4 id="orgf8b84a5"><span class="section-number-4">1.1.11</span> L'amorceur (bootloader)</h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-1-11" class="outline-4">
+<h4 id="sec-1-1-11"><span class="section-number-4">1.1.11</span> L'amorceur (bootloader)</h4>
 <div class="outline-text-4" id="text-1-1-11">
 <ul class="org-ul">
-<li>Comme l'installation se fait en UEFI, il faut le préciser dans le fichier <b>/etc/portage/make.conf</b> :</li>
+<li>Comme l'installation se fait en UEFI, il faut le préciser dans le fichier <b>/etc/portage/make.conf</b> :
+</li>
 </ul>
 <pre class="example">
 GRUB_PLATFORMS="efi-64"
 </pre>
 
 <ul class="org-ul">
-<li>Installation et configuration de GRUB2</li>
+<li>Installation et configuration de GRUB2
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Installation de GRUB2</span>
+
+<pre class="src src-bash">#Installation de GRUB2
 emerge -av sys-boot/grub
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Installation de grub en uefi sur le disque</span>
+#Installation de grub en uefi sur le disque
 grub-install --target=x86_64-efi /dev/sda
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">G&#233;n&#233;ration du fichier de configuration (contenant les partitions sur lesquelles booter)</span>
+#Génération du fichier de configuration (contenant les partitions sur lesquelles booter)
 grub-mkconfig -o /boot/grub/grub.cfg
 </pre>
 </div>
@@ -832,105 +791,116 @@ grub-mkconfig -o /boot/grub/grub.cfg
 Si GRUB n'apparaît pas au redémarrage, il suffit : 
 </p>
 <ul class="org-ul">
-<li>De relancer la LiveCD</li>
-<li>De monter les partitions rootfs, boot et UEFI</li>
-<li>De chrooter dans rootfs</li>
-<li>De retapper les deux dernières commandes de "Installation et configuration de GRUB2"</li>
+<li>De relancer la LiveCD
+</li>
+<li>De monter les partitions rootfs, boot et UEFI
+</li>
+<li>De chrooter dans rootfs
+</li>
+<li>De retapper les deux dernières commandes de "Installation et configuration de GRUB2"
+</li>
 </ul>
 
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd81f624" class="outline-4">
-<h4 id="orgd81f624"><span class="section-number-4">1.1.12</span> Outils réseaux</h4>
+<div id="outline-container-sec-1-1-12" class="outline-4">
+<h4 id="sec-1-1-12"><span class="section-number-4">1.1.12</span> Outils réseaux</h4>
 <div class="outline-text-4" id="text-1-1-12">
 <p>
 Afin de pouvoir avoir accès à internet au redémarrage, il est nécessaire d'installer différents outils réseaux :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">emerge --ask sys-apps/iproute2 net-misc/dhcpcd net-wireless/wireless-tools net-wireless/iw net-wireless/wpa_supplicant
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org790b95d" class="outline-4">
-<h4 id="org790b95d"><span class="section-number-4">1.1.13</span> Redémarrage</h4>
+<div id="outline-container-sec-1-1-13" class="outline-4">
+<h4 id="sec-1-1-13"><span class="section-number-4">1.1.13</span> Redémarrage</h4>
 <div class="outline-text-4" id="text-1-1-13">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Quitter le chroot (le petit indicateur "(chroot)" devrait dispara&#238;tre</span>
-<span style="color: #4f97d7; font-weight: bold;">exit</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">D&#233;monter les partitions proprement</span>
-<span style="color: #4f97d7;">cd</span> /mnt
+
+<pre class="src src-bash">#Quitter le chroot (le petit indicateur "(chroot)" devrait disparaître
+exit
+#Démonter les partitions proprement
+cd /mnt
 umount -R gentoo
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Red&#233;marrer</span>
+#Redémarrer
 reboot
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc70a439" class="outline-4">
-<h4 id="orgc70a439"><span class="section-number-4">1.1.14</span> Dernière phase</h4>
+<div id="outline-container-sec-1-1-14" class="outline-4">
+<h4 id="sec-1-1-14"><span class="section-number-4">1.1.14</span> Dernière phase</h4>
 <div class="outline-text-4" id="text-1-1-14">
 <p>
 Pour terminer l'installation, il faut installer et mettre à jour tous les packages de votre profil qui vous permettront d'avoir un système fonctionnel. Pour cela, connectez vous en root :
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Supprimer le tarball du stage3, d&#233;sormais inutile</span>
-<span style="color: #4f97d7;">cd</span> /
+
+<pre class="src src-bash">#Supprimer le tarball du stage3, désormais inutile
+cd /
 rm -f stage3*
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Lancer la mise &#224; jour compl&#233;te du syst&#232;me</span>
+#Lancer la mise à jour compléte du système
 emerge -uvDNa world
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgab52d82" class="outline-4">
-<h4 id="orgab52d82"><span class="section-number-4">1.1.15</span> Sources</h4>
+<div id="outline-container-sec-1-1-15" class="outline-4">
+<h4 id="sec-1-1-15"><span class="section-number-4">1.1.15</span> Sources</h4>
 <div class="outline-text-4" id="text-1-1-15">
 <p>
 Certains passages sont directement tirés de ces différentes sources :
 </p>
 <ul class="org-ul">
-<li><a href="https://wiki.gentoo.org/wiki/Handbook:AMD64">Le Handbook pour AMD64 de gentoo wiki</a></li>
-<li><a href="https://wiki.gentoo.org/wiki/Quick_Installation_Checklist">La "Quick Installation Checklist" de gentoo wiki</a></li>
-<li><a href="https://www.youtube.com/watch?v=37bmALK7_ag">Le guide écrit associé à la vidéo YouTube e Humaniac</a></li>
-<li>Ma propre expérience</li>
+<li><a href="https://wiki.gentoo.org/wiki/Handbook:AMD64">Le Handbook pour AMD64 de gentoo wiki</a>
+</li>
+<li><a href="https://wiki.gentoo.org/wiki/Quick_Installation_Checklist">La "Quick Installation Checklist" de gentoo wiki</a>
+</li>
+<li><a href="https://www.youtube.com/watch?v=37bmALK7_ag">Le guide écrit associé à la vidéo YouTube e Humaniac</a>
+</li>
+<li>Ma propre expérience
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge5d485f" class="outline-3">
-<h3 id="orge5d485f"><span class="section-number-3">1.2</span> Le clavier</h3>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Le clavier</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Permettre au système de gérer la bonne disposition du clavier
 </p>
 <ul class="org-ul">
-<li><p>
-Récupérer les informations sur le clavier :
-</p>
+<li>Récupérer les informations sur le clavier :
 <div class="org-src-container">
-<pre class="src src-bash">setxkbmap -print -verbose <span style="color: #a45bad;">10</span>
-</pre>
-</div></li>
 
-<li><p>
-Créer un fichier de configuration en conséquence :
+<pre class="src src-bash">setxkbmap -print -verbose 10
+</pre>
+</div>
+</li>
+
+<li>Créer un fichier de configuration en conséquence :
 <code>/etc/X11/xorg.conf.d/00-keyboard.conf</code>
-</p>
 <div class="org-src-container">
-<pre class="src src-bash">Section <span style="color: #2d9574;">"InputClass"</span>
-     Identifier <span style="color: #2d9574;">"system-keyboard"</span>
-     MatchIsKeyboard <span style="color: #2d9574;">"on"</span>
-     Option <span style="color: #2d9574;">"XkbLayout"</span> <span style="color: #2d9574;">"fr"</span>
-     Option <span style="color: #2d9574;">"XkbModel"</span> <span style="color: #2d9574;">"pc105"</span>/
-     Option <span style="color: #2d9574;">"XkbVariant"</span> <span style="color: #2d9574;">"azerty"</span>
-     Option <span style="color: #2d9574;">"XkbOptions"</span> <span style="color: #2d9574;">"grp:alt_shift_toggle"</span>
+
+<pre class="src src-bash">Section "InputClass"
+     Identifier "system-keyboard"
+     MatchIsKeyboard "on"
+     Option "XkbLayout" "fr"
+     Option "XkbModel" "pc105"/
+     Option "XkbVariant" "azerty"
+     Option "XkbOptions" "grp:alt_shift_toggle"
 EndSection
 </pre>
-</div></li>
+</div>
+</li>
 </ul>
 
 <p>
@@ -939,55 +909,57 @@ EndSection
 </div>
 </div>
 
-<div id="outline-container-orgfb431d4" class="outline-3">
-<h3 id="orgfb431d4"><span class="section-number-3">1.3</span> Outils vfat (FAT32)</h3>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Outils vfat (FAT32)</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat")
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">emerge -av sys-fs/dosfstools
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org1ddbaec" class="outline-3">
-<h3 id="org1ddbaec"><span class="section-number-3">1.4</span> Support du NTFS</h3>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Support du NTFS</h3>
 <div class="outline-text-3" id="text-1-4">
-</div><div id="outline-container-orgcee23db" class="outline-4">
-<h4 id="orgcee23db"><span class="section-number-4">1.4.1</span> Kernel</h4>
+</div><div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> Kernel</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 Modifications à effectuer dans le Kernel :
 </p>
 <ul class="org-ul">
-<li><p>
-Enabling NTFS using sys-fs/ntfs3g (preferred)
-</p>
+<li>Enabling NTFS using sys-fs/ntfs3g (preferred)
 <div class="org-src-container">
+
 <pre class="src src-text">File systems  ---&gt; 
    &lt;*&gt; FUSE (Filesystem in Userspace) support
 </pre>
-</div></li>
+</div>
+</li>
 
-<li><p>
-Enabling NTFS with limited write support
-</p>
+<li>Enabling NTFS with limited write support
 <div class="org-src-container">
+
 <pre class="src src-text">File systems  ---&gt;
   DOS/FAT/NT Filesystems  ---&gt;
      &lt;*&gt; NTFS file system support
      &lt;*&gt;   NTFS write support
 </pre>
-</div></li>
+</div>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0315be8" class="outline-4">
-<h4 id="org0315be8"><span class="section-number-4">1.4.2</span> Outil</h4>
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> Outil</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">emerge -av sys-fs/ntfs3g</span>
+
+<pre class="src src-bash"># emerge -av sys-fs/ntfs3g
 </pre>
 </div>
 <p>
@@ -996,14 +968,15 @@ Enabling NTFS with limited write support
 </div>
 </div>
 </div>
-<div id="outline-container-orgf93ac1f" class="outline-3">
-<h3 id="orgf93ac1f"><span class="section-number-3">1.5</span> Emacs et polices de caractères</h3>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Emacs et polices de caractères</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Il faut activer le USE flag "xft" et compiler Emacs avec.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #7590db;">USE</span>=<span style="color: #2d9574;">"xft"</span>
+
+<pre class="src src-bash">USE="xft"
 </pre>
 </div>
 <p>
@@ -1015,16 +988,17 @@ Il faut activer le USE flag "xft" et compiler Emacs avec.
 </p>
 </div>
 </div>
-<div id="outline-container-orge96b117" class="outline-3">
-<h3 id="orge96b117"><span class="section-number-3">1.6</span> Support du NFS</h3>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Support du NFS</h3>
 <div class="outline-text-3" id="text-1-6">
-</div><div id="outline-container-org614a694" class="outline-4">
-<h4 id="org614a694"><span class="section-number-4">1.6.1</span> Kernel</h4>
+</div><div id="outline-container-sec-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> Kernel</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 Modificiations à effectuer dans le Kernel :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-text">File systems ---&gt;
   [*] Dnotify support
   [*] Network File Systems ---&gt;
@@ -1040,80 +1014,83 @@ Modificiations à effectuer dans le Kernel :
 </div>
 </div>
 </div>
-<div id="outline-container-org59b5df0" class="outline-4">
-<h4 id="org59b5df0"><span class="section-number-4">1.6.2</span> Outil</h4>
+<div id="outline-container-sec-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> Outil</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">emerge --ask net-fs/nfs-utils</span>
+
+<pre class="src src-bash"># emerge --ask net-fs/nfs-utils
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org747263a" class="outline-4">
-<h4 id="org747263a"><span class="section-number-4">1.6.3</span> OpenRC</h4>
+<div id="outline-container-sec-1-6-3" class="outline-4">
+<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> OpenRC</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">rc-update add nfsclient default</span>
+
+<pre class="src src-bash"># rc-update add nfsclient default
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org7f52975" class="outline-4">
-<h4 id="org7f52975"><span class="section-number-4">1.6.4</span> Exemple de montage</h4>
+<div id="outline-container-sec-1-6-4" class="outline-4">
+<h4 id="sec-1-6-4"><span class="section-number-4">1.6.4</span> Exemple de montage</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <pre class="example">
 # mount 192.168.0.1:/volume1/home /home
 </pre>
 <p>
-<a href="https://wiki.gentoo.org/index.php?title=Nfs-utils&amp;redirect=no">Source : Gentoo</a>
+<a href="https://wiki.gentoo.org/index.php?title=Nfs-utils&redirect=no">Source : Gentoo</a>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org8fe888d" class="outline-3">
-<h3 id="org8fe888d"><span class="section-number-3">1.7</span> cmus-notify</h3>
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> cmus-notify</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 Permet de gérer le client cmus
 </p>
 </div>
-<div id="outline-container-org9145b9e" class="outline-4">
-<h4 id="org9145b9e"><span class="section-number-4">1.7.1</span> Script</h4>
+<div id="outline-container-sec-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1"><span class="section-number-4">1.7.1</span> Script</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/bin/</span><span style="color: #4f97d7; font-weight: bold;">sh</span>
-<span style="color: #7590db;">Cmus_remote</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q<span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">Instance</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> -e <span style="color: #2d9574;">"$Cmus_remote"</span> | wc -l<span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle On"</span>
-<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #7590db;">Instance</span> = <span style="color: #a45bad;">1</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
+
+<pre class="src src-sh"><span style="color: #AEAEAE; font-style: italic;">#</span><span style="color: #AEAEAE; font-style: italic;">!/bin/</span><span style="color: #FBDE2D;">sh</span>
+<span style="color: #FF6400;">Cmus_remote</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q<span style="color: #8c8c8c;">)</span>
+<span style="color: #FF6400;">Instance</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> -e <span style="color: #61CE3C;">"$Cmus_remote"</span> | wc -l<span style="color: #8c8c8c;">)</span>
+<span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle On"</span>
+<span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">Instance</span> = 1 <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
     terminal -e cmus &amp;&amp;
-    sleep <span style="color: #a45bad;">2</span>
+    sleep 2
     cmus-remote -p
-<span style="color: #4f97d7; font-weight: bold;">else</span>
-    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-S"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-            <span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle Off"</span>
-        <span style="color: #4f97d7; font-weight: bold;">fi</span>
-        cmus-remote $<span style="color: #a45bad;">1</span>
-        notify-send -t <span style="color: #a45bad;">800</span> $<span style="color: #7590db;">Shuffle</span>
-    <span style="color: #4f97d7; font-weight: bold;">elif</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-Q"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">cmus-updatepidgin artist "$artist" title "$title"</span>
-    <span style="color: #4f97d7; font-weight: bold;">else</span>
-        cmus-remote $<span style="color: #a45bad;">1</span>
-        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
-    <span style="color: #4f97d7; font-weight: bold;">fi</span>
-<span style="color: #4f97d7; font-weight: bold;">fi</span>
+<span style="color: #FBDE2D;">else</span>
+    <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">1</span> == <span style="color: #61CE3C;">"-S"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+        <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+            <span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle Off"</span>
+        <span style="color: #FBDE2D;">fi</span>
+        cmus-remote $<span style="color: #FF6400;">1</span>
+        notify-send -t 800 $<span style="color: #FF6400;">Shuffle</span>
+    <span style="color: #FBDE2D;">elif</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">1</span> == <span style="color: #61CE3C;">"-Q"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> <span style="color: #61CE3C;">"$Cmus_remote"</span> | grep tag | head -n 3 | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f 3- <span style="color: #8c8c8c;">)</span>
+        notify-send -i multimedia-volume-control -t 1800 <span style="color: #61CE3C;">"$Cur_song"</span>
+<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
+<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
+<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">cmus-updatepidgin artist "$artist" title "$title"</span>
+    <span style="color: #FBDE2D;">else</span>
+        cmus-remote $<span style="color: #FF6400;">1</span>
+        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q | grep tag | head -n 3 | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f 3- <span style="color: #8c8c8c;">)</span>
+        notify-send -i multimedia-volume-control -t 1800 <span style="color: #61CE3C;">"$Cur_song"</span>
+    <span style="color: #FBDE2D;">fi</span>
+<span style="color: #FBDE2D;">fi</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org4858782" class="outline-4">
-<h4 id="org4858782"><span class="section-number-4">1.7.2</span> Fonctionnement</h4>
+<div id="outline-container-sec-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2"><span class="section-number-4">1.7.2</span> Fonctionnement</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <p>
 Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
@@ -1123,6 +1100,7 @@ Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
 Infos sur les arguments :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">man cmus-remote
 </pre>
 </div>
@@ -1140,8 +1118,8 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 </div>
 </div>
 </div>
-<div id="outline-container-org96b49c0" class="outline-3">
-<h3 id="org96b49c0"><span class="section-number-3">1.8</span> OpenVPN</h3>
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> OpenVPN</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
@@ -1152,13 +1130,25 @@ Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oubli
 </p>
 </div>
 </div>
-<div id="outline-container-org5912db6" class="outline-3">
-<h3 id="org5912db6"><span class="section-number-3">1.9</span> Optimisation matérielle pour les laptops</h3>
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> Logitech MX Master (souris)</h3>
 <div class="outline-text-3" id="text-1-9">
+<div class="attention">
+<p>
+Penser à ajouter les bons modules au Kernel (cf. Logitech) pour une meilleur intégration à Gentoo !
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Optimisation matérielle pour les laptops</h3>
+<div class="outline-text-3" id="text-1-10">
 <p>
 Utiliser laptop-mode :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-sh">emerge --ask app-laptop/laptop-mode-tools
 </pre>
 </div>
@@ -1167,34 +1157,36 @@ Utiliser laptop-mode :
 </p>
 </div>
 </div>
-<div id="outline-container-orgf1bb5bf" class="outline-3">
-<h3 id="orgf1bb5bf"><span class="section-number-3">1.10</span> Mise à jour hebdomadaire</h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Mise à jour hebdomadaire</h3>
+<div class="outline-text-3" id="text-1-11">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Mise &#224; jour de portage : </span>
+
+<pre class="src src-bash">#Mise à jour de portage : 
 emerge --sync
-<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Mise &#224; jour du syst&#232;me : </span>
+#Mise à jour du système : 
 emerge -uNDv world
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org0799c60" class="outline-2">
-<h2 id="org0799c60"><span class="section-number-2">2</span> Général</h2>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Général</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-org4aacfa7" class="outline-3">
-<h3 id="org4aacfa7"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Editer "/etc/X11/xorg.conf"
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">Section <span style="color: #2d9574;">"InputClass"</span>
-Identifier <span style="color: #2d9574;">"Mouse Remap"</span>
-MatchProduct <span style="color: #2d9574;">"Saitek Cyborg R.A.T.3 Mouse"</span>
-MatchDevicePath <span style="color: #2d9574;">"/dev/input/event*"</span>
-Option <span style="color: #2d9574;">"ButtonMapping"</span> <span style="color: #2d9574;">"1 2 3 4 5 0 0 8 9 0 0 0 13 14"</span>
+
+<pre class="src src-sh">Section <span style="color: #61CE3C;">"InputClass"</span>
+Identifier <span style="color: #61CE3C;">"Mouse Remap"</span>
+MatchProduct <span style="color: #61CE3C;">"Saitek Cyborg R.A.T.3 Mouse"</span>
+MatchDevicePath <span style="color: #61CE3C;">"/dev/input/event*"</span>
+Option <span style="color: #61CE3C;">"ButtonMapping"</span> <span style="color: #61CE3C;">"1 2 3 4 5 0 0 8 9 0 0 0 13 14"</span>
 EndSection
 </pre>
 </div>
@@ -1203,24 +1195,43 @@ EndSection
 </p>
 </div>
 </div>
-<div id="outline-container-org51b451c" class="outline-3">
-<h3 id="org51b451c"><span class="section-number-3">2.2</span> Réactiver le son après une sortie de veille</h3>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Trucs pour la Logitech MX Master</h3>
 <div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
-<li>Editer "/etc/default/acpi-support"</li>
+</div><div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> Activer le scrolling horizontal</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<div class="org-src-container">
 
-<li>Remplacer :</li>
+<pre class="src src-sh">xinput set-prop <span style="color: #61CE3C;">"Logitech MX Master"</span> <span style="color: #61CE3C;">"Evdev Scrolling Distance"</span> 1 -1 1
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Réactiver le son après une sortie de veille</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Editer "/etc/default/acpi-support"
+</li>
+
+<li>Remplacer : 
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #7590db;">HIBERNATE_MODE</span>=shutdown
+
+<pre class="src src-sh"><span style="color: #FF6400;">HIBERNATE_MODE</span>=shutdown
 </pre>
 </div>
 
 <ul class="org-ul">
-<li>Par :</li>
+<li>Par : 
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #7590db;">HIBERNATE_MODE</span>=platform
+
+<pre class="src src-sh"><span style="color: #FF6400;">HIBERNATE_MODE</span>=platform
 </pre>
 </div>
 
@@ -1232,16 +1243,17 @@ Selon le système d'exploitation, mon ordinateur n'a pas répondu de la même fa
 </div>
 </div>
 </div>
-<div id="outline-container-org704b234" class="outline-3">
-<h3 id="org704b234"><span class="section-number-3">2.3</span> KDE</h3>
-<div class="outline-text-3" id="text-2-3">
-</div><div id="outline-container-orgb9630e9" class="outline-4">
-<h4 id="orgb9630e9"><span class="section-number-4">2.3.1</span> Activer la touche Windows pour afficher le launcher</h4>
-<div class="outline-text-4" id="text-2-3-1">
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> KDE</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-sec-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> Activer la touche Windows pour afficher le launcher</h4>
+<div class="outline-text-4" id="text-2-4-1">
 <p>
 Installer "KSuperkey"
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">dnf copr enable vanoudt/KSuperkey 
 dnf install ksuperkey
 </pre>
@@ -1252,49 +1264,58 @@ dnf install ksuperkey
 </div>
 </div>
 </div>
-<div id="outline-container-org77416d7" class="outline-3">
-<h3 id="org77416d7"><span class="section-number-3">2.4</span> Transformer un .deb en .rpm</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> Transformer un .deb en .rpm</h3>
+<div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
-<li>Télécharger alien</li>
+<li>Télécharger alien
+</li>
 </ul>
 <div class="org-src-container">
+
 <pre class="src src-bash">dnf install alien
 </pre>
 </div>
 
 <ul class="org-ul">
-<li>Transformer le <i>.deb</i> en <i>.rpm</i></li>
+<li>Transformer le <i>.deb</i> en <i>.rpm</i>
+</li>
 </ul>
 <div class="org-src-container">
+
 <pre class="src src-bash">alien -r fichier.deb
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9b0fc1d" class="outline-3">
-<h3 id="org9b0fc1d"><span class="section-number-3">2.5</span> Mettre flash-player sur Firefox</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> Mettre flash-player sur Firefox</h3>
+<div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
-<li>Télécharger le tarball de flash-player sur le site officiel d'Adobe</li>
-<li>Place le fichier <i>libflashplayer.so</i> dans ~/.mozilla/plugins/</li>
-<li>Redémarrer le navigateur</li>
+<li>Télécharger le tarball de flash-player sur le site officiel d'Adobe
+</li>
+<li>Place le fichier <i>libflashplayer.so</i> dans ~/.mozilla/plugins/
+</li>
+<li>Redémarrer le navigateur
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org06a4ace" class="outline-3">
-<h3 id="org06a4ace"><span class="section-number-3">2.6</span> Gérer l'audio avec pactl (moins fiable)</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> Gérer l'audio avec pactl (moins fiable)</h3>
+<div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
-<li>Avantages</li>
+<li>Avantages
+</li>
 </ul>
 <p>
 Facilité de gestion du son (monter, descendre ou muter cartes son), possibilité d'aller au dessus de 100% (!)
 </p>
 
 <ul class="org-ul">
-<li>Contexte</li>
+<li>Contexte
+</li>
 </ul>
 <p>
 Problème pour gérer deux cartes sons distinctes (sortie externe hdmi nvidia et son interne).
@@ -1308,18 +1329,20 @@ Etant sur XFCE4 et sachant que je dois modifier les raccourcis FN pour le son, i
 </div>
 
 <ul class="org-ul">
-<li>Application</li>
+<li>Application
+</li>
 </ul>
 <p>
 Voici les différentes commandes que j'utilise : 
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Pour la sortie hdmi</span>
-pactl set-sink-mute alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 toggle <span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Mute si le son est activ&#233; et unmute s'il est d&#233;j&#224; mute</span>
-pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +10% <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Augmente le son de 10% (au-del&#224; de 100%, c'est possible !)</span>
-pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -10% <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Diminue le son de 10%</span>
 
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Pour la sortie interne</span>
+<pre class="src src-bash"># Pour la sortie hdmi
+pactl set-sink-mute alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 toggle #Mute si le son est activé et unmute s'il est déjà mute
+pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +10% # Augmente le son de 10% (au-delà de 100%, c'est possible !)
+pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -10% # Diminue le son de 10%
+
+# Pour la sortie interne
 pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%
@@ -1334,9 +1357,9 @@ Note : il est possible d'optimiser le nom (très long) des sorties à l'aide du 
 </div>
 </div>
 </div>
-<div id="outline-container-org552bd75" class="outline-3">
-<h3 id="org552bd75"><span class="section-number-3">2.7</span> Gérer l'audio avec amixer (plus fiable)</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> Gérer l'audio avec amixer (plus fiable)</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 pactl est pratique (le son peut aller au-delà de 100%), mais avec mes problèmes audio, il est devenu instable (changement imprévisibles des noms des sorties)
 Amixer est dans ce sens plus intelligent, et simple au niveau des commandes :
@@ -1365,15 +1388,18 @@ gère les raccourcis et l'animation correspond aux variations de volume.
 </div>
 </div>
 </div>
-<div id="outline-container-org969adbc" class="outline-3">
-<h3 id="org969adbc"><span class="section-number-3">2.8</span> Activer le pavé numérique au démarrage de LightDM</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> Activer le pavé numérique au démarrage de LightDM</h3>
+<div class="outline-text-3" id="text-2-9">
 <ul class="org-ul">
-<li>Installer <i>numlockx</i></li>
-<li>Modifier le fichier <b>/etc/lightdm/lightdm.conf</b></li>
+<li>Installer <i>numlockx</i>
+</li>
+<li>Modifier le fichier <b>/etc/lightdm/lightdm.conf</b>
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #4f97d7;">[</span>Seat:*<span style="color: #4f97d7;">]</span>
+
+<pre class="src src-bash">[Seat:*]
 greeter-setup-script=/usr/bin/numlockx on
 </pre>
 </div>
@@ -1383,9 +1409,9 @@ greeter-setup-script=/usr/bin/numlockx on
 </p>
 </div>
 </div>
-<div id="outline-container-org07cdda2" class="outline-3">
-<h3 id="org07cdda2"><span class="section-number-3">2.9</span> Gestion de la luminosité : xbacklight</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> Gestion de la luminosité : xbacklight</h3>
+<div class="outline-text-3" id="text-2-10">
 <p>
 Plus facile que de modifier en brute dans <i>proc, /xbacklight</i> gère très bien la gestion de la luminosité : 
 </p>
@@ -1394,23 +1420,25 @@ Plus facile que de modifier en brute dans <i>proc, /xbacklight</i> gère très b
 Augmenter et baisser la luminosité : 
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">xbacklight -inc|-dec <span style="color: #a45bad;">10%</span>
+
+<pre class="src src-bash">xbacklight -inc|-dec 10%
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf6bfa41" class="outline-3">
-<h3 id="orgf6bfa41"><span class="section-number-3">2.10</span> NVIDIA</h3>
-<div class="outline-text-3" id="text-2-10">
-</div><div id="outline-container-orgd08e4e8" class="outline-4">
-<h4 id="orgd08e4e8"><span class="section-number-4">2.10.1</span> Configuration basique</h4>
-<div class="outline-text-4" id="text-2-10-1">
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11"><span class="section-number-3">2.11</span> NVIDIA</h3>
+<div class="outline-text-3" id="text-2-11">
+</div><div id="outline-container-sec-2-11-1" class="outline-4">
+<h4 id="sec-2-11-1"><span class="section-number-4">2.11.1</span> Configuration basique</h4>
+<div class="outline-text-4" id="text-2-11-1">
 <p>
 Pour empêcher NVIDIA d'afficher un splashscreen au démarrage : éditer <b>/etc/X11/xorg.conf</b>
 </p>
 
 <ul class="org-ul">
-<li>Localiser la section "Device" de NVIDIA, elle ressemble probablement à ça :</li>
+<li>Localiser la section "Device" de NVIDIA, elle ressemble probablement à ça :
+</li>
 </ul>
 
 <pre class="example">
@@ -1422,7 +1450,8 @@ EndSection
 </pre>
 
 <ul class="org-ul">
-<li>Ajouter la ligne suivante pour désactiver le splash screen :</li>
+<li>Ajouter la ligne suivante pour désactiver le splash screen :
+</li>
 </ul>
 
 <pre class="example">
@@ -1435,6 +1464,7 @@ Pour générer <b>xorg.conf</b> avec nvidia installé :
 </p>
 
 <div class="org-src-container">
+
 <pre class="src src-bash">nvidia-xconfig
 </pre>
 </div>
@@ -1443,9 +1473,9 @@ Pour générer <b>xorg.conf</b> avec nvidia installé :
 </div>
 </div>
 
-<div id="outline-container-org51bf406" class="outline-4">
-<h4 id="org51bf406"><span class="section-number-4">2.10.2</span> Problème de tearing</h4>
-<div class="outline-text-4" id="text-2-10-2">
+<div id="outline-container-sec-2-11-2" class="outline-4">
+<h4 id="sec-2-11-2"><span class="section-number-4">2.11.2</span> Problème de tearing</h4>
+<div class="outline-text-4" id="text-2-11-2">
 <p>
 Ouvrir <b>/etc/X11/xorg.conf</b>
 </p>
@@ -1475,13 +1505,14 @@ EndSection
 </div>
 </div>
 </div>
-<div id="outline-container-org16c0136" class="outline-3">
-<h3 id="org16c0136"><span class="section-number-3">2.11</span> Accèder aux documents d'un téléphone utilisant MTP</h3>
-<div class="outline-text-3" id="text-2-11">
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12"><span class="section-number-3">2.12</span> Accèder aux documents d'un téléphone utilisant MTP</h3>
+<div class="outline-text-3" id="text-2-12">
 <p>
 Le MTP rend l'accès aux téléphones android difficile en dehors de Mac OSX et de Windows, il faut donc utiliser <i>gMPT</i> sur Linux.
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">emerge -av gmtp
 </pre>
 </div>
@@ -1494,140 +1525,158 @@ gMPT possède une interface GUI.
 </div>
 </div>
 </div>
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13"><span class="section-number-3">2.13</span> Rediriger sa sortie audio vers un serveur DLNA</h3>
+<div class="outline-text-3" id="text-2-13">
+<p>
+<i>pulseaudio-dlna</i> est un packet qui permet d'ajouter à pulseaudio les différents 
+serveurs DLNA de votre réseau à vos sorties audio.
+Il n'y a plus qu'à le lancer en arrière-plan pour que tout fonctionne.
+</p>
 </div>
-<div id="outline-container-orgfbec043" class="outline-2">
-<h2 id="orgfbec043"><span class="section-number-2">3</span> Technique</h2>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Technique</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-org6157964" class="outline-3">
-<h3 id="org6157964"><span class="section-number-3">3.1</span> Bash</h3>
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Bash</h3>
 <div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-org6354416" class="outline-4">
-<h4 id="org6354416"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
+</div><div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Liens</th>
+<th scope="col" class="left">Liens</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><a href="http://mywiki.wooledge.org/BashFAQ">FAQ Bash</a></td>
+<td class="left"><a href="http://mywiki.wooledge.org/BashFAQ">FAQ Bash</a></td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="http://mywiki.wooledge.org/BashGuide">Guide Bash</a></td>
+<td class="left"><a href="http://mywiki.wooledge.org/BashGuide">Guide Bash</a></td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://www.gnu.org/software/bash/manual/">Manuel GNU Bash</a></td>
+<td class="left"><a href="https://www.gnu.org/software/bash/manual/">Manuel GNU Bash</a></td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="http://wiki.bash-hackers.org/">bash-hackers wiki</a></td>
+<td class="left"><a href="http://wiki.bash-hackers.org/">bash-hackers wiki</a></td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="http://git.savannah.gnu.org/cgit/bash.git/log/?h=devel">Forge git bash</a></td>
+<td class="left"><a href="http://git.savannah.gnu.org/cgit/bash.git/log/?h=devel">Forge git bash</a></td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://lists.gnu.org/mailman/listinfo/help-bash">GNU bash help</a></td>
+<td class="left"><a href="https://lists.gnu.org/mailman/listinfo/help-bash">GNU bash help</a></td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://github.com/koalaman/shellcheck">ShellCheck (cf. flycheck sur Emacs)</a></td>
+<td class="left"><a href="https://github.com/koalaman/shellcheck">ShellCheck (cf. flycheck sur Emacs)</a></td>
+</tr>
+
+<tr>
+<td class="left"><a href="https://taskwarrior.org/">Taskwarrior</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-org4e709e0" class="outline-4">
-<h4 id="org4e709e0"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Commande</th>
-<th scope="col" class="org-left">Description</th>
+<th scope="col" class="left">Commande</th>
+<th scope="col" class="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><a href="http://wiki.bash-hackers.org/howto/getopts_tutorial">getopts (gestion arguments)</a></td>
-<td class="org-left">Gestion intelligente d'arguments dans une commande</td>
+<td class="left"><a href="http://wiki.bash-hackers.org/howto/getopts_tutorial">getopts (gestion arguments)</a></td>
+<td class="left">Gestion intelligente d'arguments dans une commande</td>
 </tr>
 
 <tr>
-<td class="org-left">ldd</td>
-<td class="org-left">Permet de récupérer les dépendances d'un binaire</td>
+<td class="left">ldd</td>
+<td class="left">Permet de récupérer les dépendances d'un binaire</td>
 </tr>
 
 <tr>
-<td class="org-left">diff (eg. diff &lt;(cmd1) &lt;(cmd2)</td>
-<td class="org-left">Permet de comparer des fichiers/elements entre eux</td>
+<td class="left">diff (eg. diff &lt;(cmd1) &lt;(cmd2)</td>
+<td class="left">Permet de comparer des fichiers/elements entre eux</td>
 </tr>
 
 <tr>
-<td class="org-left">watch</td>
-<td class="org-left">Permet de répéter une commande toutes les N secondes</td>
+<td class="left">watch</td>
+<td class="left">Permet de répéter une commande toutes les N secondes</td>
 </tr>
 
 <tr>
-<td class="org-left">mkdir -p</td>
-<td class="org-left">Créer les sous-dossiers récursivement si inexistants</td>
+<td class="left">mkdir -p</td>
+<td class="left">Créer les sous-dossiers récursivement si inexistants</td>
 </tr>
 
 <tr>
-<td class="org-left">strace</td>
-<td class="org-left">Indique quels sont les fichiers qu'un programme essaie de lire</td>
+<td class="left">strace</td>
+<td class="left">Indique quels sont les fichiers qu'un programme essaie de lire</td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://github.com/nvbn/thefuck">thefuck</a></td>
-<td class="org-left">Tente de corriger la dernière commande en se basant sur l'historique</td>
+<td class="left"><a href="https://github.com/nvbn/thefuck">thefuck</a></td>
+<td class="left">Tente de corriger la dernière commande en se basant sur l'historique</td>
 </tr>
 
 <tr>
-<td class="org-left">mtr</td>
-<td class="org-left">Outil de diagnostique réseau (permet de visualiser le cheminement d'un paquet)</td>
+<td class="left">mtr</td>
+<td class="left">Outil de diagnostique réseau (permet de visualiser le cheminement d'un paquet)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-org17ffceb" class="outline-4">
-<h4 id="org17ffceb"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 Exemple avec une conversion en base 10
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #7590db;">newvar</span>=$<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">10#</span>$<span style="color: #7590db;">var</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>;
+
+<pre class="src src-sh"><span style="color: #FF6400;">newvar</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #93a8c6;">(</span>10#$<span style="color: #FF6400;">var</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2bf8fd" class="outline-4">
-<h4 id="orgb2bf8fd"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
+<div id="outline-container-sec-3-1-4" class="outline-4">
+<h4 id="sec-3-1-4"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
-<li>Installer <a href="https://github.com/koalaman/shellcheck">ShellCheck</a></li>
-<li>Passer le script en argument pour en avoir l'analyse :</li>
+<li>Installer <a href="https://github.com/koalaman/shellcheck">ShellCheck</a> 
+</li>
+<li>Passer le script en argument pour en avoir l'analyse :
+</li>
 </ul>
 <div class="org-src-container">
+
 <pre class="src src-sh">shellcheck monscript
 </pre>
 </div>
@@ -1635,20 +1684,21 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-org1ea6971" class="outline-2">
-<h2 id="org1ea6971"><span class="section-number-2">4</span> Applications</h2>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-org38faf74" class="outline-3">
-<h3 id="org38faf74"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
-<pre class="src src-shell">rm -f /etc/prelink.conf.d/skype.conf
+
+<pre class="src src-sh">rm -f /etc/prelink.conf.d/skype.conf
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb416e53" class="outline-3">
-<h3 id="orgb416e53"><span class="section-number-3">4.2</span> Tmux</h3>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Tmux</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Commande pour rejoindre la session "home" ou la créer si elle n'existe pas
@@ -1658,11 +1708,11 @@ tmux new -A -s home
 </pre>
 </div>
 </div>
-<div id="outline-container-org1a2f084" class="outline-3">
-<h3 id="org1a2f084"><span class="section-number-3">4.3</span> Terminal</h3>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Terminal</h3>
 <div class="outline-text-3" id="text-4-3">
-</div><div id="outline-container-org5996440" class="outline-4">
-<h4 id="org5996440"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
+</div><div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
@@ -1674,19 +1724,19 @@ Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
 </div>
 </div>
 </div>
-<div id="outline-container-orga4798ff" class="outline-3">
-<h3 id="orga4798ff"><span class="section-number-3">4.4</span> Emacs</h3>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Emacs</h3>
 <div class="outline-text-3" id="text-4-4">
-</div><div id="outline-container-org67bef03" class="outline-4">
-<h4 id="org67bef03"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
+</div><div id="outline-container-sec-4-4-1" class="outline-4">
+<h4 id="sec-4-4-1"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 cf. Gentoo/Emacs et polices de caractères
 </p>
 </div>
 </div>
-<div id="outline-container-org6cb9c9d" class="outline-4">
-<h4 id="org6cb9c9d"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
+<div id="outline-container-sec-4-4-2" class="outline-4">
+<h4 id="sec-4-4-2"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
 <div class="outline-text-4" id="text-4-4-2">
 <p>
 Package : <i>wttrin</i>
@@ -1697,8 +1747,8 @@ Package : <i>wttrin</i>
 </p>
 </div>
 </div>
-<div id="outline-container-orgec24a8f" class="outline-4">
-<h4 id="orgec24a8f"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
+<div id="outline-container-sec-4-4-3" class="outline-4">
+<h4 id="sec-4-4-3"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
 <div class="outline-text-4" id="text-4-4-3">
 <p>
 Package : <i>htmlize</i>
@@ -1709,171 +1759,191 @@ Package : <i>htmlize</i>
 </p>
 </div>
 </div>
-<div id="outline-container-org6fffd32" class="outline-4">
-<h4 id="org6fffd32"><span class="section-number-4">4.4.4</span> org-mode</h4>
+<div id="outline-container-sec-4-4-4" class="outline-4">
+<h4 id="sec-4-4-4"><span class="section-number-4">4.4.4</span> org-mode</h4>
 <div class="outline-text-4" id="text-4-4-4">
-</div><ol class="org-ol"><li><a id="org29105ee"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-4-4-1">
+</div><ol class="org-ol"><li><a id="sec-4-4-4-1" name="sec-4-4-4-1"></a>Indentation automatique<br  /><div class="outline-text-5" id="text-4-4-4-1">
 <ul class="org-ul">
-<li>Activer <i>org-indent-mode</i></li>
-<li>Pour la rendre automatique</li>
+<li>Activer <i>org-indent-mode</i>
+</li>
+<li>Pour la rendre automatique
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #4f97d7;">(</span>setq org-startup-indented t<span style="color: #4f97d7;">)</span>
+
+<pre class="src src-elisp"><span style="color: #8c8c8c;">(</span><span style="color: #FBDE2D;">setq</span> org-startup-indented t<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
-</div></li></ol>
 </div>
-<div id="outline-container-org0900854" class="outline-4">
-<h4 id="org0900854"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
+</li></ol>
+</div>
+<div id="outline-container-sec-4-4-5" class="outline-4">
+<h4 id="sec-4-4-5"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
 <div class="outline-text-4" id="text-4-4-5">
 <p>
 Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiquement avec <i>ShellCheck</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org7e6e2dd" class="outline-4">
-<h4 id="org7e6e2dd"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
+<div id="outline-container-sec-4-4-6" class="outline-4">
+<h4 id="sec-4-4-6"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
 <div class="outline-text-4" id="text-4-4-6">
 <p>
 Permet de faire des présentations avec Reveal.js en utilisant org-mode
 </p>
 </div>
-<ol class="org-ol"><li><a id="org7b14d50"></a>Liens importants<br  /><div class="outline-text-5" id="text-4-4-6-1">
+<ol class="org-ol"><li><a id="sec-4-4-6-1" name="sec-4-4-6-1"></a>Liens importants<br  /><div class="outline-text-5" id="text-4-4-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Lien</th>
-<th scope="col" class="org-left">Description</th>
+<th scope="col" class="left">Lien</th>
+<th scope="col" class="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><a href="https://github.com/hakimel/reveal.js/">reveal.js - Github</a></td>
-<td class="org-left">Repos Github du framework javascript</td>
+<td class="left"><a href="https://github.com/hakimel/reveal.js/">reveal.js - Github</a></td>
+<td class="left">Repos Github du framework javascript</td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://github.com/yjwen/org-reveal/">org-reveal - Github</a></td>
-<td class="org-left">Repos Github du package org-mode pour gérer reveal.js</td>
+<td class="left"><a href="https://github.com/yjwen/org-reveal/">org-reveal - Github</a></td>
+<td class="left">Repos Github du package org-mode pour gérer reveal.js</td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="https://github.com/hakimel/reveal.js/wiki/Keyboard-Shortcuts">Raccourcis clavier</a></td>
-<td class="org-left">Raccourcis clavier disponibles en présentation</td>
+<td class="left"><a href="https://github.com/hakimel/reveal.js/wiki/Keyboard-Shortcuts">Raccourcis clavier</a></td>
+<td class="left">Raccourcis clavier disponibles en présentation</td>
 </tr>
 
 <tr>
-<td class="org-left"><a href="http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/">Exemple de présentation</a></td>
-<td class="org-left">Exemple/Tutoriel de l'utilisation de org-reveal</td>
+<td class="left"><a href="http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/">Exemple de présentation</a></td>
+<td class="left">Exemple/Tutoriel de l'utilisation de org-reveal</td>
 </tr>
 </tbody>
 </table>
-</div></li>
-<li><a id="org1ed52ea"></a>Instructions<br  /><div class="outline-text-5" id="text-4-4-6-2">
+</div>
+</li>
+<li><a id="sec-4-4-6-2" name="sec-4-4-6-2"></a>Instructions<br  /><div class="outline-text-5" id="text-4-4-6-2">
 <ul class="org-ul">
-<li>Télécharger reveal.js l'extraire et le renommer <i>reveal.js</i> (sinon préciser son emplacement avec <b>#+REVEAL_ROOT: <a href="file://d:/reveal.js">file://d:/reveal.js</a></b>)</li>
-<li>Installer le package <i>ox-reveal.el</i> (et <i>htmlize.el</i> pour la coloration syntaxique) sur Emacs</li>
-<li>Créer un fichier <i>.org</i></li>
-<li><p>
-Si la librarie n'est pas chargée, faire <b>M-x load-library</b> et entrer <b>ox-reveal</b>
-</p>
+<li>Télécharger reveal.js l'extraire et le renommer <i>reveal.js</i> (sinon préciser son emplacement avec <b>#+REVEAL_ROOT: <a href="file:///d:/reveal.js">file:///d:/reveal.js</a></b>)
+</li>
+<li>Installer le package <i>ox-reveal.el</i> (et <i>htmlize.el</i> pour la coloration syntaxique) sur Emacs
+</li>
+<li>Créer un fichier <i>.org</i>
+</li>
+<li>Si la librarie n'est pas chargée, faire <b>M-x load-library</b> et entrer <b>ox-reveal</b>
 
 <div class="note">
 <p>
 Pour exporter en html : <b>C-c C-e R R</b>
 </p>
 
-</div></li>
+</div>
+</li>
 </ul>
-</div></li>
-<li><a id="org8c0ec3c"></a>Notes<br  /><div class="outline-text-5" id="text-4-4-6-3">
+</div>
+</li>
+<li><a id="sec-4-4-6-3" name="sec-4-4-6-3"></a>Notes<br  /><div class="outline-text-5" id="text-4-4-6-3">
 <ul class="org-ul">
-<li>Pour fragmenter l'apparition d'une liste (placer au dessus de la liste) : <b>#+ATTR_REVEAL: :frag (appear)</b></li>
-<li>Pour enlever le sommaire, la datation et la numérotation <b>#+OPTIONS: toc:nil timestamp:nil num:nil</b></li>
-<li>Pour afficher des notes pour le présentateur : <b>#+BEGIN_NOTES blabla #+END_NOTES</b></li>
-<li>Paramétrer les effets de slide : <b>#+REVEAL_TRANS: slide</b></li>
+<li>Pour fragmenter l'apparition d'une liste (placer au dessus de la liste) : <b>#+ATTR_REVEAL: :frag (appear)</b>
+</li>
+<li>Pour enlever le sommaire, la datation et la numérotation <b>#+OPTIONS: toc:nil timestamp:nil num:nil</b>
+</li>
+<li>Pour afficher des notes pour le présentateur : <b>#+BEGIN_NOTES blabla #+END_NOTES</b>
+</li>
+<li>Paramétrer les effets de slide : <b>#+REVEAL_TRANS: slide</b>
+</li>
 </ul>
-</div></li>
-<li><a id="org9663c1f"></a>Raccourcis<br  /><div class="outline-text-5" id="text-4-4-6-4">
+</div>
+</li>
+<li><a id="sec-4-4-6-4" name="sec-4-4-6-4"></a>Raccourcis<br  /><div class="outline-text-5" id="text-4-4-6-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Touche</th>
-<th scope="col" class="org-left">Raccourci</th>
+<th scope="col" class="left">Touche</th>
+<th scope="col" class="left">Raccourci</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><b>Haut/Bas/Gauche/Droite</b></td>
-<td class="org-left">Changer de slide</td>
+<td class="left"><b>Haut/Bas/Gauche/Droite</b></td>
+<td class="left">Changer de slide</td>
 </tr>
 
 <tr>
-<td class="org-left"><b>f</b></td>
-<td class="org-left">Plein écran</td>
+<td class="left"><b>f</b></td>
+<td class="left">Plein écran</td>
 </tr>
 
 <tr>
-<td class="org-left"><b>s</b></td>
-<td class="org-left">Affichage pour le présentateur</td>
+<td class="left"><b>s</b></td>
+<td class="left">Affichage pour le présentateur</td>
 </tr>
 
 <tr>
-<td class="org-left"><b>o</b></td>
-<td class="org-left">Aperçu des slides</td>
+<td class="left"><b>o</b></td>
+<td class="left">Aperçu des slides</td>
 </tr>
 
 <tr>
-<td class="org-left"><b>.</b> ou <b>b</b></td>
-<td class="org-left">Rend l'écran noir</td>
+<td class="left"><b>.</b> ou <b>b</b></td>
+<td class="left">Rend l'écran noir</td>
 </tr>
 </tbody>
 </table>
-</div></li></ol>
+</div>
+</li></ol>
 </div>
 </div>
-<div id="outline-container-orgf253604" class="outline-3">
-<h3 id="orgf253604"><span class="section-number-3">4.5</span> mkvmerge</h3>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> mkvmerge</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 Pour intégrer des sous-titres (.str) avec mkvmerge
 </p>
 
 <ul class="org-ul">
-<li>Télécharger mkvtoolnix pour avoir mkvmerge</li>
+<li>Télécharger mkvtoolnix pour avoir mkvmerge
+</li>
 </ul>
 <div class="org-src-container">
+
 <pre class="src src-sh">emerge -av media-video/mkvtoolnix
 </pre>
 </div>
 
 <ul class="org-ul">
-<li>Commande :</li>
+<li>Commande :
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">mkvmerge -o &lt;sortie&gt; --language <span style="color: #a45bad;">0:</span>&lt;langue&gt; &lt;sous-titre&gt; &lt;entree&gt;
+
+<pre class="src src-sh">mkvmerge -o &lt;sortie&gt; --language 0:&lt;langue&gt; &lt;sous-titre&gt; &lt;entree&gt;
 </pre>
 </div>
 
 <ul class="org-ul">
-<li>Exemple :</li>
+<li>Exemple :
+</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sh">mkvmerge -o <span style="color: #2d9574;">"Les Sept Samura&#239;s (avec sous-titre).mp4"</span> --language <span style="color: #a45bad;">0:ja</span> <span style="color: #2d9574;">"french.srt"</span> <span style="color: #2d9574;">"Les Sept Samura&#239;s (sans sous-titre).mp4"</span>
+
+<pre class="src src-sh">mkvmerge -o <span style="color: #61CE3C;">"Les Sept Samura&#239;s (avec sous-titre).mp4"</span> --language 0:ja <span style="color: #61CE3C;">"french.srt"</span> <span style="color: #61CE3C;">"Les Sept Samura&#239;s (sans sous-titre).mp4"</span>
 </pre>
 </div>
 
@@ -1883,6 +1953,7 @@ Pour obtenir la liste des langues et leur code associé :
 </p>
 
 <div class="org-src-container">
+
 <pre class="src src-sh">mkvmerge --list-languages
 </pre>
 </div>
@@ -1890,50 +1961,51 @@ Pour obtenir la liste des langues et leur code associé :
 </div>
 </div>
 </div>
-<div id="outline-container-org0292316" class="outline-3">
-<h3 id="org0292316"><span class="section-number-3">4.6</span> cmus-notify</h3>
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> cmus-notify</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 Permet de gérer le client cmus
 </p>
 </div>
-<div id="outline-container-orgde9aaab" class="outline-4">
-<h4 id="orgde9aaab"><span class="section-number-4">4.6.1</span> Script</h4>
+<div id="outline-container-sec-4-6-1" class="outline-4">
+<h4 id="sec-4-6-1"><span class="section-number-4">4.6.1</span> Script</h4>
 <div class="outline-text-4" id="text-4-6-1">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/bin/</span><span style="color: #4f97d7; font-weight: bold;">sh</span>
-<span style="color: #7590db;">Cmus_remote</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q<span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">Instance</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> -e <span style="color: #2d9574;">"$Cmus_remote"</span> | wc -l<span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle On"</span>
-<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #7590db;">Instance</span> = <span style="color: #a45bad;">1</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
+
+<pre class="src src-sh"><span style="color: #AEAEAE; font-style: italic;">#</span><span style="color: #AEAEAE; font-style: italic;">!/bin/</span><span style="color: #FBDE2D;">sh</span>
+<span style="color: #FF6400;">Cmus_remote</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q<span style="color: #8c8c8c;">)</span>
+<span style="color: #FF6400;">Instance</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> -e <span style="color: #61CE3C;">"$Cmus_remote"</span> | wc -l<span style="color: #8c8c8c;">)</span>
+<span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle On"</span>
+<span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">Instance</span> = 1 <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
     terminal -e cmus &amp;&amp;
-    sleep <span style="color: #a45bad;">2</span>
+    sleep 2
     cmus-remote -p
-<span style="color: #4f97d7; font-weight: bold;">else</span>
-    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-S"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-            <span style="color: #7590db;">Shuffle</span>=<span style="color: #2d9574;">"Shuffle Off"</span>
-        <span style="color: #4f97d7; font-weight: bold;">fi</span>
-        cmus-remote $<span style="color: #a45bad;">1</span>
-        notify-send -t <span style="color: #a45bad;">800</span> $<span style="color: #7590db;">Shuffle</span>
-    <span style="color: #4f97d7; font-weight: bold;">elif</span> <span style="color: #4f97d7;">[</span> $<span style="color: #a45bad;">1</span> == <span style="color: #2d9574;">"-Q"</span> <span style="color: #4f97d7;">]</span>; <span style="color: #4f97d7; font-weight: bold;">then</span>
-        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
-<span style="color: #2aa1ae; background-color: #292e34;">#        </span><span style="color: #2aa1ae; background-color: #292e34;">cmus-updatepidgin artist "$artist" title "$title"</span>
-    <span style="color: #4f97d7; font-weight: bold;">else</span>
-        cmus-remote $<span style="color: #a45bad;">1</span>
-        <span style="color: #7590db;">Cur_song</span>=$<span style="color: #4f97d7;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #a45bad;">3</span> | sort -r | cut -d <span style="color: #2d9574;">' '</span> -f <span style="color: #a45bad;">3-</span> <span style="color: #4f97d7;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #a45bad;">1800</span> <span style="color: #2d9574;">"$Cur_song"</span>
-    <span style="color: #4f97d7; font-weight: bold;">fi</span>
-<span style="color: #4f97d7; font-weight: bold;">fi</span>
+<span style="color: #FBDE2D;">else</span>
+    <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">1</span> == <span style="color: #61CE3C;">"-S"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+        <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+            <span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle Off"</span>
+        <span style="color: #FBDE2D;">fi</span>
+        cmus-remote $<span style="color: #FF6400;">1</span>
+        notify-send -t 800 $<span style="color: #FF6400;">Shuffle</span>
+    <span style="color: #FBDE2D;">elif</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">1</span> == <span style="color: #61CE3C;">"-Q"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> <span style="color: #61CE3C;">"$Cmus_remote"</span> | grep tag | head -n 3 | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f 3- <span style="color: #8c8c8c;">)</span>
+        notify-send -i multimedia-volume-control -t 1800 <span style="color: #61CE3C;">"$Cur_song"</span>
+<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
+<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
+<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">cmus-updatepidgin artist "$artist" title "$title"</span>
+    <span style="color: #FBDE2D;">else</span>
+        cmus-remote $<span style="color: #FF6400;">1</span>
+        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q | grep tag | head -n 3 | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f 3- <span style="color: #8c8c8c;">)</span>
+        notify-send -i multimedia-volume-control -t 1800 <span style="color: #61CE3C;">"$Cur_song"</span>
+    <span style="color: #FBDE2D;">fi</span>
+<span style="color: #FBDE2D;">fi</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org1255887" class="outline-4">
-<h4 id="org1255887"><span class="section-number-4">4.6.2</span> Fonctionnement</h4>
+<div id="outline-container-sec-4-6-2" class="outline-4">
+<h4 id="sec-4-6-2"><span class="section-number-4">4.6.2</span> Fonctionnement</h4>
 <div class="outline-text-4" id="text-4-6-2">
 <p>
 Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
@@ -1943,6 +2015,7 @@ Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
 Infos sur les arguments :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">man cmus-remote
 </pre>
 </div>
@@ -1960,15 +2033,15 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 </div>
 </div>
 </div>
-<div id="outline-container-orge6f3aa0" class="outline-3">
-<h3 id="orge6f3aa0"><span class="section-number-3">4.7</span> MPD</h3>
+<div id="outline-container-sec-4-7" class="outline-3">
+<h3 id="sec-4-7"><span class="section-number-3">4.7</span> MPD</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 Playeur orienté serveur.
 </p>
 </div>
-<div id="outline-container-org554241d" class="outline-4">
-<h4 id="org554241d"><span class="section-number-4">4.7.1</span> Configurqation de MPD</h4>
+<div id="outline-container-sec-4-7-1" class="outline-4">
+<h4 id="sec-4-7-1"><span class="section-number-4">4.7.1</span> Configurqation de MPD</h4>
 <div class="outline-text-4" id="text-4-7-1">
 <p>
 Editer : <b>~/.mpd/mpd.conf</b>
@@ -1993,13 +2066,14 @@ audio_output {
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbc3c081" class="outline-4">
-<h4 id="orgbc3c081"><span class="section-number-4">4.7.2</span> MPC</h4>
+<div id="outline-container-sec-4-7-2" class="outline-4">
+<h4 id="sec-4-7-2"><span class="section-number-4">4.7.2</span> MPC</h4>
 <div class="outline-text-4" id="text-4-7-2">
 <p>
 MPC permet de gérer MPD en ligne de commande, ex :
 </p>
 <div class="org-src-container">
+
 <pre class="src src-bash">mpc play/pause/toggle/prev/next/stop
 </pre>
 </div>
@@ -2011,33 +2085,35 @@ Je map ces différentes commandes sur mes touches multimédia pour pouvoir accè
 </div>
 </div>
 </div>
-<div id="outline-container-orgeb1e8b4" class="outline-4">
-<h4 id="orgeb1e8b4"><span class="section-number-4">4.7.3</span> Autres clients</h4>
+<div id="outline-container-sec-4-7-3" class="outline-4">
+<h4 id="sec-4-7-3"><span class="section-number-4">4.7.3</span> Autres clients</h4>
 <div class="outline-text-4" id="text-4-7-3">
 <ul class="org-ul">
-<li><a href="https://ambientsound.github.io/pms/">Practical Music Search (pms)</a></li>
-<li><a href="http://rybczak.net/ncmpcpp/">NCurses Music Player Client (Plus Plus) (ncmpcpp)</a></li>
+<li><a href="https://ambientsound.github.io/pms/">Practical Music Search (pms)</a>
+</li>
+<li><a href="http://rybczak.net/ncmpcpp/">NCurses Music Player Client (Plus Plus) (ncmpcpp)</a>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org4310cc5" class="outline-3">
-<h3 id="org4310cc5"><span class="section-number-3">4.8</span> Rofi</h3>
+<div id="outline-container-sec-4-8" class="outline-3">
+<h3 id="sec-4-8"><span class="section-number-3">4.8</span> Rofi</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 Outil similaire à dmenu
 </p>
 </div>
-<div id="outline-container-org8476b6d" class="outline-4">
-<h4 id="org8476b6d"><span class="section-number-4">4.8.1</span> Commande personnalisée</h4>
+<div id="outline-container-sec-4-8-1" class="outline-4">
+<h4 id="sec-4-8-1"><span class="section-number-4">4.8.1</span> Commande personnalisée</h4>
 <div class="outline-text-4" id="text-4-8-1">
 <pre class="example">
 rofi -show run -lines 3 -eh 2 -width 100 -padding 430 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Displa 18"
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfc54658" class="outline-4">
-<h4 id="orgfc54658"><span class="section-number-4">4.8.2</span> Thème</h4>
+<div id="outline-container-sec-4-8-2" class="outline-4">
+<h4 id="sec-4-8-2"><span class="section-number-4">4.8.2</span> Thème</h4>
 <div class="outline-text-4" id="text-4-8-2">
 <p>
 Nom du thème : <b>glue_pro_blue.theme</b>
@@ -2062,15 +2138,15 @@ rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 </div>
 </div>
 </div>
-<div id="outline-container-orgcd68f39" class="outline-3">
-<h3 id="orgcd68f39"><span class="section-number-3">4.9</span> Weechat</h3>
+<div id="outline-container-sec-4-9" class="outline-3">
+<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Weechat</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 Client IRC en ligne de commande
 </p>
 </div>
-<div id="outline-container-orgd73ac3d" class="outline-4">
-<h4 id="orgd73ac3d"><span class="section-number-4">4.9.1</span> Thème</h4>
+<div id="outline-container-sec-4-9-1" class="outline-4">
+<h4 id="sec-4-9-1"><span class="section-number-4">4.9.1</span> Thème</h4>
 <div class="outline-text-4" id="text-4-9-1">
 <p>
 Commandes à exécuter :
@@ -2113,8 +2189,8 @@ Commandes à exécuter :
 </p>
 </div>
 </div>
-<div id="outline-container-org6e41643" class="outline-4">
-<h4 id="org6e41643"><span class="section-number-4">4.9.2</span> Autres configurations intéressantes</h4>
+<div id="outline-container-sec-4-9-2" class="outline-4">
+<h4 id="sec-4-9-2"><span class="section-number-4">4.9.2</span> Autres configurations intéressantes</h4>
 <div class="outline-text-4" id="text-4-9-2">
 <p>
 <a href="https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options">https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options</a>
@@ -2126,7 +2202,8 @@ Commandes à exécuter :
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2016-11-23 mer. 13:27</p>
+<p class="date">Created: 2016-12-29 Thu 15:43</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -462,7 +462,7 @@ emerge -uNDv world
 * Général
 ** Compatibilité R.A.T.3
 Editer "/etc/X11/xorg.conf"
-#+BEGIN_SRC shell
+#+BEGIN_SRC sh
 Section "InputClass"
 Identifier "Mouse Remap"
 MatchProduct "Saitek Cyborg R.A.T.3 Mouse"
@@ -480,12 +480,12 @@ xinput set-prop "Logitech MX Master" "Evdev Scrolling Distance" 1 -1 1
    + Editer "/etc/default/acpi-support"
 
    - Remplacer : 
-   #+BEGIN_SRC shell
+   #+BEGIN_SRC sh
    HIBERNATE_MODE=shutdown
    #+END_SRC
 
    - Par : 
-   #+BEGIN_SRC shell
+   #+BEGIN_SRC sh
    HIBERNATE_MODE=platform
    #+END_SRC
    
@@ -635,6 +635,10 @@ emerge -av gmtp
 #+begin_note
 gMPT possède une interface GUI.
 #+end_note
+** Rediriger sa sortie audio vers un serveur DLNA
+/pulseaudio-dlna/ est un packet qui permet d'ajouter à pulseaudio les différents 
+serveurs DLNA de votre réseau à vos sorties audio.
+Il n'y a plus qu'à le lancer en arrière-plan pour que tout fonctionne.
 * Technique 
 ** Bash
 *** Liens utiles
@@ -647,6 +651,7 @@ gMPT possède une interface GUI.
 | [[http://git.savannah.gnu.org/cgit/bash.git/log/?h=devel][Forge git bash]]                      |
 | [[https://lists.gnu.org/mailman/listinfo/help-bash][GNU bash help]]                       |
 | [[https://github.com/koalaman/shellcheck][ShellCheck (cf. flycheck sur Emacs)]] |
+| [[https://taskwarrior.org/][Taskwarrior]]                         |
 *** Commandes utiles
 | Commande                       | Description                                                                    |
 |--------------------------------+--------------------------------------------------------------------------------|
@@ -671,7 +676,7 @@ shellcheck monscript
 #+END_SRC
 * Applications
 ** Skype - désactiver le lancement au démarrage
-#+BEGIN_SRC shell
+#+BEGIN_SRC sh
 rm -f /etc/prelink.conf.d/skype.conf
 #+END_SRC
 ** Tmux
