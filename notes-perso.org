@@ -844,6 +844,8 @@ Je map ces différentes commandes sur mes touches multimédia pour pouvoir accè
 *** Autres clients
 + [[https://ambientsound.github.io/pms/][Practical Music Search (pms)]]
 + [[http://rybczak.net/ncmpcpp/][NCurses Music Player Client (Plus Plus) (ncmpcpp)]]
+*** Mopidy
+[[https://github.com/mopidy/mopidy][Mopidy]] est un serveur mpd qui permet d'utiliser des services comme Spotify ([[https://github.com/mopidy/mopidy-spotify][mopidy-spotify]])
 ** Rofi
 Outil similaire à dmenu
 *** Commande personnalisée 
