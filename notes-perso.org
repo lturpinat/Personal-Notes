@@ -663,6 +663,7 @@ Il n'y a plus qu'à le lancer en arrière-plan pour que tout fonctionne.
 | strace                         | Indique quels sont les fichiers qu'un programme essaie de lire                 |
 | [[https://github.com/nvbn/thefuck][thefuck]]                        | Tente de corriger la dernière commande en se basant sur l'historique           |
 | mtr                            | Outil de diagnostique réseau (permet de visualiser le cheminement d'un paquet) |
+| [[https://github.com/tldr-pages/tldr][tldr]]                           | Genre de man donnant des exemples d'application de commandes                   |
 *** Convertir une variable en base X
 Exemple avec une conversion en base 10
 #+BEGIN_SRC sh
