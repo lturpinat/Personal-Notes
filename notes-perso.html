@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Notes Linux</title>
-<!-- 2017-01-15 Sun 17:26 -->
+<!-- 2017-01-23 lun. 16:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="lturpinat" />
@@ -226,6 +226,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-2-12">2.12. Accèder aux documents d'un téléphone utilisant MTP</a></li>
 <li><a href="#sec-2-13">2.13. Rediriger sa sortie audio vers un serveur DLNA</a></li>
+<li><a href="#sec-2-14">2.14. fishshell</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">3. Technique</a>
@@ -1059,33 +1060,33 @@ Permet de gérer le client cmus
 <div class="outline-text-4" id="text-1-7-1">
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #AEAEAE; font-style: italic;">#</span><span style="color: #AEAEAE; font-style: italic;">!/bin/</span><span style="color: #FBDE2D;">sh</span>
-<span style="color: #FF6400;">Cmus_remote</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q<span style="color: #8c8c8c;">)</span>
-<span style="color: #FF6400;">Instance</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> -e <span style="color: #61CE3C;">"$Cmus_remote"</span> | wc -l<span style="color: #8c8c8c;">)</span>
-<span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle On"</span>
-<span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">Instance</span> = <span style="color: #D8FA3C;">1</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+<pre class="src src-sh"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">!/bin/</span><span style="color: #99cc99;">sh</span>
+<span style="color: #ffcc66;">Cmus_remote</span>=$<span style="color: #cccccc;">(</span>cmus-remote -Q<span style="color: #cccccc;">)</span>
+<span style="color: #ffcc66;">Instance</span>=$<span style="color: #cccccc;">(</span><span style="color: #cc99cc;">echo</span> -e <span style="color: #66cccc;">"$Cmus_remote"</span> | wc -l<span style="color: #cccccc;">)</span>
+<span style="color: #ffcc66;">Shuffle</span>=<span style="color: #66cccc;">"Shuffle On"</span>
+<span style="color: #99cc99;">if</span> <span style="color: #cccccc;">[</span> $<span style="color: #ffcc66;">Instance</span> = <span style="color: #6699cc;">1</span> <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
     terminal -e cmus &amp;&amp;
-    sleep <span style="color: #D8FA3C;">2</span>
+    sleep <span style="color: #6699cc;">2</span>
     cmus-remote -p
-<span style="color: #FBDE2D;">else</span>
-    <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #D8FA3C;">1</span> == <span style="color: #61CE3C;">"-S"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
-        <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
-            <span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle Off"</span>
-        <span style="color: #FBDE2D;">fi</span>
-        cmus-remote $<span style="color: #D8FA3C;">1</span>
-        notify-send -t <span style="color: #D8FA3C;">800</span> $<span style="color: #FF6400;">Shuffle</span>
-    <span style="color: #FBDE2D;">elif</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #D8FA3C;">1</span> == <span style="color: #61CE3C;">"-Q"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
-        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> <span style="color: #61CE3C;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #D8FA3C;">3</span> | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f <span style="color: #D8FA3C;">3-</span> <span style="color: #8c8c8c;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #D8FA3C;">1800</span> <span style="color: #61CE3C;">"$Cur_song"</span>
-<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
-<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
-<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">cmus-updatepidgin artist "$artist" title "$title"</span>
-    <span style="color: #FBDE2D;">else</span>
-        cmus-remote $<span style="color: #D8FA3C;">1</span>
-        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #D8FA3C;">3</span> | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f <span style="color: #D8FA3C;">3-</span> <span style="color: #8c8c8c;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #D8FA3C;">1800</span> <span style="color: #61CE3C;">"$Cur_song"</span>
-    <span style="color: #FBDE2D;">fi</span>
-<span style="color: #FBDE2D;">fi</span>
+<span style="color: #99cc99;">else</span>
+    <span style="color: #99cc99;">if</span> <span style="color: #cccccc;">[</span> $<span style="color: #6699cc;">1</span> == <span style="color: #66cccc;">"-S"</span> <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
+        <span style="color: #99cc99;">if</span> <span style="color: #cccccc;">[</span> <span style="color: #cc99cc;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
+            <span style="color: #ffcc66;">Shuffle</span>=<span style="color: #66cccc;">"Shuffle Off"</span>
+        <span style="color: #99cc99;">fi</span>
+        cmus-remote $<span style="color: #6699cc;">1</span>
+        notify-send -t <span style="color: #6699cc;">800</span> $<span style="color: #ffcc66;">Shuffle</span>
+    <span style="color: #99cc99;">elif</span> <span style="color: #cccccc;">[</span> $<span style="color: #6699cc;">1</span> == <span style="color: #66cccc;">"-Q"</span> <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
+        <span style="color: #ffcc66;">Cur_song</span>=$<span style="color: #cccccc;">(</span><span style="color: #cc99cc;">echo</span> <span style="color: #66cccc;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #6699cc;">3</span> | sort -r | cut -d <span style="color: #66cccc;">' '</span> -f <span style="color: #6699cc;">3-</span> <span style="color: #cccccc;">)</span>
+        notify-send -i multimedia-volume-control -t <span style="color: #6699cc;">1800</span> <span style="color: #66cccc;">"$Cur_song"</span>
+<span style="color: #999999; font-style: italic;">#        </span><span style="color: #999999; font-style: italic;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
+<span style="color: #999999; font-style: italic;">#        </span><span style="color: #999999; font-style: italic;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
+<span style="color: #999999; font-style: italic;">#        </span><span style="color: #999999; font-style: italic;">cmus-updatepidgin artist "$artist" title "$title"</span>
+    <span style="color: #99cc99;">else</span>
+        cmus-remote $<span style="color: #6699cc;">1</span>
+        <span style="color: #ffcc66;">Cur_song</span>=$<span style="color: #cccccc;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #6699cc;">3</span> | sort -r | cut -d <span style="color: #66cccc;">' '</span> -f <span style="color: #6699cc;">3-</span> <span style="color: #cccccc;">)</span>
+        notify-send -i multimedia-volume-control -t <span style="color: #6699cc;">1800</span> <span style="color: #66cccc;">"$Cur_song"</span>
+    <span style="color: #99cc99;">fi</span>
+<span style="color: #99cc99;">fi</span>
 </pre>
 </div>
 </div>
@@ -1183,11 +1184,11 @@ Editer "/etc/X11/xorg.conf"
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">Section <span style="color: #61CE3C;">"InputClass"</span>
-Identifier <span style="color: #61CE3C;">"Mouse Remap"</span>
-MatchProduct <span style="color: #61CE3C;">"Saitek Cyborg R.A.T.3 Mouse"</span>
-MatchDevicePath <span style="color: #61CE3C;">"/dev/input/event*"</span>
-Option <span style="color: #61CE3C;">"ButtonMapping"</span> <span style="color: #61CE3C;">"1 2 3 4 5 0 0 8 9 0 0 0 13 14"</span>
+<pre class="src src-sh">Section <span style="color: #66cccc;">"InputClass"</span>
+Identifier <span style="color: #66cccc;">"Mouse Remap"</span>
+MatchProduct <span style="color: #66cccc;">"Saitek Cyborg R.A.T.3 Mouse"</span>
+MatchDevicePath <span style="color: #66cccc;">"/dev/input/event*"</span>
+Option <span style="color: #66cccc;">"ButtonMapping"</span> <span style="color: #66cccc;">"1 2 3 4 5 0 0 8 9 0 0 0 13 14"</span>
 EndSection
 </pre>
 </div>
@@ -1204,7 +1205,7 @@ EndSection
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 
-<pre class="src src-sh">xinput set-prop <span style="color: #61CE3C;">"Logitech MX Master"</span> <span style="color: #61CE3C;">"Evdev Scrolling Distance"</span> <span style="color: #D8FA3C;">1</span> -1 <span style="color: #D8FA3C;">1</span>
+<pre class="src src-sh">xinput set-prop <span style="color: #66cccc;">"Logitech MX Master"</span> <span style="color: #66cccc;">"Evdev Scrolling Distance"</span> <span style="color: #6699cc;">1</span> -1 <span style="color: #6699cc;">1</span>
 </pre>
 </div>
 </div>
@@ -1222,7 +1223,7 @@ EndSection
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #FF6400;">HIBERNATE_MODE</span>=shutdown
+<pre class="src src-sh"><span style="color: #ffcc66;">HIBERNATE_MODE</span>=shutdown
 </pre>
 </div>
 
@@ -1232,7 +1233,7 @@ EndSection
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #FF6400;">HIBERNATE_MODE</span>=platform
+<pre class="src src-sh"><span style="color: #ffcc66;">HIBERNATE_MODE</span>=platform
 </pre>
 </div>
 
@@ -1536,6 +1537,19 @@ Il n'y a plus qu'à le lancer en arrière-plan pour que tout fonctionne.
 </p>
 </div>
 </div>
+<div id="outline-container-sec-2-14" class="outline-3">
+<h3 id="sec-2-14"><span class="section-number-3">2.14</span> fishshell</h3>
+<div class="outline-text-3" id="text-2-14">
+<p>
+Pour afficher le répertoire complet à chaque fois ("<i>etc/init.d</i>" au lieu de "/e/init.d" par ex) :
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #cc99cc;">set</span> -U fish_prompt_pwd_dir_length <span style="color: #6699cc;">0</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> Technique</h2>
@@ -1667,7 +1681,7 @@ Exemple avec une conversion en base 10
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #FF6400;">newvar</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #93a8c6;">(</span><span style="color: #D8FA3C;">10#</span>$<span style="color: #FF6400;">var</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sh"><span style="color: #ffcc66;">newvar</span>=$<span style="color: #cccccc;">(</span><span style="color: #66cccc;">(</span><span style="color: #6699cc;">10#</span>$<span style="color: #ffcc66;">var</span><span style="color: #66cccc;">)</span><span style="color: #cccccc;">)</span>;
 </pre>
 </div>
 </div>
@@ -1777,7 +1791,7 @@ Package : <i>htmlize</i>
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-elisp"><span style="color: #8c8c8c;">(</span><span style="color: #FBDE2D;">setq</span> org-startup-indented t<span style="color: #8c8c8c;">)</span>
+<pre class="src src-elisp"><span style="color: #cccccc;">(</span><span style="color: #99cc99;">setq</span> org-startup-indented t<span style="color: #cccccc;">)</span>
 </pre>
 </div>
 </div>
@@ -1939,7 +1953,7 @@ Pour intégrer des sous-titres (.str) avec mkvmerge
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-sh">mkvmerge -o &lt;sortie&gt; --language <span style="color: #D8FA3C;">0:</span>&lt;langue&gt; &lt;sous-titre&gt; &lt;entree&gt;
+<pre class="src src-sh">mkvmerge -o &lt;sortie&gt; --language <span style="color: #6699cc;">0:</span>&lt;langue&gt; &lt;sous-titre&gt; &lt;entree&gt;
 </pre>
 </div>
 
@@ -1949,7 +1963,7 @@ Pour intégrer des sous-titres (.str) avec mkvmerge
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-sh">mkvmerge -o <span style="color: #61CE3C;">"Les Sept Samura&#239;s (avec sous-titre).mp4"</span> --language <span style="color: #D8FA3C;">0:ja</span> <span style="color: #61CE3C;">"french.srt"</span> <span style="color: #61CE3C;">"Les Sept Samura&#239;s (sans sous-titre).mp4"</span>
+<pre class="src src-sh">mkvmerge -o <span style="color: #66cccc;">"Les Sept Samura&#239;s (avec sous-titre).mp4"</span> --language <span style="color: #6699cc;">0:ja</span> <span style="color: #66cccc;">"french.srt"</span> <span style="color: #66cccc;">"Les Sept Samura&#239;s (sans sous-titre).mp4"</span>
 </pre>
 </div>
 
@@ -1979,33 +1993,33 @@ Permet de gérer le client cmus
 <div class="outline-text-4" id="text-4-6-1">
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #AEAEAE; font-style: italic;">#</span><span style="color: #AEAEAE; font-style: italic;">!/bin/</span><span style="color: #FBDE2D;">sh</span>
-<span style="color: #FF6400;">Cmus_remote</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q<span style="color: #8c8c8c;">)</span>
-<span style="color: #FF6400;">Instance</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> -e <span style="color: #61CE3C;">"$Cmus_remote"</span> | wc -l<span style="color: #8c8c8c;">)</span>
-<span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle On"</span>
-<span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #FF6400;">Instance</span> = <span style="color: #D8FA3C;">1</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
+<pre class="src src-sh"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">!/bin/</span><span style="color: #99cc99;">sh</span>
+<span style="color: #ffcc66;">Cmus_remote</span>=$<span style="color: #cccccc;">(</span>cmus-remote -Q<span style="color: #cccccc;">)</span>
+<span style="color: #ffcc66;">Instance</span>=$<span style="color: #cccccc;">(</span><span style="color: #cc99cc;">echo</span> -e <span style="color: #66cccc;">"$Cmus_remote"</span> | wc -l<span style="color: #cccccc;">)</span>
+<span style="color: #ffcc66;">Shuffle</span>=<span style="color: #66cccc;">"Shuffle On"</span>
+<span style="color: #99cc99;">if</span> <span style="color: #cccccc;">[</span> $<span style="color: #ffcc66;">Instance</span> = <span style="color: #6699cc;">1</span> <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
     terminal -e cmus &amp;&amp;
-    sleep <span style="color: #D8FA3C;">2</span>
+    sleep <span style="color: #6699cc;">2</span>
     cmus-remote -p
-<span style="color: #FBDE2D;">else</span>
-    <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #D8FA3C;">1</span> == <span style="color: #61CE3C;">"-S"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
-        <span style="color: #FBDE2D;">if</span> <span style="color: #8c8c8c;">[</span> <span style="color: #fa8072;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
-            <span style="color: #FF6400;">Shuffle</span>=<span style="color: #61CE3C;">"Shuffle Off"</span>
-        <span style="color: #FBDE2D;">fi</span>
-        cmus-remote $<span style="color: #D8FA3C;">1</span>
-        notify-send -t <span style="color: #D8FA3C;">800</span> $<span style="color: #FF6400;">Shuffle</span>
-    <span style="color: #FBDE2D;">elif</span> <span style="color: #8c8c8c;">[</span> $<span style="color: #D8FA3C;">1</span> == <span style="color: #61CE3C;">"-Q"</span> <span style="color: #8c8c8c;">]</span>; <span style="color: #FBDE2D;">then</span>
-        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span><span style="color: #94bff3;">echo</span> <span style="color: #61CE3C;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #D8FA3C;">3</span> | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f <span style="color: #D8FA3C;">3-</span> <span style="color: #8c8c8c;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #D8FA3C;">1800</span> <span style="color: #61CE3C;">"$Cur_song"</span>
-<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
-<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
-<span style="color: #AEAEAE; font-style: italic;">#        </span><span style="color: #AEAEAE; font-style: italic;">cmus-updatepidgin artist "$artist" title "$title"</span>
-    <span style="color: #FBDE2D;">else</span>
-        cmus-remote $<span style="color: #D8FA3C;">1</span>
-        <span style="color: #FF6400;">Cur_song</span>=$<span style="color: #8c8c8c;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #D8FA3C;">3</span> | sort -r | cut -d <span style="color: #61CE3C;">' '</span> -f <span style="color: #D8FA3C;">3-</span> <span style="color: #8c8c8c;">)</span>
-        notify-send -i multimedia-volume-control -t <span style="color: #D8FA3C;">1800</span> <span style="color: #61CE3C;">"$Cur_song"</span>
-    <span style="color: #FBDE2D;">fi</span>
-<span style="color: #FBDE2D;">fi</span>
+<span style="color: #99cc99;">else</span>
+    <span style="color: #99cc99;">if</span> <span style="color: #cccccc;">[</span> $<span style="color: #6699cc;">1</span> == <span style="color: #66cccc;">"-S"</span> <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
+        <span style="color: #99cc99;">if</span> <span style="color: #cccccc;">[</span> <span style="color: #cc99cc;">`echo "$Cmus_remote" | grep shuffle | cut -d ' ' -f 3`</span> == true <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
+            <span style="color: #ffcc66;">Shuffle</span>=<span style="color: #66cccc;">"Shuffle Off"</span>
+        <span style="color: #99cc99;">fi</span>
+        cmus-remote $<span style="color: #6699cc;">1</span>
+        notify-send -t <span style="color: #6699cc;">800</span> $<span style="color: #ffcc66;">Shuffle</span>
+    <span style="color: #99cc99;">elif</span> <span style="color: #cccccc;">[</span> $<span style="color: #6699cc;">1</span> == <span style="color: #66cccc;">"-Q"</span> <span style="color: #cccccc;">]</span>; <span style="color: #99cc99;">then</span>
+        <span style="color: #ffcc66;">Cur_song</span>=$<span style="color: #cccccc;">(</span><span style="color: #cc99cc;">echo</span> <span style="color: #66cccc;">"$Cmus_remote"</span> | grep tag | head -n <span style="color: #6699cc;">3</span> | sort -r | cut -d <span style="color: #66cccc;">' '</span> -f <span style="color: #6699cc;">3-</span> <span style="color: #cccccc;">)</span>
+        notify-send -i multimedia-volume-control -t <span style="color: #6699cc;">1800</span> <span style="color: #66cccc;">"$Cur_song"</span>
+<span style="color: #999999; font-style: italic;">#        </span><span style="color: #999999; font-style: italic;">artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)</span>
+<span style="color: #999999; font-style: italic;">#        </span><span style="color: #999999; font-style: italic;">title=$(echo -e "$Cur_song" | head -n 1 )</span>
+<span style="color: #999999; font-style: italic;">#        </span><span style="color: #999999; font-style: italic;">cmus-updatepidgin artist "$artist" title "$title"</span>
+    <span style="color: #99cc99;">else</span>
+        cmus-remote $<span style="color: #6699cc;">1</span>
+        <span style="color: #ffcc66;">Cur_song</span>=$<span style="color: #cccccc;">(</span>cmus-remote -Q | grep tag | head -n <span style="color: #6699cc;">3</span> | sort -r | cut -d <span style="color: #66cccc;">' '</span> -f <span style="color: #6699cc;">3-</span> <span style="color: #cccccc;">)</span>
+        notify-send -i multimedia-volume-control -t <span style="color: #6699cc;">1800</span> <span style="color: #66cccc;">"$Cur_song"</span>
+    <span style="color: #99cc99;">fi</span>
+<span style="color: #99cc99;">fi</span>
 </pre>
 </div>
 </div>
@@ -2216,7 +2230,7 @@ Commandes à exécuter :
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2017-01-15 Sun 17:26</p>
+<p class="date">Created: 2017-01-23 lun. 16:27</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

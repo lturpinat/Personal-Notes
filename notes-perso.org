@@ -639,6 +639,11 @@ gMPT possède une interface GUI.
 /pulseaudio-dlna/ est un packet qui permet d'ajouter à pulseaudio les différents 
 serveurs DLNA de votre réseau à vos sorties audio.
 Il n'y a plus qu'à le lancer en arrière-plan pour que tout fonctionne.
+** fishshell
+Pour afficher le répertoire complet à chaque fois ("/etc/init.d/" au lieu de "/e/init.d" par ex) :
+#+BEGIN_SRC sh
+set -U fish_prompt_pwd_dir_length 0
+#+END_SRC
 * Technique 
 ** Bash
 *** Liens utiles
