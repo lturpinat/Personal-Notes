@@ -680,6 +680,21 @@ newvar=$((10#$var));
 #+BEGIN_SRC sh
 shellcheck monscript
 #+END_SRC
+** Réseau
+*** Outils analyse réseau (wifi)
+Quelques commandes pour avoir des informations sur le réseau
+#+BEGIN_SRC sh
+wavemon #interface userfriendly pour monotirer le réseau de façon avancée
+arp -a #Permet d'afficher des informations utiles sur le cache ARP
+nmcli -f SSID,BSSID,BARS,ACTIVE dev wifi list #Afficher des informations utiles sur les réseaux wifi avec NetworkManager
+iwconfig <interface> #Informations utiles sur l'interface spécifiée en paramètre
+#+END_SRC
+*** Vider le cache DNS
+#+BEGIN_SRC sh
+#En root
+nscd -K
+nscd
+#+END_SRC
 * Applications
 ** Skype - désactiver le lancement au démarrage
 #+BEGIN_SRC sh
