@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-03-05 Sun 00:51 -->
+<!-- 2017-03-07 Tue 20:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes Linux</title>
@@ -239,149 +239,154 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc536dc5">1. Gentoo</a>
+<li><a href="#org63093e9">1. Gentoo</a>
 <ul>
-<li><a href="#orgc014812">1.1. Installation rapide de Gentoo</a>
+<li><a href="#org1fed93e">1.1. Installation rapide de Gentoo</a>
 <ul>
-<li><a href="#org93c79c7">1.1.1. Formatage du disque</a></li>
-<li><a href="#org6119ac4">1.1.2. Stage3</a></li>
-<li><a href="#orgf16c5ad">1.1.3. Chrooting</a></li>
-<li><a href="#orgae4ff90">1.1.4. Utilisateurs et <i>make.conf</i></a></li>
-<li><a href="#org66e20c7">1.1.5. Portage</a></li>
-<li><a href="#orge4fc011">1.1.6. Paramétrage de <i>fstab</i></a></li>
-<li><a href="#org5fd0e22">1.1.7. Sélection d'un profil</a></li>
-<li><a href="#org623c5ad">1.1.8. Fuseau horaire</a></li>
-<li><a href="#orgb002006">1.1.9. Fichiers de configuration</a></li>
-<li><a href="#orgf0411e9">1.1.10. Le Kernel</a></li>
-<li><a href="#org7053de2">1.1.11. L'amorceur (bootloader)</a></li>
-<li><a href="#org532a878">1.1.12. Outils réseaux</a></li>
-<li><a href="#org87f9ec7">1.1.13. Redémarrage</a></li>
-<li><a href="#orged00fb6">1.1.14. Dernière phase</a></li>
-<li><a href="#org95fddd2">1.1.15. Sources</a></li>
+<li><a href="#org038515a">1.1.1. Formatage du disque</a></li>
+<li><a href="#org1a0bc05">1.1.2. Stage3</a></li>
+<li><a href="#org9db1bd9">1.1.3. Chrooting</a></li>
+<li><a href="#org7dbd5b3">1.1.4. Utilisateurs et <i>make.conf</i></a></li>
+<li><a href="#org2f0fdd5">1.1.5. Portage</a></li>
+<li><a href="#org4874769">1.1.6. Paramétrage de <i>fstab</i></a></li>
+<li><a href="#org0d6d34a">1.1.7. Sélection d'un profil</a></li>
+<li><a href="#org8c4d4c2">1.1.8. Fuseau horaire</a></li>
+<li><a href="#orgee3bcab">1.1.9. Fichiers de configuration</a></li>
+<li><a href="#orge4baa11">1.1.10. Le Kernel</a></li>
+<li><a href="#orgc4c9490">1.1.11. L'amorceur (bootloader)</a></li>
+<li><a href="#orgab1fe43">1.1.12. Outils réseaux</a></li>
+<li><a href="#orgdff32ac">1.1.13. Redémarrage</a></li>
+<li><a href="#orgc953240">1.1.14. Dernière phase</a></li>
+<li><a href="#org25d0d9f">1.1.15. Sources</a></li>
 </ul>
 </li>
-<li><a href="#org03ef81d">1.2. Le clavier</a></li>
-<li><a href="#orgcc35c6e">1.3. Outils vfat (FAT32)</a></li>
-<li><a href="#orgd214959">1.4. Support du NTFS</a>
+<li><a href="#org4f85f8d">1.2. Le clavier</a></li>
+<li><a href="#org4028ec8">1.3. Outils vfat (FAT32)</a></li>
+<li><a href="#orgeb8cc99">1.4. Support du NTFS</a>
 <ul>
-<li><a href="#org72d040e">1.4.1. Kernel</a></li>
-<li><a href="#org041d27c">1.4.2. Outil</a></li>
+<li><a href="#org00b719f">1.4.1. Kernel</a></li>
+<li><a href="#org492e95e">1.4.2. Outil</a></li>
 </ul>
 </li>
-<li><a href="#org2c82a8c">1.5. Emacs et polices de caractères</a></li>
-<li><a href="#orgf92149c">1.6. Support du NFS</a>
+<li><a href="#org8b8b4b4">1.5. Emacs et polices de caractères</a></li>
+<li><a href="#org247ae67">1.6. Support du NFS</a>
 <ul>
-<li><a href="#org4d309ed">1.6.1. Kernel</a></li>
-<li><a href="#org96547a1">1.6.2. Outil</a></li>
-<li><a href="#org4d01e0a">1.6.3. OpenRC</a></li>
-<li><a href="#org4359162">1.6.4. Exemple de montage</a></li>
+<li><a href="#org834ac0d">1.6.1. Kernel</a></li>
+<li><a href="#orga898324">1.6.2. Outil</a></li>
+<li><a href="#org9df3341">1.6.3. OpenRC</a></li>
+<li><a href="#orgf0f9678">1.6.4. Exemple de montage</a></li>
 </ul>
 </li>
-<li><a href="#orgd2b21d8">1.7. cmus-notify</a>
+<li><a href="#orga7428c5">1.7. cmus-notify</a>
 <ul>
-<li><a href="#orgbc857b8">1.7.1. Script</a></li>
-<li><a href="#orgd4c0b66">1.7.2. Fonctionnement</a></li>
+<li><a href="#org9ad74e8">1.7.1. Script</a></li>
+<li><a href="#org9bf3a54">1.7.2. Fonctionnement</a></li>
 </ul>
 </li>
-<li><a href="#org81d9ca1">1.8. OpenVPN</a></li>
-<li><a href="#orgc969864">1.9. Logitech MX Master (souris)</a></li>
-<li><a href="#orgbcad407">1.10. Optimisation matérielle pour les laptops</a></li>
-<li><a href="#org1c454b8">1.11. Mise à jour hebdomadaire</a></li>
+<li><a href="#org7ca55d1">1.8. OpenVPN</a></li>
+<li><a href="#org7d8422c">1.9. Logitech MX Master (souris)</a></li>
+<li><a href="#org3a44359">1.10. Optimisation matérielle pour les laptops</a></li>
+<li><a href="#orga1ff822">1.11. Mise à jour hebdomadaire</a></li>
 </ul>
 </li>
-<li><a href="#org08ce371">2. Général</a>
+<li><a href="#org72b1e0c">2. Général</a>
 <ul>
-<li><a href="#org23aa896">2.1. Compatibilité R.A.T.3</a></li>
-<li><a href="#orgf218bee">2.2. Trucs pour la Logitech MX Master</a>
+<li><a href="#orga303e0f">2.1. Compatibilité R.A.T.3</a></li>
+<li><a href="#orgc3050c2">2.2. Trucs pour la Logitech MX Master</a>
 <ul>
-<li><a href="#org5471062">2.2.1. Activer le scrolling horizontal</a></li>
+<li><a href="#org491271f">2.2.1. Activer le scrolling horizontal</a></li>
 </ul>
 </li>
-<li><a href="#org24c3ecd">2.3. Réactiver le son après une sortie de veille</a></li>
-<li><a href="#orgde40d1d">2.4. KDE</a>
+<li><a href="#orgcaabea2">2.3. Réactiver le son après une sortie de veille</a></li>
+<li><a href="#org967aca8">2.4. KDE</a>
 <ul>
-<li><a href="#org647cf49">2.4.1. Activer la touche Windows pour afficher le launcher</a></li>
+<li><a href="#orgf213b72">2.4.1. Activer la touche Windows pour afficher le launcher</a></li>
 </ul>
 </li>
-<li><a href="#orgaf124fa">2.5. Transformer un .deb en .rpm</a></li>
-<li><a href="#orgb19cfe6">2.6. Mettre flash-player sur Firefox</a></li>
-<li><a href="#orgaa197e2">2.7. Gérer l'audio avec pactl (moins fiable)</a></li>
-<li><a href="#org090904a">2.8. Gérer l'audio avec amixer (plus fiable)</a></li>
-<li><a href="#orgad990f4">2.9. Activer le pavé numérique au démarrage de LightDM</a></li>
-<li><a href="#org8f7291c">2.10. Gestion de la luminosité : xbacklight</a></li>
-<li><a href="#orgba19d1d">2.11. NVIDIA</a>
+<li><a href="#org9581cb4">2.5. Transformer un .deb en .rpm</a></li>
+<li><a href="#orgd5c77c4">2.6. Mettre flash-player sur Firefox</a></li>
+<li><a href="#orgeb7e910">2.7. Gérer l'audio avec pactl (moins fiable)</a></li>
+<li><a href="#org91d95a5">2.8. Gérer l'audio avec amixer (plus fiable)</a></li>
+<li><a href="#orgbb1adad">2.9. Activer le pavé numérique au démarrage de LightDM</a></li>
+<li><a href="#org12341f0">2.10. Gestion de la luminosité : xbacklight</a></li>
+<li><a href="#org4e25995">2.11. NVIDIA</a>
 <ul>
-<li><a href="#org0e15094">2.11.1. Configuration basique</a></li>
-<li><a href="#orgb310d22">2.11.2. Problème de tearing</a></li>
+<li><a href="#org7e85d89">2.11.1. Configuration basique</a></li>
+<li><a href="#org003a4ca">2.11.2. Problème de tearing</a></li>
 </ul>
 </li>
-<li><a href="#orgeeb891f">2.12. Accèder aux documents d'un téléphone utilisant MTP</a></li>
-<li><a href="#org67be525">2.13. Rediriger sa sortie audio vers un serveur DLNA</a></li>
-<li><a href="#org3f751a2">2.14. fishshell</a></li>
+<li><a href="#orgce55c03">2.12. Accèder aux documents d'un téléphone utilisant MTP</a></li>
+<li><a href="#orgfab1b36">2.13. Rediriger sa sortie audio vers un serveur DLNA</a></li>
+<li><a href="#orgbaadf50">2.14. fishshell</a></li>
 </ul>
 </li>
-<li><a href="#org108066b">3. Technique</a>
+<li><a href="#org63ed72a">3. Technique</a>
 <ul>
-<li><a href="#org0bf1658">3.1. Bash</a>
+<li><a href="#org5fd91ec">3.1. Bash</a>
 <ul>
-<li><a href="#org4d11338">3.1.1. Liens utiles</a></li>
-<li><a href="#orga7ef627">3.1.2. Commandes utiles</a></li>
-<li><a href="#org8317a02">3.1.3. Convertir une variable en base X</a></li>
-<li><a href="#orgd593b9d">3.1.4. Correction intelligente de script</a></li>
+<li><a href="#orgbbe3cf6">3.1.1. Liens utiles</a></li>
+<li><a href="#org89e1674">3.1.2. Commandes utiles</a></li>
+<li><a href="#org056fe38">3.1.3. Convertir une variable en base X</a></li>
+<li><a href="#orga766eb8">3.1.4. Correction intelligente de script</a></li>
 </ul>
 </li>
-<li><a href="#org9e5d62e">3.2. Réseau</a>
+<li><a href="#orgfb9c44b">3.2. Réseau</a>
 <ul>
-<li><a href="#org755c6bc">3.2.1. Outils analyse réseau (wifi)</a></li>
-<li><a href="#org5f5159a">3.2.2. Vider le cache DNS</a></li>
+<li><a href="#org35e205f">3.2.1. Outils analyse réseau (wifi)</a></li>
+<li><a href="#org95f914b">3.2.2. Vider le cache DNS</a></li>
+</ul>
+</li>
+<li><a href="#org9fb31f7">3.3. Système</a>
+<ul>
+<li><a href="#orgbb48f0d">3.3.1. fsck</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org9749e22">4. Applications</a>
+<li><a href="#orgf2ec685">4. Applications</a>
 <ul>
-<li><a href="#orgc093f83">4.1. Skype - désactiver le lancement au démarrage</a></li>
-<li><a href="#org86288dd">4.2. Tmux</a></li>
-<li><a href="#org1178c7e">4.3. Terminal</a>
+<li><a href="#orgb41d2f1">4.1. Skype - désactiver le lancement au démarrage</a></li>
+<li><a href="#org88fbcc0">4.2. Tmux</a></li>
+<li><a href="#org46e53bf">4.3. Terminal</a>
 <ul>
-<li><a href="#orgbffdeeb">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
+<li><a href="#orgee3483c">4.3.1. [Préférence] Changer la police de caractère du terminal</a></li>
 </ul>
 </li>
-<li><a href="#org3d1e7c1">4.4. Emacs</a>
+<li><a href="#org9548da9">4.4. Emacs</a>
 <ul>
-<li><a href="#orga2e868f">4.4.1. Problème de police avec Emacs</a></li>
-<li><a href="#org82a88af">4.4.2. Avoir la météo</a></li>
-<li><a href="#org4b53d2d">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
-<li><a href="#org669a9ea">4.4.4. org-mode</a></li>
-<li><a href="#org3394c16">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
-<li><a href="#org05122f7">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
+<li><a href="#org46fbdc1">4.4.1. Problème de police avec Emacs</a></li>
+<li><a href="#orgf728529">4.4.2. Avoir la météo</a></li>
+<li><a href="#org2a2e0d3">4.4.3. Exporter en html avec coloration syntaxique des <i>src</i></a></li>
+<li><a href="#orge5ec9e6">4.4.4. org-mode</a></li>
+<li><a href="#org067d4b7">4.4.5. Correction automatique scripts shell avec ShellCheck</a></li>
+<li><a href="#orgbb4d6bb">4.4.6. Faire des présentations avec org-mode et Reveal.js</a></li>
 </ul>
 </li>
-<li><a href="#orga2e5fc0">4.5. mkvmerge</a></li>
-<li><a href="#org652a6d1">4.6. cmus-notify</a>
+<li><a href="#org6501a70">4.5. mkvmerge</a></li>
+<li><a href="#orgd0ca3ad">4.6. cmus-notify</a>
 <ul>
-<li><a href="#org3c07e4e">4.6.1. Script</a></li>
-<li><a href="#org7d74bf1">4.6.2. Fonctionnement</a></li>
+<li><a href="#org5b63ac7">4.6.1. Script</a></li>
+<li><a href="#org1212e7b">4.6.2. Fonctionnement</a></li>
 </ul>
 </li>
-<li><a href="#org944f0b0">4.7. MPD</a>
+<li><a href="#org0b36f26">4.7. MPD</a>
 <ul>
-<li><a href="#org5926109">4.7.1. Configurqation de MPD</a></li>
-<li><a href="#org6076de4">4.7.2. MPC</a></li>
-<li><a href="#org7d6a1cd">4.7.3. Autres clients</a></li>
-<li><a href="#orgdffe1a2">4.7.4. Mopidy</a></li>
+<li><a href="#org36d8011">4.7.1. Configurqation de MPD</a></li>
+<li><a href="#org118e543">4.7.2. MPC</a></li>
+<li><a href="#org6d2ab3a">4.7.3. Autres clients</a></li>
+<li><a href="#org45ef4cd">4.7.4. Mopidy</a></li>
 </ul>
 </li>
-<li><a href="#orgfb64522">4.8. Rofi</a>
+<li><a href="#org27cdbfa">4.8. Rofi</a>
 <ul>
-<li><a href="#orgd48e61e">4.8.1. Commande personnalisée</a></li>
-<li><a href="#org33e0f3d">4.8.2. Thème</a></li>
+<li><a href="#orgd3c2d75">4.8.1. Commande personnalisée</a></li>
+<li><a href="#orgdce96ed">4.8.2. Thème</a></li>
 </ul>
 </li>
-<li><a href="#org04ffd29">4.9. Weechat</a>
+<li><a href="#org4bf697e">4.9. Weechat</a>
 <ul>
-<li><a href="#org5dfe505">4.9.1. Thème</a></li>
-<li><a href="#org7cc8f52">4.9.2. Autres configurations intéressantes</a></li>
+<li><a href="#orgab53bef">4.9.1. Thème</a></li>
+<li><a href="#org0ce8130">4.9.2. Autres configurations intéressantes</a></li>
 </ul>
 </li>
 </ul>
@@ -404,14 +409,14 @@ La machine utilisée est un <code>Asus G75VX</code>
 
 </div>
 
-<div id="outline-container-orgc536dc5" class="outline-2">
-<h2 id="orgc536dc5"><span class="section-number-2">1</span> Gentoo</h2>
+<div id="outline-container-org63093e9" class="outline-2">
+<h2 id="org63093e9"><span class="section-number-2">1</span> Gentoo</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgc014812" class="outline-3">
-<h3 id="orgc014812"><span class="section-number-3">1.1</span> Installation rapide de Gentoo</h3>
+</div><div id="outline-container-org1fed93e" class="outline-3">
+<h3 id="org1fed93e"><span class="section-number-3">1.1</span> Installation rapide de Gentoo</h3>
 <div class="outline-text-3" id="text-1-1">
-</div><div id="outline-container-org93c79c7" class="outline-4">
-<h4 id="org93c79c7"><span class="section-number-4">1.1.1</span> Formatage du disque</h4>
+</div><div id="outline-container-org038515a" class="outline-4">
+<h4 id="org038515a"><span class="section-number-4">1.1.1</span> Formatage du disque</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Création de 4 partitions pour une installation GPT/UEFI
@@ -475,7 +480,7 @@ Création de 4 partitions pour une installation GPT/UEFI
 </tbody>
 </table>
 </div>
-<ol class="org-ol"><li><a id="org86195d6"></a>Création des partitions <i>gdisk</i><br /><div class="outline-text-5" id="text-1-1-1-1">
+<ol class="org-ol"><li><a id="org9dce036"></a>Création des partitions <i>gdisk</i><br /><div class="outline-text-5" id="text-1-1-1-1">
 <pre class="example">
 root #gdisk /dev/sda
 
@@ -517,7 +522,7 @@ Command: w ↵
 Do you want to proceed? (Y/N): Y ↵
 </pre>
 </div></li>
-<li><a id="orgbecb2a3"></a>Formatage des partitions<br /><div class="outline-text-5" id="text-1-1-1-2">
+<li><a id="org0f332ba"></a>Formatage des partitions<br /><div class="outline-text-5" id="text-1-1-1-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Formatage de boot et rootfs en ext4</span>
 mkfs.ext4 /dev/sda1
@@ -529,7 +534,7 @@ mkfs.vfat /dev/sda2
 </pre>
 </div>
 </div></li>
-<li><a id="org2951cac"></a>Montage des partitions<br /><div class="outline-text-5" id="text-1-1-1-3">
+<li><a id="org7ec7443"></a>Montage des partitions<br /><div class="outline-text-5" id="text-1-1-1-3">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Montage de rootfs dans /mnt/gentoo</span>
 mkdir -p /mnt/gentoo
@@ -544,10 +549,10 @@ mount /dev/sda2 /mnt/gentoo/boot/efi
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-org6119ac4" class="outline-4">
-<h4 id="org6119ac4"><span class="section-number-4">1.1.2</span> Stage3</h4>
+<div id="outline-container-org1a0bc05" class="outline-4">
+<h4 id="org1a0bc05"><span class="section-number-4">1.1.2</span> Stage3</h4>
 <div class="outline-text-4" id="text-1-1-2">
-</div><ol class="org-ol"><li><a id="org277aedf"></a>Précaution : la date<br /><div class="outline-text-5" id="text-1-1-2-1">
+</div><ol class="org-ol"><li><a id="orga4d4def"></a>Précaution : la date<br /><div class="outline-text-5" id="text-1-1-2-1">
 <p>
 Afin d'éviter tout problème de date pour la suite de l'installation, la définir :
 </p>
@@ -557,7 +562,7 @@ date MMJJhhmmAAAAA
 </pre>
 </div>
 </div></li>
-<li><a id="orgf58f109"></a>Téléchargement du tarball<br /><div class="outline-text-5" id="text-1-1-2-2">
+<li><a id="org4fec7ac"></a>Téléchargement du tarball<br /><div class="outline-text-5" id="text-1-1-2-2">
 <ul class="org-ul">
 <li>Trouver le repos adapaté sur le site, depuis la console grâce à links (navigateur web console) :</li>
 </ul>
@@ -571,17 +576,17 @@ links https://www.gentoo.org/downloads/mirrors
 <li>Lancer le téléchargement grâce au raccourci <i>CTRL+D</i></li>
 </ul>
 </div></li>
-<li><a id="orgc3aefa4"></a>Décompression du tarball<br /><div class="outline-text-5" id="text-1-1-2-3">
+<li><a id="org2871245"></a>Décompression du tarball<br /><div class="outline-text-5" id="text-1-1-2-3">
 <div class="org-src-container">
 <pre class="src src-bash">tar xjpf stage3*
 </pre>
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-orgf16c5ad" class="outline-4">
-<h4 id="orgf16c5ad"><span class="section-number-4">1.1.3</span> Chrooting</h4>
+<div id="outline-container-org9db1bd9" class="outline-4">
+<h4 id="org9db1bd9"><span class="section-number-4">1.1.3</span> Chrooting</h4>
 <div class="outline-text-4" id="text-1-1-3">
-</div><ol class="org-ol"><li><a id="orgeebaf62"></a>"Liaison" de /sys et /dev avec le nouveau système<br /><div class="outline-text-5" id="text-1-1-3-1">
+</div><ol class="org-ol"><li><a id="orgfe72ecb"></a>"Liaison" de /sys et /dev avec le nouveau système<br /><div class="outline-text-5" id="text-1-1-3-1">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #cc99cc;">cd</span> /
 mount -t proc proc /mnt/gentoo/proc
@@ -599,7 +604,7 @@ Selon le Handbook, les commandes contenant "&#x2013;make-rslave" importent si le
 
 </div>
 </div></li>
-<li><a id="org9b43d0e"></a>Transfert<br /><div class="outline-text-5" id="text-1-1-3-2">
+<li><a id="orgbe3952f"></a>Transfert<br /><div class="outline-text-5" id="text-1-1-3-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Transfert du fichier sp&#233;cifiant le ou les serveurs DNS &#224; utiliser pour r&#233;soudre un nom de domaine</span>
 cp /etc/resolv.conf /mnt/gentoo/etc
@@ -613,10 +618,10 @@ source /etc/profile
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-orgae4ff90" class="outline-4">
-<h4 id="orgae4ff90"><span class="section-number-4">1.1.4</span> Utilisateurs et <i>make.conf</i></h4>
+<div id="outline-container-org7dbd5b3" class="outline-4">
+<h4 id="org7dbd5b3"><span class="section-number-4">1.1.4</span> Utilisateurs et <i>make.conf</i></h4>
 <div class="outline-text-4" id="text-1-1-4">
-</div><ol class="org-ol"><li><a id="orge39995e"></a>Utilisateurs<br /><div class="outline-text-5" id="text-1-1-4-1">
+</div><ol class="org-ol"><li><a id="org359d9a0"></a>Utilisateurs<br /><div class="outline-text-5" id="text-1-1-4-1">
 <ul class="org-ul">
 <li>Modification du mot de passe <i>root</i></li>
 </ul>
@@ -635,7 +640,7 @@ passwd &lt;nom-utilisateur&gt;
 </pre>
 </div>
 </div></li>
-<li><a id="org4f2edf6"></a>Configuration de <i>make.conf</i><br /><div class="outline-text-5" id="text-1-1-4-2">
+<li><a id="orgf8b7b06"></a>Configuration de <i>make.conf</i><br /><div class="outline-text-5" id="text-1-1-4-2">
 <p>
 Modifications à effectuer dans le fichier :
 </p>
@@ -665,8 +670,8 @@ Comme il s'agit d'un Ivy Bridge Core, Gentoo recommande les variables suivantes 
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-org66e20c7" class="outline-4">
-<h4 id="org66e20c7"><span class="section-number-4">1.1.5</span> Portage</h4>
+<div id="outline-container-org2f0fdd5" class="outline-4">
+<h4 id="org2f0fdd5"><span class="section-number-4">1.1.5</span> Portage</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <p>
 Synchronisation initiale de portage :
@@ -677,8 +682,8 @@ Synchronisation initiale de portage :
 </div>
 </div>
 </div>
-<div id="outline-container-orge4fc011" class="outline-4">
-<h4 id="orge4fc011"><span class="section-number-4">1.1.6</span> Paramétrage de <i>fstab</i></h4>
+<div id="outline-container-org4874769" class="outline-4">
+<h4 id="org4874769"><span class="section-number-4">1.1.6</span> Paramétrage de <i>fstab</i></h4>
 <div class="outline-text-4" id="text-1-1-6">
 <p>
 Editer <b>/etc/fstab</b> en accord avec les partitions générées plus haut :
@@ -697,8 +702,8 @@ Normalement, la partition UEFI est automatique gérée (ie. détectée), il n'es
 </div>
 </div>
 </div>
-<div id="outline-container-org5fd0e22" class="outline-4">
-<h4 id="org5fd0e22"><span class="section-number-4">1.1.7</span> Sélection d'un profil</h4>
+<div id="outline-container-org0d6d34a" class="outline-4">
+<h4 id="org0d6d34a"><span class="section-number-4">1.1.7</span> Sélection d'un profil</h4>
 <div class="outline-text-4" id="text-1-1-7">
 <p>
 Sélectionner le profile convenant à votre future machine :
@@ -712,8 +717,8 @@ eselect profile set &lt;id-profile&gt;
 </div>
 </div>
 </div>
-<div id="outline-container-org623c5ad" class="outline-4">
-<h4 id="org623c5ad"><span class="section-number-4">1.1.8</span> Fuseau horaire</h4>
+<div id="outline-container-org8c4d4c2" class="outline-4">
+<h4 id="org8c4d4c2"><span class="section-number-4">1.1.8</span> Fuseau horaire</h4>
 <div class="outline-text-4" id="text-1-1-8">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">R&#233;cup&#233;rer la localisation du fuseau horaire d&#233;sir&#233;</span>
@@ -767,28 +772,28 @@ Recharger la nouvelle configuration :
 </div>
 </div>
 </div>
-<div id="outline-container-orgb002006" class="outline-4">
-<h4 id="orgb002006"><span class="section-number-4">1.1.9</span> Fichiers de configuration</h4>
+<div id="outline-container-orgee3bcab" class="outline-4">
+<h4 id="orgee3bcab"><span class="section-number-4">1.1.9</span> Fichiers de configuration</h4>
 <div class="outline-text-4" id="text-1-1-9">
-</div><ol class="org-ol"><li><a id="org9644020"></a>Le nom d'hôte (hostname)<br /><div class="outline-text-5" id="text-1-1-9-1">
+</div><ol class="org-ol"><li><a id="orgfdb9e5e"></a>Le nom d'hôte (hostname)<br /><div class="outline-text-5" id="text-1-1-9-1">
 <p>
 Editer <b>/etc/conf.d/hostname</b>
 </p>
 </div></li>
-<li><a id="org75ddfce"></a>L'agencement des touches (keymap)<br /><div class="outline-text-5" id="text-1-1-9-2">
+<li><a id="org6dc42b2"></a>L'agencement des touches (keymap)<br /><div class="outline-text-5" id="text-1-1-9-2">
 <p>
 Editer <b>/etc/conf.d/keymaps</b>
 </p>
 </div></li>
-<li><a id="org7de6c93"></a>L'heure<br /><div class="outline-text-5" id="text-1-1-9-3">
+<li><a id="orgfaa586d"></a>L'heure<br /><div class="outline-text-5" id="text-1-1-9-3">
 <p>
 À modifier, surtout dans le cas d'une cohabitation avec Windows (cf. commentaires du fichier)
 Editer <b>/etc/conf.d/hwclock</b>
 </p>
 </div></li></ol>
 </div>
-<div id="outline-container-orgf0411e9" class="outline-4">
-<h4 id="orgf0411e9"><span class="section-number-4">1.1.10</span> Le Kernel</h4>
+<div id="outline-container-orge4baa11" class="outline-4">
+<h4 id="orge4baa11"><span class="section-number-4">1.1.10</span> Le Kernel</h4>
 <div class="outline-text-4" id="text-1-1-10">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Installation du kernel vanilla de Gentoo</span>
@@ -796,7 +801,7 @@ emerge -av sys-kernel/gentoo-sources sys-kernel/linux-firmware
 </pre>
 </div>
 </div>
-<ol class="org-ol"><li><a id="orgf367b26"></a>Configuration automatique<br /><div class="outline-text-5" id="text-1-1-10-1">
+<ol class="org-ol"><li><a id="org5f26b8b"></a>Configuration automatique<br /><div class="outline-text-5" id="text-1-1-10-1">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Garde les modules charg&#233;s par la LiveCD</span>
 make localyesconfig
@@ -804,12 +809,12 @@ make -j2
 </pre>
 </div>
 </div></li>
-<li><a id="org2563343"></a>Configuration manuelle<br /><div class="outline-text-5" id="text-1-1-10-2">
+<li><a id="org56becc2"></a>Configuration manuelle<br /><div class="outline-text-5" id="text-1-1-10-2">
 <p>
 <b>Soon&#x2026;</b>
 </p>
 </div></li>
-<li><a id="orgc9aa6fc"></a>Installation<br /><div class="outline-text-5" id="text-1-1-10-3">
+<li><a id="orgfdf2a02"></a>Installation<br /><div class="outline-text-5" id="text-1-1-10-3">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Installation des modules</span>
 make modules_install
@@ -819,8 +824,8 @@ make install
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-org7053de2" class="outline-4">
-<h4 id="org7053de2"><span class="section-number-4">1.1.11</span> L'amorceur (bootloader)</h4>
+<div id="outline-container-orgc4c9490" class="outline-4">
+<h4 id="orgc4c9490"><span class="section-number-4">1.1.11</span> L'amorceur (bootloader)</h4>
 <div class="outline-text-4" id="text-1-1-11">
 <ul class="org-ul">
 <li>Comme l'installation se fait en UEFI, il faut le préciser dans le fichier <b>/etc/portage/make.conf</b> :</li>
@@ -857,8 +862,8 @@ Si GRUB n'apparaît pas au redémarrage, il suffit :
 </div>
 </div>
 
-<div id="outline-container-org532a878" class="outline-4">
-<h4 id="org532a878"><span class="section-number-4">1.1.12</span> Outils réseaux</h4>
+<div id="outline-container-orgab1fe43" class="outline-4">
+<h4 id="orgab1fe43"><span class="section-number-4">1.1.12</span> Outils réseaux</h4>
 <div class="outline-text-4" id="text-1-1-12">
 <p>
 Afin de pouvoir avoir accès à internet au redémarrage, il est nécessaire d'installer différents outils réseaux :
@@ -869,8 +874,8 @@ Afin de pouvoir avoir accès à internet au redémarrage, il est nécessaire d'i
 </div>
 </div>
 </div>
-<div id="outline-container-org87f9ec7" class="outline-4">
-<h4 id="org87f9ec7"><span class="section-number-4">1.1.13</span> Redémarrage</h4>
+<div id="outline-container-orgdff32ac" class="outline-4">
+<h4 id="orgdff32ac"><span class="section-number-4">1.1.13</span> Redémarrage</h4>
 <div class="outline-text-4" id="text-1-1-13">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Quitter le chroot (le petit indicateur "(chroot)" devrait dispara&#238;tre</span>
@@ -884,8 +889,8 @@ reboot
 </div>
 </div>
 </div>
-<div id="outline-container-orged00fb6" class="outline-4">
-<h4 id="orged00fb6"><span class="section-number-4">1.1.14</span> Dernière phase</h4>
+<div id="outline-container-orgc953240" class="outline-4">
+<h4 id="orgc953240"><span class="section-number-4">1.1.14</span> Dernière phase</h4>
 <div class="outline-text-4" id="text-1-1-14">
 <p>
 Pour terminer l'installation, il faut installer et mettre à jour tous les packages de votre profil qui vous permettront d'avoir un système fonctionnel. Pour cela, connectez vous en root :
@@ -900,8 +905,8 @@ emerge -uvDNa world
 </div>
 </div>
 </div>
-<div id="outline-container-org95fddd2" class="outline-4">
-<h4 id="org95fddd2"><span class="section-number-4">1.1.15</span> Sources</h4>
+<div id="outline-container-org25d0d9f" class="outline-4">
+<h4 id="org25d0d9f"><span class="section-number-4">1.1.15</span> Sources</h4>
 <div class="outline-text-4" id="text-1-1-15">
 <p>
 Certains passages sont directement tirés de ces différentes sources :
@@ -916,8 +921,8 @@ Certains passages sont directement tirés de ces différentes sources :
 </div>
 </div>
 
-<div id="outline-container-org03ef81d" class="outline-3">
-<h3 id="org03ef81d"><span class="section-number-3">1.2</span> Le clavier</h3>
+<div id="outline-container-org4f85f8d" class="outline-3">
+<h3 id="org4f85f8d"><span class="section-number-3">1.2</span> Le clavier</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Permettre au système de gérer la bonne disposition du clavier
@@ -954,8 +959,8 @@ EndSection
 </div>
 </div>
 
-<div id="outline-container-orgcc35c6e" class="outline-3">
-<h3 id="orgcc35c6e"><span class="section-number-3">1.3</span> Outils vfat (FAT32)</h3>
+<div id="outline-container-org4028ec8" class="outline-3">
+<h3 id="org4028ec8"><span class="section-number-3">1.3</span> Outils vfat (FAT32)</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat")
@@ -966,11 +971,11 @@ Pour obtenir les commandes utilisant le système de fichier vfat (ex: "mkfs.vfat
 </div>
 </div>
 </div>
-<div id="outline-container-orgd214959" class="outline-3">
-<h3 id="orgd214959"><span class="section-number-3">1.4</span> Support du NTFS</h3>
+<div id="outline-container-orgeb8cc99" class="outline-3">
+<h3 id="orgeb8cc99"><span class="section-number-3">1.4</span> Support du NTFS</h3>
 <div class="outline-text-3" id="text-1-4">
-</div><div id="outline-container-org72d040e" class="outline-4">
-<h4 id="org72d040e"><span class="section-number-4">1.4.1</span> Kernel</h4>
+</div><div id="outline-container-org00b719f" class="outline-4">
+<h4 id="org00b719f"><span class="section-number-4">1.4.1</span> Kernel</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 Modifications à effectuer dans le Kernel :
@@ -998,8 +1003,8 @@ Enabling NTFS with limited write support
 </ul>
 </div>
 </div>
-<div id="outline-container-org041d27c" class="outline-4">
-<h4 id="org041d27c"><span class="section-number-4">1.4.2</span> Outil</h4>
+<div id="outline-container-org492e95e" class="outline-4">
+<h4 id="org492e95e"><span class="section-number-4">1.4.2</span> Outil</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;"># </span><span style="color: #999999; font-style: italic;">emerge -av sys-fs/ntfs3g</span>
@@ -1011,8 +1016,8 @@ Enabling NTFS with limited write support
 </div>
 </div>
 </div>
-<div id="outline-container-org2c82a8c" class="outline-3">
-<h3 id="org2c82a8c"><span class="section-number-3">1.5</span> Emacs et polices de caractères</h3>
+<div id="outline-container-org8b8b4b4" class="outline-3">
+<h3 id="org8b8b4b4"><span class="section-number-3">1.5</span> Emacs et polices de caractères</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Il faut activer le USE flag "xft" et compiler Emacs avec.
@@ -1030,11 +1035,11 @@ Il faut activer le USE flag "xft" et compiler Emacs avec.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf92149c" class="outline-3">
-<h3 id="orgf92149c"><span class="section-number-3">1.6</span> Support du NFS</h3>
+<div id="outline-container-org247ae67" class="outline-3">
+<h3 id="org247ae67"><span class="section-number-3">1.6</span> Support du NFS</h3>
 <div class="outline-text-3" id="text-1-6">
-</div><div id="outline-container-org4d309ed" class="outline-4">
-<h4 id="org4d309ed"><span class="section-number-4">1.6.1</span> Kernel</h4>
+</div><div id="outline-container-org834ac0d" class="outline-4">
+<h4 id="org834ac0d"><span class="section-number-4">1.6.1</span> Kernel</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 Modificiations à effectuer dans le Kernel :
@@ -1055,8 +1060,8 @@ Modificiations à effectuer dans le Kernel :
 </div>
 </div>
 </div>
-<div id="outline-container-org96547a1" class="outline-4">
-<h4 id="org96547a1"><span class="section-number-4">1.6.2</span> Outil</h4>
+<div id="outline-container-orga898324" class="outline-4">
+<h4 id="orga898324"><span class="section-number-4">1.6.2</span> Outil</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;"># </span><span style="color: #999999; font-style: italic;">emerge --ask net-fs/nfs-utils</span>
@@ -1064,8 +1069,8 @@ Modificiations à effectuer dans le Kernel :
 </div>
 </div>
 </div>
-<div id="outline-container-org4d01e0a" class="outline-4">
-<h4 id="org4d01e0a"><span class="section-number-4">1.6.3</span> OpenRC</h4>
+<div id="outline-container-org9df3341" class="outline-4">
+<h4 id="org9df3341"><span class="section-number-4">1.6.3</span> OpenRC</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;"># </span><span style="color: #999999; font-style: italic;">rc-update add nfsclient default</span>
@@ -1073,8 +1078,8 @@ Modificiations à effectuer dans le Kernel :
 </div>
 </div>
 </div>
-<div id="outline-container-org4359162" class="outline-4">
-<h4 id="org4359162"><span class="section-number-4">1.6.4</span> Exemple de montage</h4>
+<div id="outline-container-orgf0f9678" class="outline-4">
+<h4 id="orgf0f9678"><span class="section-number-4">1.6.4</span> Exemple de montage</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <pre class="example">
 # mount 192.168.0.1:/volume1/home /home
@@ -1085,15 +1090,15 @@ Modificiations à effectuer dans le Kernel :
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2b21d8" class="outline-3">
-<h3 id="orgd2b21d8"><span class="section-number-3">1.7</span> cmus-notify</h3>
+<div id="outline-container-orga7428c5" class="outline-3">
+<h3 id="orga7428c5"><span class="section-number-3">1.7</span> cmus-notify</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 Permet de gérer le client cmus
 </p>
 </div>
-<div id="outline-container-orgbc857b8" class="outline-4">
-<h4 id="orgbc857b8"><span class="section-number-4">1.7.1</span> Script</h4>
+<div id="outline-container-org9ad74e8" class="outline-4">
+<h4 id="org9ad74e8"><span class="section-number-4">1.7.1</span> Script</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">!/bin/</span><span style="color: #99cc99;">sh</span>
@@ -1127,8 +1132,8 @@ Permet de gérer le client cmus
 </div>
 </div>
 </div>
-<div id="outline-container-orgd4c0b66" class="outline-4">
-<h4 id="orgd4c0b66"><span class="section-number-4">1.7.2</span> Fonctionnement</h4>
+<div id="outline-container-org9bf3a54" class="outline-4">
+<h4 id="org9bf3a54"><span class="section-number-4">1.7.2</span> Fonctionnement</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <p>
 Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
@@ -1155,8 +1160,8 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 </div>
 </div>
 </div>
-<div id="outline-container-org81d9ca1" class="outline-3">
-<h3 id="org81d9ca1"><span class="section-number-3">1.8</span> OpenVPN</h3>
+<div id="outline-container-org7ca55d1" class="outline-3">
+<h3 id="org7ca55d1"><span class="section-number-3">1.8</span> OpenVPN</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oublier de l'intégrer au Kernel.
@@ -1167,8 +1172,8 @@ Le module TUN/TAP est nécessaire au bon fonctionnement d'OpenVPN : ne pas oubli
 </p>
 </div>
 </div>
-<div id="outline-container-orgc969864" class="outline-3">
-<h3 id="orgc969864"><span class="section-number-3">1.9</span> Logitech MX Master (souris)</h3>
+<div id="outline-container-org7d8422c" class="outline-3">
+<h3 id="org7d8422c"><span class="section-number-3">1.9</span> Logitech MX Master (souris)</h3>
 <div class="outline-text-3" id="text-1-9">
 <div class="attention">
 <p>
@@ -1178,8 +1183,8 @@ Penser à ajouter les bons modules au Kernel (cf. Logitech) pour une meilleur in
 </div>
 </div>
 </div>
-<div id="outline-container-orgbcad407" class="outline-3">
-<h3 id="orgbcad407"><span class="section-number-3">1.10</span> Optimisation matérielle pour les laptops</h3>
+<div id="outline-container-org3a44359" class="outline-3">
+<h3 id="org3a44359"><span class="section-number-3">1.10</span> Optimisation matérielle pour les laptops</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 Utiliser laptop-mode :
@@ -1193,8 +1198,8 @@ Utiliser laptop-mode :
 </p>
 </div>
 </div>
-<div id="outline-container-org1c454b8" class="outline-3">
-<h3 id="org1c454b8"><span class="section-number-3">1.11</span> Mise à jour hebdomadaire</h3>
+<div id="outline-container-orga1ff822" class="outline-3">
+<h3 id="orga1ff822"><span class="section-number-3">1.11</span> Mise à jour hebdomadaire</h3>
 <div class="outline-text-3" id="text-1-11">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">Mise &#224; jour de portage : </span>
@@ -1206,11 +1211,11 @@ emerge -uNDv world
 </div>
 </div>
 </div>
-<div id="outline-container-org08ce371" class="outline-2">
-<h2 id="org08ce371"><span class="section-number-2">2</span> Général</h2>
+<div id="outline-container-org72b1e0c" class="outline-2">
+<h2 id="org72b1e0c"><span class="section-number-2">2</span> Général</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-org23aa896" class="outline-3">
-<h3 id="org23aa896"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
+</div><div id="outline-container-orga303e0f" class="outline-3">
+<h3 id="orga303e0f"><span class="section-number-3">2.1</span> Compatibilité R.A.T.3</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Editer "/etc/X11/xorg.conf"
@@ -1229,11 +1234,11 @@ EndSection
 </p>
 </div>
 </div>
-<div id="outline-container-orgf218bee" class="outline-3">
-<h3 id="orgf218bee"><span class="section-number-3">2.2</span> Trucs pour la Logitech MX Master</h3>
+<div id="outline-container-orgc3050c2" class="outline-3">
+<h3 id="orgc3050c2"><span class="section-number-3">2.2</span> Trucs pour la Logitech MX Master</h3>
 <div class="outline-text-3" id="text-2-2">
-</div><div id="outline-container-org5471062" class="outline-4">
-<h4 id="org5471062"><span class="section-number-4">2.2.1</span> Activer le scrolling horizontal</h4>
+</div><div id="outline-container-org491271f" class="outline-4">
+<h4 id="org491271f"><span class="section-number-4">2.2.1</span> Activer le scrolling horizontal</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 <pre class="src src-sh">xinput set-prop <span style="color: #66cccc;">"Logitech MX Master"</span> <span style="color: #66cccc;">"Evdev Scrolling Distance"</span> <span style="color: #6699cc;">1</span> -1 <span style="color: #6699cc;">1</span>
@@ -1242,8 +1247,8 @@ EndSection
 </div>
 </div>
 </div>
-<div id="outline-container-org24c3ecd" class="outline-3">
-<h3 id="org24c3ecd"><span class="section-number-3">2.3</span> Réactiver le son après une sortie de veille</h3>
+<div id="outline-container-orgcaabea2" class="outline-3">
+<h3 id="orgcaabea2"><span class="section-number-3">2.3</span> Réactiver le son après une sortie de veille</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Editer "/etc/default/acpi-support"</li>
@@ -1271,11 +1276,11 @@ Selon le système d'exploitation, mon ordinateur n'a pas répondu de la même fa
 </div>
 </div>
 </div>
-<div id="outline-container-orgde40d1d" class="outline-3">
-<h3 id="orgde40d1d"><span class="section-number-3">2.4</span> KDE</h3>
+<div id="outline-container-org967aca8" class="outline-3">
+<h3 id="org967aca8"><span class="section-number-3">2.4</span> KDE</h3>
 <div class="outline-text-3" id="text-2-4">
-</div><div id="outline-container-org647cf49" class="outline-4">
-<h4 id="org647cf49"><span class="section-number-4">2.4.1</span> Activer la touche Windows pour afficher le launcher</h4>
+</div><div id="outline-container-orgf213b72" class="outline-4">
+<h4 id="orgf213b72"><span class="section-number-4">2.4.1</span> Activer la touche Windows pour afficher le launcher</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
 Installer "KSuperkey"
@@ -1291,8 +1296,8 @@ dnf install ksuperkey
 </div>
 </div>
 </div>
-<div id="outline-container-orgaf124fa" class="outline-3">
-<h3 id="orgaf124fa"><span class="section-number-3">2.5</span> Transformer un .deb en .rpm</h3>
+<div id="outline-container-org9581cb4" class="outline-3">
+<h3 id="org9581cb4"><span class="section-number-3">2.5</span> Transformer un .deb en .rpm</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Télécharger alien</li>
@@ -1312,8 +1317,8 @@ dnf install ksuperkey
 </div>
 </div>
 
-<div id="outline-container-orgb19cfe6" class="outline-3">
-<h3 id="orgb19cfe6"><span class="section-number-3">2.6</span> Mettre flash-player sur Firefox</h3>
+<div id="outline-container-orgd5c77c4" class="outline-3">
+<h3 id="orgd5c77c4"><span class="section-number-3">2.6</span> Mettre flash-player sur Firefox</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Télécharger le tarball de flash-player sur le site officiel d'Adobe</li>
@@ -1322,8 +1327,8 @@ dnf install ksuperkey
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaa197e2" class="outline-3">
-<h3 id="orgaa197e2"><span class="section-number-3">2.7</span> Gérer l'audio avec pactl (moins fiable)</h3>
+<div id="outline-container-orgeb7e910" class="outline-3">
+<h3 id="orgeb7e910"><span class="section-number-3">2.7</span> Gérer l'audio avec pactl (moins fiable)</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>Avantages</li>
@@ -1373,8 +1378,8 @@ Note : il est possible d'optimiser le nom (très long) des sorties à l'aide du 
 </div>
 </div>
 </div>
-<div id="outline-container-org090904a" class="outline-3">
-<h3 id="org090904a"><span class="section-number-3">2.8</span> Gérer l'audio avec amixer (plus fiable)</h3>
+<div id="outline-container-org91d95a5" class="outline-3">
+<h3 id="org91d95a5"><span class="section-number-3">2.8</span> Gérer l'audio avec amixer (plus fiable)</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 pactl est pratique (le son peut aller au-delà de 100%), mais avec mes problèmes audio, il est devenu instable (changement imprévisibles des noms des sorties)
@@ -1404,8 +1409,8 @@ gère les raccourcis et l'animation correspond aux variations de volume.
 </div>
 </div>
 </div>
-<div id="outline-container-orgad990f4" class="outline-3">
-<h3 id="orgad990f4"><span class="section-number-3">2.9</span> Activer le pavé numérique au démarrage de LightDM</h3>
+<div id="outline-container-orgbb1adad" class="outline-3">
+<h3 id="orgbb1adad"><span class="section-number-3">2.9</span> Activer le pavé numérique au démarrage de LightDM</h3>
 <div class="outline-text-3" id="text-2-9">
 <ul class="org-ul">
 <li>Installer <i>numlockx</i></li>
@@ -1422,8 +1427,8 @@ greeter-setup-script=/usr/bin/numlockx on
 </p>
 </div>
 </div>
-<div id="outline-container-org8f7291c" class="outline-3">
-<h3 id="org8f7291c"><span class="section-number-3">2.10</span> Gestion de la luminosité : xbacklight</h3>
+<div id="outline-container-org12341f0" class="outline-3">
+<h3 id="org12341f0"><span class="section-number-3">2.10</span> Gestion de la luminosité : xbacklight</h3>
 <div class="outline-text-3" id="text-2-10">
 <p>
 Plus facile que de modifier en brute dans <i>proc, /xbacklight</i> gère très bien la gestion de la luminosité : 
@@ -1438,11 +1443,11 @@ Augmenter et baisser la luminosité :
 </div>
 </div>
 </div>
-<div id="outline-container-orgba19d1d" class="outline-3">
-<h3 id="orgba19d1d"><span class="section-number-3">2.11</span> NVIDIA</h3>
+<div id="outline-container-org4e25995" class="outline-3">
+<h3 id="org4e25995"><span class="section-number-3">2.11</span> NVIDIA</h3>
 <div class="outline-text-3" id="text-2-11">
-</div><div id="outline-container-org0e15094" class="outline-4">
-<h4 id="org0e15094"><span class="section-number-4">2.11.1</span> Configuration basique</h4>
+</div><div id="outline-container-org7e85d89" class="outline-4">
+<h4 id="org7e85d89"><span class="section-number-4">2.11.1</span> Configuration basique</h4>
 <div class="outline-text-4" id="text-2-11-1">
 <p>
 Pour empêcher NVIDIA d'afficher un splashscreen au démarrage : éditer <b>/etc/X11/xorg.conf</b>
@@ -1482,8 +1487,8 @@ Pour générer <b>xorg.conf</b> avec nvidia installé :
 </div>
 </div>
 
-<div id="outline-container-orgb310d22" class="outline-4">
-<h4 id="orgb310d22"><span class="section-number-4">2.11.2</span> Problème de tearing</h4>
+<div id="outline-container-org003a4ca" class="outline-4">
+<h4 id="org003a4ca"><span class="section-number-4">2.11.2</span> Problème de tearing</h4>
 <div class="outline-text-4" id="text-2-11-2">
 <p>
 Ouvrir <b>/etc/X11/xorg.conf</b>
@@ -1514,8 +1519,8 @@ EndSection
 </div>
 </div>
 </div>
-<div id="outline-container-orgeeb891f" class="outline-3">
-<h3 id="orgeeb891f"><span class="section-number-3">2.12</span> Accèder aux documents d'un téléphone utilisant MTP</h3>
+<div id="outline-container-orgce55c03" class="outline-3">
+<h3 id="orgce55c03"><span class="section-number-3">2.12</span> Accèder aux documents d'un téléphone utilisant MTP</h3>
 <div class="outline-text-3" id="text-2-12">
 <p>
 Le MTP rend l'accès aux téléphones android difficile en dehors de Mac OSX et de Windows, il faut donc utiliser <i>gMPT</i> sur Linux.
@@ -1533,8 +1538,8 @@ gMPT possède une interface GUI.
 </div>
 </div>
 </div>
-<div id="outline-container-org67be525" class="outline-3">
-<h3 id="org67be525"><span class="section-number-3">2.13</span> Rediriger sa sortie audio vers un serveur DLNA</h3>
+<div id="outline-container-orgfab1b36" class="outline-3">
+<h3 id="orgfab1b36"><span class="section-number-3">2.13</span> Rediriger sa sortie audio vers un serveur DLNA</h3>
 <div class="outline-text-3" id="text-2-13">
 <p>
 <i>pulseaudio-dlna</i> est un packet qui permet d'ajouter à pulseaudio les différents 
@@ -1543,8 +1548,8 @@ Il n'y a plus qu'à le lancer en arrière-plan pour que tout fonctionne.
 </p>
 </div>
 </div>
-<div id="outline-container-org3f751a2" class="outline-3">
-<h3 id="org3f751a2"><span class="section-number-3">2.14</span> fishshell</h3>
+<div id="outline-container-orgbaadf50" class="outline-3">
+<h3 id="orgbaadf50"><span class="section-number-3">2.14</span> fishshell</h3>
 <div class="outline-text-3" id="text-2-14">
 <p>
 Pour afficher le répertoire complet à chaque fois ("<i>etc/init.d</i>" au lieu de "/e/init.d" par ex) :
@@ -1556,14 +1561,14 @@ Pour afficher le répertoire complet à chaque fois ("<i>etc/init.d</i>" au lieu
 </div>
 </div>
 </div>
-<div id="outline-container-org108066b" class="outline-2">
-<h2 id="org108066b"><span class="section-number-2">3</span> Technique</h2>
+<div id="outline-container-org63ed72a" class="outline-2">
+<h2 id="org63ed72a"><span class="section-number-2">3</span> Technique</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-org0bf1658" class="outline-3">
-<h3 id="org0bf1658"><span class="section-number-3">3.1</span> Bash</h3>
+</div><div id="outline-container-org5fd91ec" class="outline-3">
+<h3 id="org5fd91ec"><span class="section-number-3">3.1</span> Bash</h3>
 <div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-org4d11338" class="outline-4">
-<h4 id="org4d11338"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
+</div><div id="outline-container-orgbbe3cf6" class="outline-4">
+<h4 id="orgbbe3cf6"><span class="section-number-4">3.1.1</span> Liens utiles</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1612,8 +1617,8 @@ Pour afficher le répertoire complet à chaque fois ("<i>etc/init.d</i>" au lieu
 </table>
 </div>
 </div>
-<div id="outline-container-orga7ef627" class="outline-4">
-<h4 id="orga7ef627"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
+<div id="outline-container-org89e1674" class="outline-4">
+<h4 id="org89e1674"><span class="section-number-4">3.1.2</span> Commandes utiles</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1678,8 +1683,8 @@ Pour afficher le répertoire complet à chaque fois ("<i>etc/init.d</i>" au lieu
 </table>
 </div>
 </div>
-<div id="outline-container-org8317a02" class="outline-4">
-<h4 id="org8317a02"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
+<div id="outline-container-org056fe38" class="outline-4">
+<h4 id="org056fe38"><span class="section-number-4">3.1.3</span> Convertir une variable en base X</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 Exemple avec une conversion en base 10
@@ -1690,8 +1695,8 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-orgd593b9d" class="outline-4">
-<h4 id="orgd593b9d"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
+<div id="outline-container-orga766eb8" class="outline-4">
+<h4 id="orga766eb8"><span class="section-number-4">3.1.4</span> Correction intelligente de script</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <ul class="org-ul">
 <li>Installer <a href="https://github.com/koalaman/shellcheck">ShellCheck</a></li>
@@ -1704,11 +1709,11 @@ Exemple avec une conversion en base 10
 </div>
 </div>
 </div>
-<div id="outline-container-org9e5d62e" class="outline-3">
-<h3 id="org9e5d62e"><span class="section-number-3">3.2</span> Réseau</h3>
+<div id="outline-container-orgfb9c44b" class="outline-3">
+<h3 id="orgfb9c44b"><span class="section-number-3">3.2</span> Réseau</h3>
 <div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-org755c6bc" class="outline-4">
-<h4 id="org755c6bc"><span class="section-number-4">3.2.1</span> Outils analyse réseau (wifi)</h4>
+</div><div id="outline-container-org35e205f" class="outline-4">
+<h4 id="org35e205f"><span class="section-number-4">3.2.1</span> Outils analyse réseau (wifi)</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Quelques commandes pour avoir des informations sur le réseau
@@ -1722,8 +1727,8 @@ iwconfig &lt;interface&gt; <span style="color: #999999; font-style: italic;">#</
 </div>
 </div>
 </div>
-<div id="outline-container-org5f5159a" class="outline-4">
-<h4 id="org5f5159a"><span class="section-number-4">3.2.2</span> Vider le cache DNS</h4>
+<div id="outline-container-org95f914b" class="outline-4">
+<h4 id="org95f914b"><span class="section-number-4">3.2.2</span> Vider le cache DNS</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">En root</span>
@@ -1734,12 +1739,29 @@ nscd
 </div>
 </div>
 </div>
+<div id="outline-container-org9fb31f7" class="outline-3">
+<h3 id="org9fb31f7"><span class="section-number-3">3.3</span> Système</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><div id="outline-container-orgbb48f0d" class="outline-4">
+<h4 id="orgbb48f0d"><span class="section-number-4">3.3.1</span> fsck</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Paramétrer fsck (file system consistency check) pour s'éxecuter sur une partition tous les
+X jours/semaines (ex : "3w" pour trois semaines) ou au bout de Y montages sur la partition Z : 
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">tune2fs -c X -i Y /dev/sdaZ
+</pre>
 </div>
-<div id="outline-container-org9749e22" class="outline-2">
-<h2 id="org9749e22"><span class="section-number-2">4</span> Applications</h2>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf2ec685" class="outline-2">
+<h2 id="orgf2ec685"><span class="section-number-2">4</span> Applications</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgc093f83" class="outline-3">
-<h3 id="orgc093f83"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
+</div><div id="outline-container-orgb41d2f1" class="outline-3">
+<h3 id="orgb41d2f1"><span class="section-number-3">4.1</span> Skype - désactiver le lancement au démarrage</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-sh">rm -f /etc/prelink.conf.d/skype.conf
@@ -1747,8 +1769,8 @@ nscd
 </div>
 </div>
 </div>
-<div id="outline-container-org86288dd" class="outline-3">
-<h3 id="org86288dd"><span class="section-number-3">4.2</span> Tmux</h3>
+<div id="outline-container-org88fbcc0" class="outline-3">
+<h3 id="org88fbcc0"><span class="section-number-3">4.2</span> Tmux</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Commande pour rejoindre la session "home" ou la créer si elle n'existe pas
@@ -1758,11 +1780,11 @@ tmux new -A -s home
 </pre>
 </div>
 </div>
-<div id="outline-container-org1178c7e" class="outline-3">
-<h3 id="org1178c7e"><span class="section-number-3">4.3</span> Terminal</h3>
+<div id="outline-container-org46e53bf" class="outline-3">
+<h3 id="org46e53bf"><span class="section-number-3">4.3</span> Terminal</h3>
 <div class="outline-text-3" id="text-4-3">
-</div><div id="outline-container-orgbffdeeb" class="outline-4">
-<h4 id="orgbffdeeb"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
+</div><div id="outline-container-orgee3483c" class="outline-4">
+<h4 id="orgee3483c"><span class="section-number-4">4.3.1</span> [Préférence] Changer la police de caractère du terminal</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
@@ -1774,19 +1796,19 @@ Utiliser <code>Meslo LG M DZ for Powerline</code> taille <code>9.0</code>
 </div>
 </div>
 </div>
-<div id="outline-container-org3d1e7c1" class="outline-3">
-<h3 id="org3d1e7c1"><span class="section-number-3">4.4</span> Emacs</h3>
+<div id="outline-container-org9548da9" class="outline-3">
+<h3 id="org9548da9"><span class="section-number-3">4.4</span> Emacs</h3>
 <div class="outline-text-3" id="text-4-4">
-</div><div id="outline-container-orga2e868f" class="outline-4">
-<h4 id="orga2e868f"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
+</div><div id="outline-container-org46fbdc1" class="outline-4">
+<h4 id="org46fbdc1"><span class="section-number-4">4.4.1</span> Problème de police avec Emacs</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 cf. Gentoo/Emacs et polices de caractères
 </p>
 </div>
 </div>
-<div id="outline-container-org82a88af" class="outline-4">
-<h4 id="org82a88af"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
+<div id="outline-container-orgf728529" class="outline-4">
+<h4 id="orgf728529"><span class="section-number-4">4.4.2</span> Avoir la météo</h4>
 <div class="outline-text-4" id="text-4-4-2">
 <p>
 Package : <i>wttrin</i>
@@ -1797,8 +1819,8 @@ Package : <i>wttrin</i>
 </p>
 </div>
 </div>
-<div id="outline-container-org4b53d2d" class="outline-4">
-<h4 id="org4b53d2d"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
+<div id="outline-container-org2a2e0d3" class="outline-4">
+<h4 id="org2a2e0d3"><span class="section-number-4">4.4.3</span> Exporter en html avec coloration syntaxique des <i>src</i></h4>
 <div class="outline-text-4" id="text-4-4-3">
 <p>
 Package : <i>htmlize</i>
@@ -1809,10 +1831,10 @@ Package : <i>htmlize</i>
 </p>
 </div>
 </div>
-<div id="outline-container-org669a9ea" class="outline-4">
-<h4 id="org669a9ea"><span class="section-number-4">4.4.4</span> org-mode</h4>
+<div id="outline-container-orge5ec9e6" class="outline-4">
+<h4 id="orge5ec9e6"><span class="section-number-4">4.4.4</span> org-mode</h4>
 <div class="outline-text-4" id="text-4-4-4">
-</div><ol class="org-ol"><li><a id="org5a880fb"></a>Indentation automatique<br /><div class="outline-text-5" id="text-4-4-4-1">
+</div><ol class="org-ol"><li><a id="org6958dcf"></a>Indentation automatique<br /><div class="outline-text-5" id="text-4-4-4-1">
 <ul class="org-ul">
 <li>Activer <i>org-indent-mode</i></li>
 <li>Pour la rendre automatique</li>
@@ -1823,22 +1845,22 @@ Package : <i>htmlize</i>
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-org3394c16" class="outline-4">
-<h4 id="org3394c16"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
+<div id="outline-container-org067d4b7" class="outline-4">
+<h4 id="org067d4b7"><span class="section-number-4">4.4.5</span> Correction automatique scripts shell avec ShellCheck</h4>
 <div class="outline-text-4" id="text-4-4-5">
 <p>
 Activer flycheck : <i>flycheck-mode</i>, la correction se fait ensuite automatiquement avec <i>ShellCheck</i>.
 </p>
 </div>
 </div>
-<div id="outline-container-org05122f7" class="outline-4">
-<h4 id="org05122f7"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
+<div id="outline-container-orgbb4d6bb" class="outline-4">
+<h4 id="orgbb4d6bb"><span class="section-number-4">4.4.6</span> Faire des présentations avec org-mode et Reveal.js</h4>
 <div class="outline-text-4" id="text-4-4-6">
 <p>
 Permet de faire des présentations avec Reveal.js en utilisant org-mode
 </p>
 </div>
-<ol class="org-ol"><li><a id="org47e5716"></a>Liens importants<br /><div class="outline-text-5" id="text-4-4-6-1">
+<ol class="org-ol"><li><a id="orgc3b0818"></a>Liens importants<br /><div class="outline-text-5" id="text-4-4-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1876,7 +1898,7 @@ Permet de faire des présentations avec Reveal.js en utilisant org-mode
 </tbody>
 </table>
 </div></li>
-<li><a id="org6a42245"></a>Instructions<br /><div class="outline-text-5" id="text-4-4-6-2">
+<li><a id="orga1dafa9"></a>Instructions<br /><div class="outline-text-5" id="text-4-4-6-2">
 <ul class="org-ul">
 <li>Télécharger reveal.js l'extraire et le renommer <i>reveal.js</i> (sinon préciser son emplacement avec <b>#+REVEAL_ROOT: <a href="file://d:/reveal.js">file://d:/reveal.js</a></b>)</li>
 <li>Installer le package <i>ox-reveal.el</i> (et <i>htmlize.el</i> pour la coloration syntaxique) sur Emacs</li>
@@ -1893,7 +1915,7 @@ Pour exporter en html : <b>C-c C-e R R</b>
 </div></li>
 </ul>
 </div></li>
-<li><a id="org2db30e1"></a>Notes<br /><div class="outline-text-5" id="text-4-4-6-3">
+<li><a id="org16837de"></a>Notes<br /><div class="outline-text-5" id="text-4-4-6-3">
 <ul class="org-ul">
 <li>Pour fragmenter l'apparition d'une liste (placer au dessus de la liste) : <b>#+ATTR_REVEAL: :frag (appear)</b></li>
 <li>Pour enlever le sommaire, la datation et la numérotation <b>#+OPTIONS: toc:nil timestamp:nil num:nil</b></li>
@@ -1901,7 +1923,7 @@ Pour exporter en html : <b>C-c C-e R R</b>
 <li>Paramétrer les effets de slide : <b>#+REVEAL_TRANS: slide</b></li>
 </ul>
 </div></li>
-<li><a id="orgeefda13"></a>Raccourcis<br /><div class="outline-text-5" id="text-4-4-6-4">
+<li><a id="org241ac27"></a>Raccourcis<br /><div class="outline-text-5" id="text-4-4-6-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1946,8 +1968,8 @@ Pour exporter en html : <b>C-c C-e R R</b>
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orga2e5fc0" class="outline-3">
-<h3 id="orga2e5fc0"><span class="section-number-3">4.5</span> mkvmerge</h3>
+<div id="outline-container-org6501a70" class="outline-3">
+<h3 id="org6501a70"><span class="section-number-3">4.5</span> mkvmerge</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 Pour intégrer des sous-titres (.str) avec mkvmerge
@@ -1990,15 +2012,15 @@ Pour obtenir la liste des langues et leur code associé :
 </div>
 </div>
 </div>
-<div id="outline-container-org652a6d1" class="outline-3">
-<h3 id="org652a6d1"><span class="section-number-3">4.6</span> cmus-notify</h3>
+<div id="outline-container-orgd0ca3ad" class="outline-3">
+<h3 id="orgd0ca3ad"><span class="section-number-3">4.6</span> cmus-notify</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 Permet de gérer le client cmus
 </p>
 </div>
-<div id="outline-container-org3c07e4e" class="outline-4">
-<h4 id="org3c07e4e"><span class="section-number-4">4.6.1</span> Script</h4>
+<div id="outline-container-org5b63ac7" class="outline-4">
+<h4 id="org5b63ac7"><span class="section-number-4">4.6.1</span> Script</h4>
 <div class="outline-text-4" id="text-4-6-1">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #999999; font-style: italic;">#</span><span style="color: #999999; font-style: italic;">!/bin/</span><span style="color: #99cc99;">sh</span>
@@ -2032,8 +2054,8 @@ Permet de gérer le client cmus
 </div>
 </div>
 </div>
-<div id="outline-container-org7d74bf1" class="outline-4">
-<h4 id="org7d74bf1"><span class="section-number-4">4.6.2</span> Fonctionnement</h4>
+<div id="outline-container-org1212e7b" class="outline-4">
+<h4 id="org1212e7b"><span class="section-number-4">4.6.2</span> Fonctionnement</h4>
 <div class="outline-text-4" id="text-4-6-2">
 <p>
 Utiliser le script en spécifiant un argument (cf. '-p') reconnu par cmus-remote
@@ -2060,15 +2082,15 @@ cmus-notify.sh -p #Permet de jouer le morceau sélectionné
 </div>
 </div>
 </div>
-<div id="outline-container-org944f0b0" class="outline-3">
-<h3 id="org944f0b0"><span class="section-number-3">4.7</span> MPD</h3>
+<div id="outline-container-org0b36f26" class="outline-3">
+<h3 id="org0b36f26"><span class="section-number-3">4.7</span> MPD</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 Playeur orienté serveur.
 </p>
 </div>
-<div id="outline-container-org5926109" class="outline-4">
-<h4 id="org5926109"><span class="section-number-4">4.7.1</span> Configurqation de MPD</h4>
+<div id="outline-container-org36d8011" class="outline-4">
+<h4 id="org36d8011"><span class="section-number-4">4.7.1</span> Configurqation de MPD</h4>
 <div class="outline-text-4" id="text-4-7-1">
 <p>
 Editer : <b>~/.mpd/mpd.conf</b>
@@ -2093,8 +2115,8 @@ audio_output {
 </pre>
 </div>
 </div>
-<div id="outline-container-org6076de4" class="outline-4">
-<h4 id="org6076de4"><span class="section-number-4">4.7.2</span> MPC</h4>
+<div id="outline-container-org118e543" class="outline-4">
+<h4 id="org118e543"><span class="section-number-4">4.7.2</span> MPC</h4>
 <div class="outline-text-4" id="text-4-7-2">
 <p>
 MPC permet de gérer MPD en ligne de commande, ex :
@@ -2111,8 +2133,8 @@ Je map ces différentes commandes sur mes touches multimédia pour pouvoir accè
 </div>
 </div>
 </div>
-<div id="outline-container-org7d6a1cd" class="outline-4">
-<h4 id="org7d6a1cd"><span class="section-number-4">4.7.3</span> Autres clients</h4>
+<div id="outline-container-org6d2ab3a" class="outline-4">
+<h4 id="org6d2ab3a"><span class="section-number-4">4.7.3</span> Autres clients</h4>
 <div class="outline-text-4" id="text-4-7-3">
 <ul class="org-ul">
 <li><a href="https://ambientsound.github.io/pms/">Practical Music Search (pms)</a></li>
@@ -2120,8 +2142,8 @@ Je map ces différentes commandes sur mes touches multimédia pour pouvoir accè
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdffe1a2" class="outline-4">
-<h4 id="orgdffe1a2"><span class="section-number-4">4.7.4</span> Mopidy</h4>
+<div id="outline-container-org45ef4cd" class="outline-4">
+<h4 id="org45ef4cd"><span class="section-number-4">4.7.4</span> Mopidy</h4>
 <div class="outline-text-4" id="text-4-7-4">
 <p>
 <a href="https://github.com/mopidy/mopidy">Mopidy</a> est un serveur mpd qui permet d'utiliser des services comme Spotify (<a href="https://github.com/mopidy/mopidy-spotify">mopidy-spotify</a>)
@@ -2129,23 +2151,23 @@ Je map ces différentes commandes sur mes touches multimédia pour pouvoir accè
 </div>
 </div>
 </div>
-<div id="outline-container-orgfb64522" class="outline-3">
-<h3 id="orgfb64522"><span class="section-number-3">4.8</span> Rofi</h3>
+<div id="outline-container-org27cdbfa" class="outline-3">
+<h3 id="org27cdbfa"><span class="section-number-3">4.8</span> Rofi</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 Outil similaire à dmenu
 </p>
 </div>
-<div id="outline-container-orgd48e61e" class="outline-4">
-<h4 id="orgd48e61e"><span class="section-number-4">4.8.1</span> Commande personnalisée</h4>
+<div id="outline-container-orgd3c2d75" class="outline-4">
+<h4 id="orgd3c2d75"><span class="section-number-4">4.8.1</span> Commande personnalisée</h4>
 <div class="outline-text-4" id="text-4-8-1">
 <pre class="example">
 rofi -show run -lines 3 -eh 2 -width 100 -padding 430 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Displa 18"
 </pre>
 </div>
 </div>
-<div id="outline-container-org33e0f3d" class="outline-4">
-<h4 id="org33e0f3d"><span class="section-number-4">4.8.2</span> Thème</h4>
+<div id="outline-container-orgdce96ed" class="outline-4">
+<h4 id="orgdce96ed"><span class="section-number-4">4.8.2</span> Thème</h4>
 <div class="outline-text-4" id="text-4-8-2">
 <p>
 Nom du thème : <b>glue_pro_blue.theme</b>
@@ -2170,15 +2192,15 @@ rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 </div>
 </div>
 </div>
-<div id="outline-container-org04ffd29" class="outline-3">
-<h3 id="org04ffd29"><span class="section-number-3">4.9</span> Weechat</h3>
+<div id="outline-container-org4bf697e" class="outline-3">
+<h3 id="org4bf697e"><span class="section-number-3">4.9</span> Weechat</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 Client IRC en ligne de commande
 </p>
 </div>
-<div id="outline-container-org5dfe505" class="outline-4">
-<h4 id="org5dfe505"><span class="section-number-4">4.9.1</span> Thème</h4>
+<div id="outline-container-orgab53bef" class="outline-4">
+<h4 id="orgab53bef"><span class="section-number-4">4.9.1</span> Thème</h4>
 <div class="outline-text-4" id="text-4-9-1">
 <p>
 Commandes à exécuter :
@@ -2221,8 +2243,8 @@ Commandes à exécuter :
 </p>
 </div>
 </div>
-<div id="outline-container-org7cc8f52" class="outline-4">
-<h4 id="org7cc8f52"><span class="section-number-4">4.9.2</span> Autres configurations intéressantes</h4>
+<div id="outline-container-org0ce8130" class="outline-4">
+<h4 id="org0ce8130"><span class="section-number-4">4.9.2</span> Autres configurations intéressantes</h4>
 <div class="outline-text-4" id="text-4-9-2">
 <p>
 <a href="https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options">https://weechat.org/files/doc/devel/weechat_quickstart.fr.html#irc_server_options</a>
@@ -2234,7 +2256,7 @@ Commandes à exécuter :
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lturpinat</p>
-<p class="date">Created: 2017-03-05 Sun 00:51</p>
+<p class="date">Created: 2017-03-07 Tue 20:04</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

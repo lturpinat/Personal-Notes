@@ -695,6 +695,13 @@ iwconfig <interface> #Informations utiles sur l'interface spécifiée en paramè
 nscd -K
 nscd
 #+END_SRC
+** Système
+*** fsck
+Paramétrer fsck (file system consistency check) pour s'éxecuter sur une partition tous les
+X jours/semaines (ex : "3w" pour trois semaines) ou au bout de Y montages sur la partition Z : 
+#+BEGIN_SRC sh
+tune2fs -c X -i Y /dev/sdaZ
+#+END_SRC
 * Applications
 ** Skype - désactiver le lancement au démarrage
 #+BEGIN_SRC sh
