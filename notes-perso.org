@@ -644,6 +644,13 @@ Pour afficher le répertoire complet à chaque fois ("/etc/init.d/" au lieu de "
 #+BEGIN_SRC sh
 set -U fish_prompt_pwd_dir_length 0
 #+END_SRC
+** Installer un programme depuis son PKGBUILD (Arch)
+#+BEGIN_SRC emacs-lisp
++ Remplir les conditions du PKGBUILD (dépendances, fichiers)
++ Parfois le md5sum est à recalculer : /md5sum <fichier>/
++ Puis lancer le script : /makepkg/ 
++ Si tout s'est bien passé, installer le package /X.pkg.tar.xz/ grâce à pacman : /pacman -U X..pkg.tar.xz/
+#+END_SRC
 * Technique 
 ** Bash
 *** Liens utiles
