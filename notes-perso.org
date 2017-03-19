@@ -709,6 +709,11 @@ X jours/semaines (ex : "3w" pour trois semaines) ou au bout de Y montages sur la
 #+BEGIN_SRC sh
 tune2fs -c X -i Y /dev/sdaZ
 #+END_SRC
+** less
+Pour activer la gestion des couleurs avec less
+#+BEGIN_SRC emacs-lisp
+LESS=-RFX >> ~/.bashrc
+#+END_SRC
 * Applications
 ** Skype - désactiver le lancement au démarrage
 #+BEGIN_SRC sh
