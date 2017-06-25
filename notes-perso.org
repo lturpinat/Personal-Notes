@@ -9,9 +9,16 @@
 [[./linux.png]]
 
 #+begin_hint 
-La machine utilisée est un =Asus G75VX=
+La machine utilisée est un =Asus G75VX= et plus récemment un =Dell XPS 9560=
 #+end_hint
 
+* Arch Linux : Dell XPS 15 (9560)
+** Installation
++ BIOS : passer de RAID à ACHI
++ Installer les pilotes nvidia, bumblebee et bbswitch 
+** Thème sympa
++ Thème : Arc-Flatabulous-Dark
++ Icons : Ultra-Flat-Icons
 * Gentoo
 ** Installation rapide de Gentoo
 *** Formatage du disque
