@@ -1,7 +1,5 @@
-* Notes personnelles sur Linux
+* Personal random notes on Linux
 
 #+BEGIN_QUOTE
-La machine utilisée est un Asus G75VX. 
+I used to have a Asus G75VX when writing those lines
 #+END_QUOTE
-
-*[[https://lturpinat.github.io/index.html][Version html du .org]]*
